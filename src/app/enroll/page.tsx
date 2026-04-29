@@ -21,7 +21,7 @@ const COURSES = [
   { id: "other", name: "Other / Custom Training" }
 ]
 
-export default function EnrollPage() {
+function EnrollContent() {
   const searchParams = useSearchParams()
   const router = useRouter()
   const { toast } = useToast()
@@ -228,5 +228,13 @@ export default function EnrollPage() {
         </div>
       </div>
     </div>
+  )
+}
+
+export default function EnrollPage() {
+  return (
+    <React.Suspense fallback={<div className="pt-32 pb-24 text-center">Loading...</div>}>
+      <EnrollContent />
+    </React.Suspense>
   )
 }
