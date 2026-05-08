@@ -31,9 +31,9 @@ export default function HomePage() {
     <div className="overflow-hidden">
       {/* Hero Section */}
       <section className="relative pt-32 pb-16 min-h-[90vh] flex items-center bg-card">
-        <div className="absolute inset-0 z-0 overflow-hidden hidden lg:block">
-          {/* Subtle background circle/arch */}
-          <div className="absolute right-0 top-0 w-[50%] h-full bg-primary/5 rounded-l-[100px]" />
+        <div className="absolute inset-0 z-0 overflow-hidden">
+          {/* Massive right side pink semi-circle */}
+          <div className="absolute right-0 top-0 w-full md:w-[60%] lg:w-[55%] h-full bg-primary/10 rounded-l-full translate-x-1/4 scale-125 md:scale-110 origin-right" />
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
@@ -44,10 +44,10 @@ export default function HomePage() {
               animate="show"
               className="max-w-2xl"
             >
-              <motion.p variants={fadeInUp} className="font-accent text-primary text-2xl md:text-3xl mb-4 tracking-wide">
+              <motion.p variants={fadeInUp} className="font-accent text-primary text-3xl md:text-4xl mb-4 tracking-wide font-bold">
                 Enhance. Elevate. Empower.
               </motion.p>
-              <motion.h1 variants={fadeInUp} className="text-5xl md:text-7xl lg:text-[5.5rem] font-headline font-bold mb-6 leading-[1.1] tracking-tight">
+              <motion.h1 variants={fadeInUp} className="text-5xl md:text-7xl lg:text-[6rem] font-headline font-bold mb-6 leading-[1.05] tracking-tight text-foreground">
                 FLAWLESS <br />
                 <span className="text-primary font-bold">BEAUTY</span> <br />
                 STARTS HERE
@@ -57,11 +57,11 @@ export default function HomePage() {
               </motion.p>
               
               <motion.div variants={fadeInUp} className="flex flex-wrap gap-4 mb-12">
-                <Button asChild className="bg-primary hover:bg-primary/90 text-white rounded-sm px-8 h-14 gap-3 text-sm font-bold uppercase tracking-wider shadow-lg shadow-primary/20">
-                  <Link href="/book"><Calendar className="w-5 h-5" /> BOOK APPOINTMENT</Link>
+                <Button asChild className="bg-primary hover:bg-primary/90 text-white rounded-md px-8 h-12 gap-3 text-xs font-bold uppercase tracking-wider shadow-lg shadow-primary/30">
+                  <Link href="/book"><Calendar className="w-4 h-4" /> BOOK APPOINTMENT</Link>
                 </Button>
-                <Button asChild variant="outline" className="border-primary/20 hover:border-primary bg-transparent text-foreground hover:bg-primary/5 rounded-sm px-8 h-14 gap-3 text-sm font-bold uppercase tracking-wider">
-                  <Link href="/academy"><GraduationCap className="w-5 h-5 text-primary" /> EXPLORE COURSES</Link>
+                <Button asChild variant="outline" className="border-primary/30 hover:border-primary bg-transparent text-foreground hover:bg-primary/5 rounded-md px-8 h-12 gap-3 text-xs font-bold uppercase tracking-wider">
+                  <Link href="/academy"><GraduationCap className="w-4 h-4 text-primary" /> EXPLORE COURSES</Link>
                 </Button>
               </motion.div>
 
@@ -86,8 +86,8 @@ export default function HomePage() {
             </motion.div>
 
             {/* Hero Image & Side Cards */}
-            <div className="relative h-[600px] lg:h-[700px] w-full flex items-center justify-end">
-               <div className="relative w-full max-w-[400px] lg:max-w-[500px] h-full rounded-[40px] md:rounded-[100px] md:rounded-tr-[200px] overflow-hidden border-[8px] border-background shadow-2xl">
+            <div className="relative h-[600px] lg:h-[700px] w-full flex items-center justify-end z-10">
+               <div className="relative w-full max-w-[380px] lg:max-w-[480px] h-full rounded-[40px] md:rounded-[100px] md:rounded-tr-[200px] overflow-hidden shadow-2xl">
                  <Image
                     src={heroImage?.imageUrl || "https://picsum.photos/seed/hero/800/1000"}
                     alt="Hero Portrait"
@@ -156,13 +156,15 @@ export default function HomePage() {
       <section className="py-24 bg-card">
         <div className="container mx-auto px-4 text-center">
           <div className="mb-16">
-            <h2 className="text-3xl md:text-4xl font-headline font-bold mb-4 uppercase tracking-wider">
+            <h2 className="text-3xl md:text-4xl font-headline font-bold mb-4 uppercase tracking-wider text-foreground">
               OUR <span className="text-primary">PREMIUM</span> SERVICES
             </h2>
-            <div className="flex items-center justify-center gap-2">
-              <div className="h-px w-12 bg-primary/40"></div>
-              <div className="w-2 h-2 rotate-45 bg-primary/40"></div>
-              <div className="h-px w-12 bg-primary/40"></div>
+            <div className="flex items-center justify-center gap-1 opacity-70">
+              <div className="h-px w-8 bg-foreground"></div>
+              <div className="w-1.5 h-1.5 rotate-45 bg-primary"></div>
+              <div className="w-1 h-1 rotate-45 bg-primary/60"></div>
+              <div className="w-1.5 h-1.5 rotate-45 bg-primary"></div>
+              <div className="h-px w-8 bg-foreground"></div>
             </div>
           </div>
 
@@ -178,10 +180,10 @@ export default function HomePage() {
                   <Image src={service.img?.imageUrl || `https://picsum.photos/seed/service${i}/600/400`} alt={service.title} fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
                 </div>
                 <CardContent className="p-6 relative pt-8 text-left">
-                  <div className="absolute -top-6 left-6 w-12 h-12 bg-background rounded-full border border-primary/20 flex items-center justify-center shadow-sm">
+                  <div className="absolute -top-6 left-6 w-12 h-12 bg-background rounded-full border border-primary flex items-center justify-center shadow-md z-10">
                     <service.icon className="w-5 h-5 text-primary" />
                   </div>
-                  <h3 className="text-lg font-bold mb-2 text-primary">{service.title}</h3>
+                  <h3 className="text-lg font-bold mb-2 text-primary uppercase">{service.title}</h3>
                   <p className="text-sm text-foreground/70 mb-6 line-clamp-2">{service.desc}</p>
                   <Link href="/services" className="text-primary font-bold text-xs uppercase tracking-widest inline-flex items-center gap-2 group-hover:gap-3 transition-all">
                     KNOW MORE <ArrowRight className="w-4 h-4" />
@@ -219,8 +221,8 @@ export default function HomePage() {
               {/* Middle Content */}
               <div className="space-y-6">
                 <div>
-                  <h3 className="text-primary text-sm font-bold tracking-widest uppercase mb-2">START YOUR CAREER IN</h3>
-                  <h2 className="text-4xl lg:text-5xl font-headline font-bold uppercase">BEAUTY INDUSTRY</h2>
+                  <h3 className="text-primary text-sm font-bold tracking-widest uppercase mb-2 font-headline">START YOUR CAREER IN</h3>
+                  <h2 className="text-4xl lg:text-5xl font-headline font-bold uppercase text-foreground">BEAUTY INDUSTRY</h2>
                 </div>
 
                 <ul className="space-y-4">
@@ -240,14 +242,17 @@ export default function HomePage() {
                   ))}
                 </ul>
 
-                <div className="pt-4">
-                  <p className="text-xs font-bold uppercase tracking-wider mb-1">LIMITED SEATS PER BATCH!</p>
-                  <p className="font-accent text-primary text-3xl">Book Your Seat Now!</p>
+                <div className="pt-4 relative inline-block">
+                  <p className="text-[10px] font-bold uppercase tracking-wider mb-0 text-foreground">LIMITED SEATS PER BATCH!</p>
+                  <div className="flex items-end gap-2">
+                     <p className="font-accent text-primary text-4xl -rotate-2 mt-1">Book Your Seat Now!</p>
+                     <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-primary rotate-12 mb-2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                  </div>
                 </div>
               </div>
 
               {/* Right Course Cards */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:w-[400px]">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:w-[450px]">
                 {[
                   { title: "NAIL COURSE", duration: "15 Days", price: "₹14,999/-", img: "https://picsum.photos/seed/nail/400/300" },
                   { title: "EYELASH COURSE", duration: "7 Days", price: "₹9,999/-", img: "https://picsum.photos/seed/lash/400/300" }
@@ -289,11 +294,12 @@ export default function HomePage() {
               { title: "CUSTOMER SATISFACTION", desc: "Your satisfaction is our top priority", icon: Heart }
             ].map((feature, i) => (
               <div key={i} className="flex items-center gap-4">
-                <div className="w-16 h-16 rounded-full border border-primary flex items-center justify-center flex-shrink-0">
-                  <feature.icon className="w-6 h-6 text-primary" />
+                <div className="w-[72px] h-[72px] rounded-full border border-primary/40 bg-background flex items-center justify-center flex-shrink-0 shadow-sm relative">
+                  <div className="absolute inset-2 border border-primary/20 rounded-full" />
+                  <feature.icon className="w-8 h-8 text-primary" strokeWidth={1.5} />
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold uppercase tracking-wider mb-1">{feature.title}</h4>
+                  <h4 className="text-sm font-bold uppercase tracking-wider mb-1 text-foreground">{feature.title}</h4>
                   <p className="text-xs text-muted-foreground">{feature.desc}</p>
                 </div>
               </div>
@@ -316,16 +322,17 @@ export default function HomePage() {
               { name: "Priya Mehta", img: "https://i.pravatar.cc/150?u=3", review: "Lash extensions are just perfect. The team is so professional and friendly." },
               { name: "Ankita Singh", img: "https://i.pravatar.cc/150?u=4", review: "Joined the nail course and it changed my career! Best academy in the city." }
             ].map((item, i) => (
-              <Card key={i} className="bg-card border border-border shadow-sm p-6 relative rounded-2xl flex flex-col items-center pt-10 mt-8">
-                <div className="absolute -top-8 w-16 h-16 rounded-full overflow-hidden border-4 border-card">
+              <Card key={i} className="bg-card border border-primary/20 shadow-sm p-6 relative rounded-xl flex flex-col items-center pt-10 mt-8">
+                <div className="absolute -top-8 w-[72px] h-[72px] rounded-full overflow-hidden border-[6px] border-card bg-background z-10 shadow-sm">
                   <Image src={item.img} alt={item.name} fill className="object-cover" />
                 </div>
-                <div className="text-primary text-4xl font-headline leading-none mb-2 absolute top-4 left-4">"</div>
-                <h4 className="font-bold text-sm mt-2">{item.name}</h4>
+                <div className="text-primary text-5xl font-serif leading-none mb-0 absolute top-6 left-[48%] -translate-x-1/2 opacity-20">"</div>
+                <div className="text-primary text-3xl font-serif font-bold leading-none mb-1 mt-2 text-center w-full">"</div>
+                <h4 className="font-bold text-sm mt-1 uppercase tracking-wider text-foreground">{item.name}</h4>
                 <div className="flex justify-center mb-4 gap-1 mt-1">
                   {[1, 2, 3, 4, 5].map(s => <Star key={s} className="w-3 h-3 text-accent fill-accent" />)}
                 </div>
-                <p className="text-sm text-foreground/80 text-center">"{item.review}"</p>
+                <p className="text-xs text-foreground/80 text-center font-medium leading-relaxed">"{item.review}"</p>
               </Card>
             ))}
           </div>
@@ -357,7 +364,7 @@ export default function HomePage() {
             ))}
           </div>
 
-          <Button asChild variant="outline" className="border-primary/50 text-primary hover:bg-primary hover:text-white rounded-full px-8 h-10 text-xs font-bold tracking-widest uppercase">
+          <Button asChild variant="outline" className="border-primary/50 text-primary hover:bg-primary hover:text-white rounded-md px-10 h-10 text-xs font-bold tracking-widest lowercase shadow-sm">
             <a href="https://instagram.com/the_glam_house_salon" target="_blank">@the_glam_house_salon</a>
           </Button>
         </div>
@@ -366,22 +373,23 @@ export default function HomePage() {
       {/* Final CTA Banner */}
       <section className="py-12 bg-background pb-24">
         <div className="container mx-auto px-4">
-           <div className="bg-card rounded-2xl p-8 md:p-12 border border-primary/20 shadow-xl flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden">
-             {/* Background glow */}
+           <div className="bg-card rounded-2xl p-8 md:p-12 border border-primary/20 shadow-xl flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden bg-gradient-to-r from-card to-secondary/30">
+             {/* Background glow & accents */}
              <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -mr-32 -mt-32" />
+             <div className="absolute bottom-0 left-0 w-full h-full opacity-[0.03] bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]" />
              
              <div className="relative z-10 text-center md:text-left">
-                <h2 className="text-2xl md:text-4xl font-headline font-bold uppercase mb-2">
+                <h2 className="text-2xl md:text-4xl font-headline font-bold uppercase mb-2 text-foreground">
                   READY FOR YOUR <span className="text-primary">TRANSFORMATION?</span>
                 </h2>
-                <p className="text-sm text-foreground/70">Let our experts bring out the most beautiful you.</p>
+                <p className="text-sm font-medium text-foreground/80">Let our experts bring out the most beautiful you.</p>
              </div>
              
              <div className="flex flex-wrap gap-4 relative z-10">
-                <Button asChild className="bg-primary hover:bg-primary/90 text-white rounded-sm h-12 px-8 text-xs font-bold uppercase tracking-wider shadow-lg shadow-primary/20">
+                <Button asChild className="bg-primary hover:bg-primary/90 text-white rounded-md h-12 px-8 text-xs font-bold uppercase tracking-wider shadow-lg shadow-primary/20">
                   <a href="https://wa.me/917087657000"><Phone className="w-4 h-4 mr-2" /> BOOK ON WHATSAPP</a>
                 </Button>
-                <Button asChild variant="outline" className="border-border bg-background hover:bg-background/80 text-foreground rounded-sm h-12 px-8 text-xs font-bold uppercase tracking-wider shadow-sm">
+                <Button asChild variant="outline" className="border-primary/30 bg-background hover:bg-primary/5 text-foreground rounded-md h-12 px-8 text-xs font-bold uppercase tracking-wider shadow-sm">
                   <Link href="/book"><Calendar className="w-4 h-4 mr-2 text-primary" /> SCHEDULE APPOINTMENT</Link>
                 </Button>
              </div>

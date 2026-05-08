@@ -63,13 +63,15 @@ export function Navbar() {
     >
       <div className="max-w-[1400px] mx-auto flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 group flex-shrink-0">
-          <div className="w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-full border border-accent/30 flex flex-col items-center justify-center text-center p-2 relative bg-background">
-            <span className="text-[8px] md:text-[10px] font-accent text-accent uppercase tracking-wider mb-[-4px]">Welcome</span>
-            <h1 className="font-headline font-bold text-sm md:text-lg leading-tight text-foreground uppercase">THE GLAM HOUSE</h1>
-            <div className="w-1/2 h-px bg-accent/50 my-1"></div>
-            <p className="text-[6px] md:text-[8px] tracking-[0.1em] font-medium opacity-80 uppercase">SALON & ACADEMY</p>
-          </div>
+        <Link href="/" className="flex items-center group flex-shrink-0">
+          <Image 
+            src="/logo.png" 
+            alt="The Glam House Logo" 
+            width={120} 
+            height={120} 
+            className="w-[80px] h-[80px] md:w-[100px] md:h-[100px] object-contain drop-shadow-md" 
+            priority
+          />
         </Link>
 
         {/* Desktop Nav */}

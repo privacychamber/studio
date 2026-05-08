@@ -2,6 +2,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { Instagram, Facebook, Youtube, Phone, Mail, MapPin } from "lucide-react"
 
 const quickLinks = [
@@ -20,12 +21,14 @@ export function Footer() {
       <div className="max-w-[1400px] mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
         {/* Brand */}
         <div className="flex flex-col items-start">
-          <Link href="/" className="flex items-center gap-2 group flex-shrink-0">
-            <div className="w-[100px] h-[100px] rounded-full border border-accent/30 flex flex-col items-center justify-center text-center p-2 relative bg-background">
-              <span className="text-[10px] font-accent text-accent uppercase tracking-wider mb-[-4px]">Welcome</span>
-              <h1 className="font-headline font-bold text-lg leading-tight text-foreground uppercase">THE GLAM HOUSE</h1>
-              <div className="w-1/2 h-px bg-accent/50 my-1"></div>
-              <p className="text-[8px] tracking-[0.1em] font-medium opacity-80 uppercase">SALON & ACADEMY</p>
+          <Link href="/" className="flex items-center group flex-shrink-0">
+            <div className="w-[120px] h-[120px] relative">
+              <Image 
+                src="/logo.png" 
+                alt="The Glam House Logo" 
+                fill 
+                className="object-contain drop-shadow-md" 
+              />
             </div>
           </Link>
         </div>

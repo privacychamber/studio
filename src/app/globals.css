@@ -11,7 +11,7 @@
     --card-foreground: 0 0% 10%;
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 10%;
-    --primary: 327 82% 52%; /* #E91E8C */
+    --primary: 340 82% 52%; /* #E91E63 */
     --primary-foreground: 0 0% 100%;
     --secondary: 337 78% 85%; /* #F8BBD9 */
     --secondary-foreground: 0 0% 10%;
@@ -35,7 +35,7 @@
     --card-foreground: 0 0% 96%;
     --popover: 332 21% 9%;
     --popover-foreground: 0 0% 96%;
-    --primary: 328 100% 59%; /* #FF2D9B */
+    --primary: 340 100% 59%; /* #FF2D9B adjusted to hue 340 */
     --primary-foreground: 0 0% 100%;
     --secondary: 332 21% 15%;
     --secondary-foreground: 0 0% 96%;
