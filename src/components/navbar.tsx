@@ -4,19 +4,20 @@
 import * as React from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Menu, X, Phone, Moon, Sun } from "lucide-react"
+import { Menu, X, Phone, Moon, Sun, Calendar } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import Image from "next/image"
 
 const navLinks = [
-  { name: "Home", href: "/" },
-  { name: "Services", href: "/services" },
-  { name: "Academy", href: "/academy" },
-  { name: "Gallery", href: "/gallery" },
-  { name: "About Us", href: "/about" },
-  { name: "Reviews", href: "/reviews" },
-  { name: "Contact", href: "/contact" },
+  { name: "HOME", href: "/" },
+  { name: "SERVICES", href: "/services" },
+  { name: "ACADEMY", href: "/academy" },
+  { name: "GALLERY", href: "/gallery" },
+  { name: "ABOUT US", href: "/about" },
+  { name: "REVIEWS", href: "/reviews" },
+  { name: "CONTACT", href: "/contact" },
 ]
 
 export function Navbar() {
@@ -57,30 +58,29 @@ export function Navbar() {
         "fixed top-0 w-full z-50 transition-all duration-300 px-4 py-2",
         isScrolled
           ? "bg-background/90 backdrop-blur-md shadow-md border-b"
-          : "bg-transparent"
+          : "bg-background"
       )}
     >
-      <div className="max-w-7xl mx-auto flex items-center justify-between">
+      <div className="max-w-[1400px] mx-auto flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 group">
-          <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white font-headline font-bold text-xs text-center p-1 border-2 border-accent transition-transform group-hover:rotate-12">
-            THE GLAM HOUSE
-          </div>
-          <div className="hidden sm:block">
-            <h1 className="font-headline font-bold text-lg leading-tight text-primary">THE GLAM HOUSE</h1>
-            <p className="text-[10px] tracking-[0.2em] font-medium opacity-70">SALON & ACADEMY</p>
+        <Link href="/" className="flex items-center gap-2 group flex-shrink-0">
+          <div className="w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-full border border-accent/30 flex flex-col items-center justify-center text-center p-2 relative bg-background">
+            <span className="text-[8px] md:text-[10px] font-accent text-accent uppercase tracking-wider mb-[-4px]">Welcome</span>
+            <h1 className="font-headline font-bold text-sm md:text-lg leading-tight text-foreground uppercase">THE GLAM HOUSE</h1>
+            <div className="w-1/2 h-px bg-accent/50 my-1"></div>
+            <p className="text-[6px] md:text-[8px] tracking-[0.1em] font-medium opacity-80 uppercase">SALON & ACADEMY</p>
           </div>
         </Link>
 
         {/* Desktop Nav */}
-        <div className="hidden lg:flex items-center gap-8">
+        <div className="hidden lg:flex items-center gap-6 xl:gap-8 ml-8">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.href}
               className={cn(
-                "text-sm font-medium transition-colors hover:text-primary relative",
-                pathname === link.href ? "text-primary after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-0.5 after:bg-primary" : "text-foreground/80"
+                "text-[13px] font-bold tracking-widest transition-colors hover:text-primary relative",
+                pathname === link.href ? "text-primary after:absolute after:bottom-[-6px] after:left-0 after:w-full after:h-[2px] after:bg-primary" : "text-foreground"
               )}
             >
               {link.name}
@@ -89,12 +89,18 @@ export function Navbar() {
         </div>
 
         {/* Action Buttons */}
-        <div className="flex items-center gap-2 sm:gap-4">
-          <div className="hidden md:flex items-center gap-2 text-xs font-semibold">
-            <Phone className="w-4 h-4 text-primary" />
-            <a href="tel:+917087657000" className="hover:text-primary transition-colors">70876 57000</a>
+        <div className="flex items-center gap-3 md:gap-6 ml-auto">
+          <div className="hidden md:flex flex-col items-end">
+            <div className="flex items-center gap-1 text-[10px] text-muted-foreground uppercase font-bold tracking-wider mb-1">
+              <Phone className="w-3 h-3 text-primary" /> Call / WhatsApp
+            </div>
+            <a href="tel:+917087657000" className="font-extrabold text-sm text-foreground">70876 57000</a>
           </div>
 
+          <Button asChild className="hidden sm:flex bg-primary hover:bg-primary/90 text-white font-bold rounded-sm px-6 h-12 gap-2 text-xs uppercase tracking-wider shadow-lg shadow-primary/20 transition-transform active:scale-95">
+            <Link href="/book"><Calendar className="w-4 h-4" /> BOOK APPOINTMENT</Link>
+          </Button>
+          
           <Button
             variant="ghost"
             size="icon"
@@ -103,10 +109,6 @@ export function Navbar() {
             aria-label="Toggle theme"
           >
             {isDarkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-          </Button>
-
-          <Button asChild className="hidden sm:flex shimmer-button bg-primary hover:bg-primary/90 text-white font-semibold">
-            <Link href="/book">Book Appointment</Link>
           </Button>
 
           {/* Mobile Menu */}
@@ -123,7 +125,7 @@ export function Navbar() {
                     key={link.name}
                     href={link.href}
                     className={cn(
-                      "text-lg font-headline font-bold transition-colors",
+                      "text-lg font-bold tracking-wider transition-colors",
                       pathname === link.href ? "text-primary" : "text-foreground"
                     )}
                   >
@@ -131,14 +133,14 @@ export function Navbar() {
                   </Link>
                 ))}
               </div>
-              <Separator />
+              <div className="h-px w-full bg-border" />
               <div className="flex flex-col gap-4">
-                <a href="tel:+917087657000" className="flex items-center gap-3 text-sm font-medium">
+                <a href="tel:+917087657000" className="flex items-center gap-3 text-sm font-bold">
                   <Phone className="w-4 h-4 text-primary" />
                   Call 70876 57000
                 </a>
-                <Button asChild className="shimmer-button w-full bg-primary hover:bg-primary/90 text-white font-semibold">
-                  <Link href="/book">Book Appointment</Link>
+                <Button asChild className="w-full bg-primary hover:bg-primary/90 text-white font-bold rounded-sm h-12 gap-2 uppercase tracking-wider">
+                  <Link href="/book"><Calendar className="w-4 h-4" /> Book Appointment</Link>
                 </Button>
               </div>
             </SheetContent>
@@ -149,6 +151,3 @@ export function Navbar() {
   )
 }
 
-function Separator() {
-  return <div className="h-px w-full bg-border" />
-}
