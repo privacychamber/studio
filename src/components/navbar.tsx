@@ -55,51 +55,55 @@ export function Navbar() {
   return (
     <nav
       className={cn(
-        "fixed top-0 w-full z-50 transition-all duration-300 px-4 py-2",
+        "fixed top-0 w-full z-50 transition-all duration-500 px-6 py-4",
         isScrolled
-          ? "bg-background/90 backdrop-blur-md shadow-md border-b"
-          : "bg-background"
+          ? "bg-white/80 backdrop-blur-lg shadow-[0_10px_30px_rgba(0,0,0,0.05)] border-b border-primary/5 py-3"
+          : "bg-transparent"
       )}
     >
-      <div className="max-w-[1400px] mx-auto flex items-center justify-between">
+      <div className="max-w-[1500px] mx-auto flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center group flex-shrink-0">
+        <Link href="/" className="flex items-center group flex-shrink-0 transition-transform hover:scale-105">
           <Image 
             src="/logo.png" 
             alt="The Glam House Logo" 
-            width={120} 
-            height={120} 
-            className="w-[80px] h-[80px] md:w-[100px] md:h-[100px] object-contain drop-shadow-md" 
+            width={140} 
+            height={140} 
+            className="w-[90px] h-[90px] md:w-[120px] md:h-[120px] object-contain drop-shadow-sm" 
             priority
           />
         </Link>
 
         {/* Desktop Nav */}
-        <div className="hidden lg:flex items-center gap-6 xl:gap-8 ml-8">
+        <div className="hidden lg:flex items-center gap-8 xl:gap-10 ml-8">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.href}
               className={cn(
-                "text-[13px] font-bold tracking-widest transition-colors hover:text-primary relative",
-                pathname === link.href ? "text-primary after:absolute after:bottom-[-6px] after:left-0 after:w-full after:h-[2px] after:bg-primary" : "text-foreground"
+                "text-[12px] font-bold tracking-[0.2em] transition-all hover:text-primary relative group/link",
+                pathname === link.href ? "text-primary" : "text-foreground/80"
               )}
             >
               {link.name}
+              <span className={cn(
+                "absolute -bottom-1 left-0 h-[2px] bg-primary transition-all duration-300",
+                pathname === link.href ? "w-full" : "w-0 group-hover/link:w-full"
+              )} />
             </Link>
           ))}
         </div>
 
         {/* Action Buttons */}
-        <div className="flex items-center gap-3 md:gap-6 ml-auto">
-          <div className="hidden md:flex flex-col items-end">
-            <div className="flex items-center gap-1 text-[10px] text-muted-foreground uppercase font-bold tracking-wider mb-1">
-              <Phone className="w-3 h-3 text-primary" /> Call / WhatsApp
+        <div className="flex items-center gap-4 md:gap-8 ml-auto">
+          <div className="hidden xl:flex flex-col items-end">
+            <div className="flex items-center gap-1.5 text-[10px] text-primary uppercase font-bold tracking-[0.1em] mb-1">
+              <Phone className="w-3 h-3" /> Call / WhatsApp
             </div>
-            <a href="tel:+917087657000" className="font-extrabold text-sm text-foreground">70876 57000</a>
+            <a href="tel:+917087657000" className="font-bold text-sm text-foreground hover:text-primary transition-colors tracking-wider">70876 57000</a>
           </div>
 
-          <Button asChild className="hidden sm:flex bg-primary hover:bg-primary/90 text-white font-bold rounded-sm px-6 h-12 gap-2 text-xs uppercase tracking-wider shadow-lg shadow-primary/20 transition-transform active:scale-95">
+          <Button asChild className="hidden sm:flex bg-gradient-to-r from-primary to-accent hover:opacity-90 text-white font-bold rounded-full px-8 h-12 gap-2 text-[10px] uppercase tracking-[0.2em] shadow-xl shadow-primary/20 transition-all hover:scale-105 active:scale-95 border-none">
             <Link href="/book"><Calendar className="w-4 h-4" /> BOOK APPOINTMENT</Link>
           </Button>
           
@@ -107,7 +111,7 @@ export function Navbar() {
             variant="ghost"
             size="icon"
             onClick={toggleTheme}
-            className="rounded-full"
+            className="rounded-full hover:bg-primary/10 text-primary"
             aria-label="Toggle theme"
           >
             {isDarkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
@@ -120,29 +124,31 @@ export function Navbar() {
                 <Menu className="w-6 h-6" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="flex flex-col gap-6 pt-12">
-              <div className="flex flex-col gap-4">
+            <SheetContent side="right" className="flex flex-col gap-8 pt-16 bg-white/95 backdrop-blur-xl border-l border-primary/5">
+              <div className="flex flex-col gap-6">
                 {navLinks.map((link) => (
                   <Link
                     key={link.name}
                     href={link.href}
                     className={cn(
-                      "text-lg font-bold tracking-wider transition-colors",
-                      pathname === link.href ? "text-primary" : "text-foreground"
+                      "text-xl font-bold tracking-[0.2em] transition-all",
+                      pathname === link.href ? "text-primary translate-x-2" : "text-foreground/70"
                     )}
                   >
                     {link.name}
                   </Link>
                 ))}
               </div>
-              <div className="h-px w-full bg-border" />
-              <div className="flex flex-col gap-4">
-                <a href="tel:+917087657000" className="flex items-center gap-3 text-sm font-bold">
-                  <Phone className="w-4 h-4 text-primary" />
-                  Call 70876 57000
+              <div className="h-px w-full bg-primary/10" />
+              <div className="flex flex-col gap-6">
+                <a href="tel:+917087657000" className="flex items-center gap-4 text-sm font-bold tracking-widest text-foreground hover:text-primary transition-colors">
+                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                    <Phone className="w-4 h-4 text-primary" />
+                  </div>
+                  70876 57000
                 </a>
-                <Button asChild className="w-full bg-primary hover:bg-primary/90 text-white font-bold rounded-sm h-12 gap-2 uppercase tracking-wider">
-                  <Link href="/book"><Calendar className="w-4 h-4" /> Book Appointment</Link>
+                <Button asChild className="w-full bg-gradient-to-r from-primary to-accent text-white font-bold rounded-full h-14 gap-3 uppercase tracking-[0.2em] shadow-lg border-none">
+                  <Link href="/book"><Calendar className="w-5 h-5" /> Book Appointment</Link>
                 </Button>
               </div>
             </SheetContent>

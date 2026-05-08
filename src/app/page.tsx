@@ -1,124 +1,141 @@
-
 "use client"
 
+import React, { useState, useEffect } from 'react'
 import Link from "next/link"
 import Image from "next/image"
 import { motion } from "framer-motion"
-import { ArrowRight, Check, Star, Instagram, Calendar, GraduationCap, MapPin, ShieldCheck, User, Sparkles, Heart, Phone } from "lucide-react"
+import { 
+  ArrowRight, Check, Star, Instagram, Calendar, 
+  GraduationCap, MapPin, ShieldCheck, User, 
+  Sparkles, Heart, Phone, Loader2 
+} from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
-import { PlaceHolderImages } from "@/lib/placeholder-images"
+import { BeforeAfterSlider } from "@/components/before-after-slider"
 
 export default function HomePage() {
-  const heroImage = PlaceHolderImages.find(img => img.id === "hero-portrait")
-  const keratinImg = PlaceHolderImages.find(img => img.id === "keratin-treatment")
-  const browImg = PlaceHolderImages.find(img => img.id === "microblading")
-  const lashImg = PlaceHolderImages.find(img => img.id === "lash-extensions")
-  const colorImg = PlaceHolderImages.find(img => img.id === "hair-color")
+  const [data, setData] = useState<any>(null)
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    fetch('/api/data')
+      .then(res => res.json())
+      .then(db => {
+        setData(db)
+        setLoading(false)
+      })
+  }, [])
+
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 30 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
+  }
 
   const staggerContainer = {
     hidden: { opacity: 0 },
-    show: { opacity: 1, transition: { staggerChildren: 0.1 } }
+    show: { opacity: 1, transition: { staggerChildren: 0.2 } }
   }
 
-  const fadeInUp = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0 }
-  }
+  if (loading) return (
+    <div className="min-h-screen flex items-center justify-center bg-background">
+      <Loader2 className="w-12 h-12 animate-spin text-primary" />
+    </div>
+  )
 
   return (
-    <div className="overflow-hidden">
+    <div className="overflow-hidden bg-background font-body">
       {/* Hero Section */}
-      <section className="relative pt-32 pb-16 min-h-[90vh] flex items-center bg-card">
-        <div className="absolute inset-0 z-0 overflow-hidden">
-          {/* Massive right side pink semi-circle */}
-          <div className="absolute right-0 top-0 w-full md:w-[60%] lg:w-[55%] h-full bg-primary/10 rounded-l-full translate-x-1/4 scale-125 md:scale-110 origin-right" />
+      <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 min-h-screen flex items-center">
+        {/* Organic Background Shapes */}
+        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-[-10%] right-[-10%] w-[70%] h-[120%] bg-secondary/50 rounded-full blur-3xl opacity-60" />
+          <div className="absolute bottom-[-20%] left-[-10%] w-[50%] h-[80%] bg-primary/5 rounded-full blur-3xl opacity-40" />
+          <div className="absolute top-1/4 right-0 w-[400px] h-[400px] bg-accent/10 rounded-full blur-2xl" />
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div
               variants={staggerContainer}
               initial="hidden"
-              animate="show"
-              className="max-w-2xl"
+              whileInView="show"
+              viewport={{ once: true }}
+              className="max-w-2xl text-center lg:text-left"
             >
-              <motion.p variants={fadeInUp} className="font-accent text-primary text-3xl md:text-4xl mb-4 tracking-wide font-bold">
+              <motion.div variants={fadeInUp} className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-bold tracking-[0.2em] uppercase mb-6">
+                Luxury Beauty Salon & Academy
+              </motion.div>
+              <motion.p variants={fadeInUp} className="font-accent text-accent text-3xl md:text-5xl mb-4 font-bold">
                 Enhance. Elevate. Empower.
               </motion.p>
-              <motion.h1 variants={fadeInUp} className="text-5xl md:text-7xl lg:text-[6rem] font-headline font-bold mb-6 leading-[1.05] tracking-tight text-foreground">
+              <motion.h1 variants={fadeInUp} className="text-5xl md:text-7xl lg:text-[6.5rem] font-headline font-bold mb-8 leading-[0.95] tracking-tight text-foreground">
                 FLAWLESS <br />
-                <span className="text-primary font-bold">BEAUTY</span> <br />
+                <span className="text-primary italic">BEAUTY</span> <br />
                 STARTS HERE
               </motion.h1>
-              <motion.p variants={fadeInUp} className="text-base md:text-lg text-foreground/80 mb-8 font-medium tracking-wide">
-                Permanent Makeup | Hair Treatments | <br className="hidden md:block" /> Lash & Brow | Skin | Certified Courses
+              <motion.p variants={fadeInUp} className="text-lg md:text-xl text-foreground/70 mb-10 max-w-xl mx-auto lg:mx-0 font-medium leading-relaxed">
+                Experience world-class permanent makeup and hair transformations 
+                delivered with precision and luxury.
               </motion.p>
               
-              <motion.div variants={fadeInUp} className="flex flex-wrap gap-4 mb-12">
-                <Button asChild className="bg-primary hover:bg-primary/90 text-white rounded-md px-8 h-12 gap-3 text-xs font-bold uppercase tracking-wider shadow-lg shadow-primary/30">
-                  <Link href="/book"><Calendar className="w-4 h-4" /> BOOK APPOINTMENT</Link>
+              <motion.div variants={fadeInUp} className="flex flex-wrap justify-center lg:justify-start gap-5 mb-16">
+                <Button asChild size="lg" className="bg-gradient-to-r from-primary to-accent hover:opacity-90 text-white rounded-full px-10 h-14 text-sm font-bold uppercase tracking-widest shadow-2xl shadow-primary/30 border-none transition-transform hover:scale-105 active:scale-95">
+                  <Link href="/book"><Calendar className="w-5 h-5 mr-2" /> Book Appointment</Link>
                 </Button>
-                <Button asChild variant="outline" className="border-primary/30 hover:border-primary bg-transparent text-foreground hover:bg-primary/5 rounded-md px-8 h-12 gap-3 text-xs font-bold uppercase tracking-wider">
-                  <Link href="/academy"><GraduationCap className="w-4 h-4 text-primary" /> EXPLORE COURSES</Link>
+                <Button asChild variant="outline" size="lg" className="border-primary/20 hover:border-primary bg-white/50 backdrop-blur-sm text-foreground hover:bg-primary/5 rounded-full px-10 h-14 text-sm font-bold uppercase tracking-widest transition-all">
+                  <Link href="/academy"><GraduationCap className="w-5 h-5 mr-2 text-primary" /> Explore Courses</Link>
                 </Button>
               </motion.div>
 
-              <motion.div variants={fadeInUp} className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 border-t border-border pt-8">
+              <motion.div variants={fadeInUp} className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-10 border-t border-primary/10">
                 {[
-                  { title: "1000+", subtitle: "Happy Clients", icon: User },
-                  { title: "Certified", subtitle: "Beauty Academy", icon: GraduationCap },
-                  { title: "Premium Salon", subtitle: "in Your City", icon: MapPin },
-                  { title: "Hygienic & Safe", subtitle: "Environment", icon: ShieldCheck }
-                ].map((badge, i) => (
-                  <div key={i} className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-background flex flex-shrink-0 items-center justify-center border border-primary/20">
-                      <badge.icon className="w-5 h-5 text-primary" />
-                    </div>
-                    <div>
-                      <p className="text-sm font-bold leading-tight">{badge.title}</p>
-                      <p className="text-[10px] text-muted-foreground uppercase font-medium">{badge.subtitle}</p>
-                    </div>
+                  { label: "Happy Clients", value: "1000+", icon: User },
+                  { label: "Certified Courses", value: "Expert", icon: GraduationCap },
+                  { label: "Premium Services", value: "Luxury", icon: Sparkles },
+                  { label: "Safety First", value: "Hygienic", icon: ShieldCheck }
+                ].map((stat, i) => (
+                  <div key={i} className="flex flex-col items-center lg:items-start gap-1">
+                    <stat.icon className="w-5 h-5 text-accent mb-2" />
+                    <span className="text-xl font-bold text-foreground">{stat.value}</span>
+                    <span className="text-[10px] uppercase tracking-widest font-bold text-muted-foreground">{stat.label}</span>
                   </div>
                 ))}
               </motion.div>
             </motion.div>
 
-            {/* Hero Image & Side Cards */}
-            <div className="relative h-[600px] lg:h-[700px] w-full flex items-center justify-end z-10">
-               <div className="relative w-full max-w-[380px] lg:max-w-[480px] h-full rounded-[40px] md:rounded-[100px] md:rounded-tr-[200px] overflow-hidden shadow-2xl">
+            {/* Hero Image & Floating Cards */}
+            <div className="relative h-[600px] lg:h-[800px] w-full flex items-center justify-center lg:justify-end">
+               <motion.div 
+                 initial={{ opacity: 0, scale: 0.9, rotate: 2 }}
+                 whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+                 transition={{ duration: 1.2 }}
+                 className="relative w-full max-w-[450px] lg:max-w-[550px] h-[90%] rounded-full overflow-hidden shadow-[0_50px_100px_-20px_rgba(0,0,0,0.25)] border-[12px] border-white z-10"
+               >
                  <Image
-                    src={heroImage?.imageUrl || "https://picsum.photos/seed/hero/800/1000"}
-                    alt="Hero Portrait"
+                    src="https://images.unsplash.com/photo-1596415901403-22390175973f?auto=format&fit=crop&q=80&w=800"
+                    alt="Luxury Beauty Model"
                     fill
                     className="object-cover"
                     priority
                   />
-               </div>
+               </motion.div>
 
-               {/* Right Side Floating Cards */}
-               <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 lg:translate-x-12 flex flex-col gap-4 z-20">
-                  {[
-                    { label: "BROWS", img1: "https://picsum.photos/seed/brow1/150/100", img2: "https://picsum.photos/seed/brow2/150/100" },
-                    { label: "HAIR", img1: "https://picsum.photos/seed/hair1/150/100", img2: "https://picsum.photos/seed/hair2/150/100" },
-                    { label: "LIPS", img1: "https://picsum.photos/seed/lip1/150/100", img2: "https://picsum.photos/seed/lip2/150/100" }
-                  ].map((card, i) => (
+               {/* Glassmorphism Floating Cards */}
+               <div className="absolute left-0 lg:-left-20 top-1/2 -translate-y-1/2 flex flex-col gap-8 z-20">
+                  {data.transformations.slice(0, 3).map((item: any, i: number) => (
                     <motion.div 
                       key={i}
-                      initial={{ x: 50, opacity: 0 }}
-                      animate={{ x: 0, opacity: 1 }}
-                      transition={{ delay: 0.6 + (i * 0.2) }}
-                      className="bg-background p-2 rounded-lg shadow-xl border border-border flex flex-col items-center w-[120px] lg:w-[140px]"
+                      initial={{ x: -50, opacity: 0 }}
+                      whileInView={{ x: 0, opacity: 1 }}
+                      transition={{ delay: 0.5 + (i * 0.2), duration: 0.8 }}
+                      className="bg-white/70 backdrop-blur-xl p-4 rounded-3xl shadow-2xl border border-white/50 flex items-center gap-4 w-[180px] md:w-[220px] transition-transform hover:scale-105"
                     >
-                      <span className="text-[10px] font-bold tracking-widest mb-2 mt-1 uppercase">{card.label}</span>
-                      <div className="flex flex-col gap-1 w-full">
-                        <div className="relative w-full aspect-[3/2] rounded overflow-hidden">
-                          <Image src={card.img1} alt={`${card.label} Before`} fill className="object-cover" />
-                        </div>
-                        <div className="relative w-full aspect-[3/2] rounded overflow-hidden">
-                          <Image src={card.img2} alt={`${card.label} After`} fill className="object-cover" />
-                        </div>
+                      <div className="w-12 h-12 rounded-2xl overflow-hidden relative border-2 border-primary/20">
+                        <Image src={item.afterImage} alt={item.category} fill className="object-cover" />
+                      </div>
+                      <div>
+                        <p className="text-[10px] font-bold tracking-[0.2em] text-primary uppercase mb-0.5">{item.category}</p>
+                        <p className="text-xs font-bold text-foreground">FLAWLESS RESULTS</p>
                       </div>
                     </motion.div>
                   ))}
@@ -128,270 +145,210 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Transformations Section */}
-      <section className="py-20 bg-background border-t border-border">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-2xl md:text-3xl font-headline font-bold uppercase tracking-wider">
-              REAL RESULTS. REAL <span className="text-primary">TRANSFORMATIONS.</span>
-            </h2>
+      {/* Transformation Comparison Slider */}
+      <section className="py-32 bg-secondary/30 relative overflow-hidden">
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-3xl mx-auto text-center mb-20">
+            <h2 className="text-primary text-sm font-bold tracking-[0.4em] uppercase mb-4">Real Transformations</h2>
+            <h3 className="text-4xl md:text-5xl font-headline font-bold text-foreground mb-6">SEE THE GLAM HOUSE MAGIC</h3>
+            <p className="text-muted-foreground font-medium">Drag the slider to compare our high-end transformations. Excellence in every detail.</p>
           </div>
 
-          <div className="flex gap-2 md:gap-4 overflow-x-auto pb-8 snap-x no-scrollbar justify-center">
-            {[1, 2, 3, 4, 5, 6].map((i) => (
-              <div key={i} className="relative w-[150px] md:w-[200px] lg:w-[220px] aspect-[4/5] flex-shrink-0 snap-center rounded-lg overflow-hidden border-2 border-transparent hover:border-primary transition-colors cursor-pointer group">
-                <Image
-                  src={`https://picsum.photos/seed/transform${i}/400/500`}
-                  alt={`Transformation ${i}`}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+            {data.transformations.map((item: any, i: number) => (
+              <motion.div
+                key={item.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.2 }}
+                viewport={{ once: true }}
+              >
+                <BeforeAfterSlider 
+                  beforeImage={item.beforeImage} 
+                  afterImage={item.afterImage} 
+                  category={item.category} 
                 />
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Premium Services Grid */}
-      <section className="py-24 bg-card">
+      {/* Premium Services */}
+      <section className="py-32 bg-background">
         <div className="container mx-auto px-4 text-center">
-          <div className="mb-16">
-            <h2 className="text-3xl md:text-4xl font-headline font-bold mb-4 uppercase tracking-wider text-foreground">
-              OUR <span className="text-primary">PREMIUM</span> SERVICES
-            </h2>
-            <div className="flex items-center justify-center gap-1 opacity-70">
-              <div className="h-px w-8 bg-foreground"></div>
-              <div className="w-1.5 h-1.5 rotate-45 bg-primary"></div>
-              <div className="w-1 h-1 rotate-45 bg-primary/60"></div>
-              <div className="w-1.5 h-1.5 rotate-45 bg-primary"></div>
-              <div className="h-px w-8 bg-foreground"></div>
-            </div>
+          <div className="mb-20">
+            <h2 className="text-primary text-sm font-bold tracking-[0.4em] uppercase mb-4">Our Expertise</h2>
+            <h3 className="text-4xl md:text-5xl font-headline font-bold text-foreground mb-4">LUXURY BEAUTY SERVICES</h3>
+            <div className="w-24 h-1 bg-gradient-to-r from-primary/20 via-primary to-primary/20 mx-auto rounded-full" />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            {[
-              { title: "KERATIN TREATMENT", img: keratinImg, desc: "Smooth, frizz-free, and shiny hair that lasts.", icon: Sparkles },
-              { title: "MICROBLADING", img: browImg, desc: "Natural, fuller brows that frame your face perfectly.", icon: Sparkles },
-              { title: "LASH EXTENSIONS", img: lashImg, desc: "Wake up with flawless, voluminous lashes.", icon: Sparkles },
-              { title: "HAIR COLOR", img: colorImg, desc: "Vibrant colors, stunning transformations.", icon: Sparkles }
-            ].map((service, i) => (
-              <Card key={i} className="overflow-hidden border border-border shadow-md hover:shadow-xl transition-all h-full bg-background group cursor-pointer rounded-xl">
-                <div className="relative aspect-[4/3] w-full">
-                  <Image src={service.img?.imageUrl || `https://picsum.photos/seed/service${i}/600/400`} alt={service.title} fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
-                </div>
-                <CardContent className="p-6 relative pt-8 text-left">
-                  <div className="absolute -top-6 left-6 w-12 h-12 bg-background rounded-full border border-primary flex items-center justify-center shadow-md z-10">
-                    <service.icon className="w-5 h-5 text-primary" />
-                  </div>
-                  <h3 className="text-lg font-bold mb-2 text-primary uppercase">{service.title}</h3>
-                  <p className="text-sm text-foreground/70 mb-6 line-clamp-2">{service.desc}</p>
-                  <Link href="/services" className="text-primary font-bold text-xs uppercase tracking-widest inline-flex items-center gap-2 group-hover:gap-3 transition-all">
-                    KNOW MORE <ArrowRight className="w-4 h-4" />
-                  </Link>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-
-          <Button asChild variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white rounded-sm px-10 h-12 text-xs font-bold uppercase tracking-widest">
-            <Link href="/services">VIEW ALL SERVICES</Link>
-          </Button>
-        </div>
-      </section>
-
-      {/* Academy Section */}
-      <section className="py-24 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="bg-card rounded-3xl p-8 lg:p-12 border border-primary/10 shadow-lg">
-            <div className="grid lg:grid-cols-[1fr_1fr_auto] gap-8 lg:gap-12 items-center">
-              
-              {/* Left Images Collage */}
-              <div className="grid grid-cols-2 gap-2 h-full">
-                <div className="col-span-2 relative aspect-[2/1] rounded-lg overflow-hidden">
-                   <Image src="https://picsum.photos/seed/academy1/800/400" alt="Academy Class" fill className="object-cover" />
-                </div>
-                <div className="relative aspect-square rounded-lg overflow-hidden">
-                   <Image src="https://picsum.photos/seed/academy2/400/400" alt="Academy Practical" fill className="object-cover" />
-                </div>
-                <div className="relative aspect-square rounded-lg overflow-hidden">
-                   <Image src="https://picsum.photos/seed/academy3/400/400" alt="Academy Graduation" fill className="object-cover" />
-                </div>
-              </div>
-
-              {/* Middle Content */}
-              <div className="space-y-6">
-                <div>
-                  <h3 className="text-primary text-sm font-bold tracking-widest uppercase mb-2 font-headline">START YOUR CAREER IN</h3>
-                  <h2 className="text-4xl lg:text-5xl font-headline font-bold uppercase text-foreground">BEAUTY INDUSTRY</h2>
-                </div>
-
-                <ul className="space-y-4">
-                  {[
-                    "Certified Professional Courses",
-                    "Hands-on Practical Training",
-                    "Learn from Industry Experts",
-                    "Lifetime Support & Guidance",
-                    "Placement Assistance"
-                  ].map((item, i) => (
-                    <li key={i} className="flex items-center gap-3">
-                      <div className="w-5 h-5 rounded-full border border-primary flex items-center justify-center flex-shrink-0">
-                        <Check className="w-3 h-3 text-primary" />
-                      </div>
-                      <span className="text-sm font-bold text-foreground/80">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <div className="pt-4 relative inline-block">
-                  <p className="text-[10px] font-bold uppercase tracking-wider mb-0 text-foreground">LIMITED SEATS PER BATCH!</p>
-                  <div className="flex items-end gap-2">
-                     <p className="font-accent text-primary text-4xl -rotate-2 mt-1">Book Your Seat Now!</p>
-                     <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-primary rotate-12 mb-2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                  </div>
-                </div>
-              </div>
-
-              {/* Right Course Cards */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:w-[450px]">
-                {[
-                  { title: "NAIL COURSE", duration: "15 Days", price: "₹14,999/-", img: "https://picsum.photos/seed/nail/400/300" },
-                  { title: "EYELASH COURSE", duration: "7 Days", price: "₹9,999/-", img: "https://picsum.photos/seed/lash/400/300" }
-                ].map((course, i) => (
-                  <Card key={i} className="overflow-hidden border border-border shadow-md bg-background rounded-xl flex flex-col h-full">
-                    <div className="relative aspect-[4/3]">
-                      <Image src={course.img} alt={course.title} fill className="object-cover" />
-                    </div>
-                    <CardContent className="p-4 text-center flex-grow flex flex-col justify-between">
-                      <div>
-                        <h4 className="text-sm font-bold uppercase tracking-wider mb-1">{course.title}</h4>
-                        <p className="text-[10px] text-muted-foreground uppercase font-medium mb-3">Duration: {course.duration}</p>
-                        <p className="text-xl font-bold mb-4">{course.price}</p>
-                      </div>
-                      <Button asChild className="w-full bg-primary hover:bg-primary/90 text-white rounded-sm h-10 text-xs font-bold uppercase tracking-widest mt-auto">
-                        <Link href="/enroll">ENROLL NOW</Link>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {data.services.map((service: any, i: number) => (
+              <motion.div
+                key={service.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <Card className="overflow-hidden border-none shadow-[0_20px_50px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_50px_rgba(233,30,99,0.1)] transition-all group rounded-3xl bg-white h-full flex flex-col">
+                  <div className="relative aspect-[4/5] w-full overflow-hidden">
+                    <Image 
+                      src={service.imageUrl} 
+                      alt={service.title} 
+                      fill 
+                      className="object-cover transition-transform duration-1000 group-hover:scale-110" 
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                      <Button className="w-full bg-white text-black hover:bg-primary hover:text-white rounded-full font-bold uppercase tracking-widest text-[10px]">
+                        Book Service
                       </Button>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-
-            </div>
+                    </div>
+                  </div>
+                  <CardContent className="p-8 text-left flex flex-col flex-grow">
+                    <h3 className="text-xl font-bold mb-3 text-foreground group-hover:text-primary transition-colors">{service.title}</h3>
+                    <p className="text-sm text-muted-foreground mb-6 line-clamp-3 leading-relaxed font-medium">{service.desc}</p>
+                    <div className="mt-auto flex justify-between items-center">
+                      <span className="text-primary font-bold text-lg">{service.price}</span>
+                      <Link href="/services" className="text-foreground font-bold text-xs uppercase tracking-widest inline-flex items-center gap-2 group-hover:text-primary transition-all">
+                        KNOW MORE <ArrowRight className="w-4 h-4" />
+                      </Link>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Why Choose Glam House */}
-      <section className="py-16 bg-card border-y border-border">
+      {/* Academy CTA Section */}
+      <section className="py-24 bg-nude relative">
         <div className="container mx-auto px-4">
-          <h2 className="text-center text-2xl font-headline font-bold uppercase tracking-widest mb-12">
-            WHY CHOOSE GLAM HOUSE?
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              { title: "EXPERT PROFESSIONALS", desc: "Experienced & certified beauty experts", icon: User },
-              { title: "PREMIUM PRODUCTS", desc: "We use high-quality, skin-friendly products", icon: Sparkles },
-              { title: "HYGIENE & SAFETY", desc: "100% hygienic tools & sanitized environment", icon: ShieldCheck },
-              { title: "CUSTOMER SATISFACTION", desc: "Your satisfaction is our top priority", icon: Heart }
-            ].map((feature, i) => (
-              <div key={i} className="flex items-center gap-4">
-                <div className="w-[72px] h-[72px] rounded-full border border-primary/40 bg-background flex items-center justify-center flex-shrink-0 shadow-sm relative">
-                  <div className="absolute inset-2 border border-primary/20 rounded-full" />
-                  <feature.icon className="w-8 h-8 text-primary" strokeWidth={1.5} />
+          <div className="bg-white rounded-[3rem] p-10 lg:p-20 shadow-[0_50px_100px_rgba(0,0,0,0.05)] border border-primary/5">
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
+              <div className="grid grid-cols-2 gap-4">
+                <div className="relative aspect-[3/4] rounded-[2rem] overflow-hidden shadow-xl">
+                  <Image src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&q=80&w=800" alt="Training" fill className="object-cover" />
                 </div>
-                <div>
-                  <h4 className="text-sm font-bold uppercase tracking-wider mb-1 text-foreground">{feature.title}</h4>
-                  <p className="text-xs text-muted-foreground">{feature.desc}</p>
+                <div className="space-y-4 pt-12">
+                  <div className="relative aspect-square rounded-[2rem] overflow-hidden shadow-xl">
+                    <Image src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&fit=crop&q=80&w=800" alt="Practical" fill className="object-cover" />
+                  </div>
+                  <div className="relative aspect-[3/2] rounded-[2rem] overflow-hidden shadow-xl bg-accent p-6 flex flex-col justify-center text-white">
+                    <p className="text-3xl font-bold mb-1">100%</p>
+                    <p className="text-[10px] font-bold uppercase tracking-widest">Placement Assistance</p>
+                  </div>
                 </div>
               </div>
-            ))}
+
+              <div className="space-y-8">
+                <div>
+                  <h3 className="text-accent text-sm font-bold tracking-[0.4em] uppercase mb-4">Glam House Academy</h3>
+                  <h2 className="text-4xl md:text-5xl lg:text-6xl font-headline font-bold text-foreground leading-tight">
+                    START YOUR CAREER IN <br />
+                    <span className="text-primary italic">BEAUTY INDUSTRY</span>
+                  </h2>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  {data.courses.map((course: any) => (
+                    <Card key={course.id} className="overflow-hidden border-none shadow-xl rounded-3xl bg-secondary/20 hover:bg-secondary/40 transition-colors">
+                      <div className="p-6">
+                        <h4 className="text-sm font-bold uppercase tracking-widest mb-2">{course.title}</h4>
+                        <div className="flex items-center gap-2 text-muted-foreground mb-4">
+                          <Calendar className="w-3.5 h-3.5" />
+                          <span className="text-[10px] font-bold uppercase tracking-widest">{course.duration}</span>
+                        </div>
+                        <p className="text-2xl font-bold text-primary mb-4">{course.price}</p>
+                        <Button className="w-full bg-foreground text-background hover:bg-primary rounded-full text-[10px] font-bold uppercase tracking-widest py-6">
+                          Enroll Now
+                        </Button>
+                      </div>
+                    </Card>
+                  ))}
+                </div>
+
+                <div className="pt-6 flex items-center gap-6">
+                   <div className="flex -space-x-4">
+                      {[1,2,3,4].map(i => (
+                        <div key={i} className="w-12 h-12 rounded-full border-4 border-white overflow-hidden relative">
+                           <Image src={`https://i.pravatar.cc/150?u=${i+10}`} alt="Student" fill />
+                        </div>
+                      ))}
+                   </div>
+                   <div>
+                      <p className="text-sm font-bold text-foreground">Join 500+ Graduated Students</p>
+                      <div className="flex items-center gap-1">
+                         {[1,2,3,4,5].map(s => <Star key={s} className="w-3 h-3 text-accent fill-accent" />)}
+                         <span className="text-xs text-muted-foreground ml-1">4.9/5 Rating</span>
+                      </div>
+                   </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Testimonials */}
-      <section className="py-24 bg-background">
+      <section className="py-32 bg-background">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-headline font-bold mb-16 uppercase tracking-widest">
-            WHAT OUR <span className="text-primary">CLIENTS</span> SAY
-          </h2>
+          <div className="max-w-2xl mx-auto mb-20">
+             <h2 className="text-primary text-sm font-bold tracking-[0.4em] uppercase mb-4">Wall of Love</h2>
+             <h3 className="text-4xl md:text-5xl font-headline font-bold text-foreground mb-6">WHAT OUR GUESTS SAY</h3>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { name: "Neha Sharma", img: "https://i.pravatar.cc/150?u=1", review: "The best keratin treatment I've ever had! My hair feels amazing and looks so healthy." },
-              { name: "Pooja Verma", img: "https://i.pravatar.cc/150?u=2", review: "Microblading done perfectly! My brows look so natural. Highly recommended." },
-              { name: "Priya Mehta", img: "https://i.pravatar.cc/150?u=3", review: "Lash extensions are just perfect. The team is so professional and friendly." },
-              { name: "Ankita Singh", img: "https://i.pravatar.cc/150?u=4", review: "Joined the nail course and it changed my career! Best academy in the city." }
-            ].map((item, i) => (
-              <Card key={i} className="bg-card border border-primary/20 shadow-sm p-6 relative rounded-xl flex flex-col items-center pt-10 mt-8">
-                <div className="absolute -top-8 w-[72px] h-[72px] rounded-full overflow-hidden border-[6px] border-card bg-background z-10 shadow-sm">
-                  <Image src={item.img} alt={item.name} fill className="object-cover" />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {data.testimonials.map((item: any, i: number) => (
+              <motion.div
+                key={item.id}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ delay: i * 0.1 }}
+                className="bg-white border border-primary/5 shadow-[0_20px_50px_rgba(0,0,0,0.03)] p-10 rounded-[3rem] relative flex flex-col items-center pt-20 mt-10 hover:shadow-2xl hover:shadow-primary/5 transition-all"
+              >
+                <div className="absolute -top-10 w-20 h-20 rounded-full overflow-hidden border-8 border-background shadow-xl">
+                  <Image src={item.imageUrl} alt={item.name} fill className="object-cover" />
                 </div>
-                <div className="text-primary text-5xl font-serif leading-none mb-0 absolute top-6 left-[48%] -translate-x-1/2 opacity-20">"</div>
-                <div className="text-primary text-3xl font-serif font-bold leading-none mb-1 mt-2 text-center w-full">"</div>
-                <h4 className="font-bold text-sm mt-1 uppercase tracking-wider text-foreground">{item.name}</h4>
-                <div className="flex justify-center mb-4 gap-1 mt-1">
+                <div className="text-primary/20 text-[10rem] font-headline absolute top-0 leading-none pointer-events-none">“</div>
+                <div className="flex justify-center mb-6 gap-1">
                   {[1, 2, 3, 4, 5].map(s => <Star key={s} className="w-3 h-3 text-accent fill-accent" />)}
                 </div>
-                <p className="text-xs text-foreground/80 text-center font-medium leading-relaxed">"{item.review}"</p>
-              </Card>
+                <p className="text-sm text-foreground/80 text-center font-medium leading-relaxed mb-6 italic">"{item.review}"</p>
+                <h4 className="font-bold text-xs uppercase tracking-[0.2em] text-foreground mt-auto">{item.name}</h4>
+              </motion.div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Instagram Grid */}
-      <section className="py-20 bg-background border-t border-border">
-        <div className="container mx-auto px-4 text-center">
-          <div className="mb-12">
-            <h2 className="text-2xl font-headline font-bold uppercase tracking-widest inline-flex items-center gap-3">
-              FOLLOW US ON <span className="text-primary">INSTAGRAM</span>
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2 md:gap-4 mb-10 max-w-6xl mx-auto">
-            {[1, 2, 3, 4, 5, 6].map(i => (
-              <div key={i} className="aspect-square relative group overflow-hidden rounded-xl border border-border shadow-sm">
-                <Image
-                  src={`https://picsum.photos/seed/insta${i}/400/400`}
-                  alt="Instagram Post"
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                  <Instagram className="w-8 h-8 text-white" />
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <Button asChild variant="outline" className="border-primary/50 text-primary hover:bg-primary hover:text-white rounded-md px-10 h-10 text-xs font-bold tracking-widest lowercase shadow-sm">
-            <a href="https://instagram.com/the_glam_house_salon" target="_blank">@the_glam_house_salon</a>
-          </Button>
         </div>
       </section>
 
       {/* Final CTA Banner */}
-      <section className="py-12 bg-background pb-24">
+      <section className="py-24 bg-background pb-48">
         <div className="container mx-auto px-4">
-           <div className="bg-card rounded-2xl p-8 md:p-12 border border-primary/20 shadow-xl flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden bg-gradient-to-r from-card to-secondary/30">
-             {/* Background glow & accents */}
-             <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -mr-32 -mt-32" />
-             <div className="absolute bottom-0 left-0 w-full h-full opacity-[0.03] bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]" />
+           <div className="bg-foreground rounded-[4rem] p-12 md:p-24 text-center relative overflow-hidden shadow-[0_50px_100px_rgba(0,0,0,0.3)]">
+             {/* Abstract Accents */}
+             <div className="absolute top-0 right-0 w-96 h-96 bg-primary/20 rounded-full blur-[100px] -mr-48 -mt-48" />
+             <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/20 rounded-full blur-[100px] -ml-48 -mb-48" />
              
-             <div className="relative z-10 text-center md:text-left">
-                <h2 className="text-2xl md:text-4xl font-headline font-bold uppercase mb-2 text-foreground">
-                  READY FOR YOUR <span className="text-primary">TRANSFORMATION?</span>
+             <div className="relative z-10 space-y-8">
+                <h2 className="text-4xl md:text-7xl font-headline font-bold text-background leading-tight">
+                  READY FOR YOUR <br />
+                  <span className="text-primary italic">TRANSFORMATION?</span>
                 </h2>
-                <p className="text-sm font-medium text-foreground/80">Let our experts bring out the most beautiful you.</p>
-             </div>
-             
-             <div className="flex flex-wrap gap-4 relative z-10">
-                <Button asChild className="bg-primary hover:bg-primary/90 text-white rounded-md h-12 px-8 text-xs font-bold uppercase tracking-wider shadow-lg shadow-primary/20">
-                  <a href="https://wa.me/917087657000"><Phone className="w-4 h-4 mr-2" /> BOOK ON WHATSAPP</a>
-                </Button>
-                <Button asChild variant="outline" className="border-primary/30 bg-background hover:bg-primary/5 text-foreground rounded-md h-12 px-8 text-xs font-bold uppercase tracking-wider shadow-sm">
-                  <Link href="/book"><Calendar className="w-4 h-4 mr-2 text-primary" /> SCHEDULE APPOINTMENT</Link>
-                </Button>
+                <p className="text-xl text-background/60 max-w-2xl mx-auto font-medium">
+                  Experience the ultimate blend of luxury, skill, and care. 
+                  Book your session at The Glam House today.
+                </p>
+                <div className="flex flex-wrap justify-center gap-6 pt-6">
+                   <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white rounded-full h-16 px-12 text-sm font-bold uppercase tracking-widest shadow-2xl transition-transform hover:scale-105 active:scale-95">
+                     <a href="https://wa.me/917087657000"><Phone className="w-5 h-5 mr-2" /> Book on WhatsApp</a>
+                   </Button>
+                   <Button asChild variant="outline" size="lg" className="border-white/20 bg-white/5 text-white hover:bg-white/10 rounded-full h-16 px-12 text-sm font-bold uppercase tracking-widest transition-all">
+                     <Link href="/book">Schedule Appointment</Link>
+                   </Button>
+                </div>
              </div>
            </div>
         </div>

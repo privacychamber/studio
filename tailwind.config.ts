@@ -11,7 +11,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        body: ['DM Sans', 'sans-serif'],
+        body: ['Poppins', 'sans-serif'],
         headline: ['Playfair Display', 'serif'],
         accent: ['Dancing Script', 'cursive'],
         code: ['monospace'],

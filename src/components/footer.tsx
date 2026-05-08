@@ -17,58 +17,62 @@ const quickLinks = [
 
 export function Footer() {
   return (
-    <footer className="bg-card pt-16 pb-8 border-t border-border mt-auto">
-      <div className="max-w-[1400px] mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+    <footer className="bg-white pt-24 pb-12 border-t border-primary/5 mt-auto relative overflow-hidden">
+      {/* Abstract Background Accent */}
+      <div className="absolute bottom-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-[80px] -mr-32 -mb-32" />
+
+      <div className="max-w-[1500px] mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 lg:gap-12 relative z-10">
         {/* Brand */}
-        <div className="flex flex-col items-start">
-          <Link href="/" className="flex items-center group flex-shrink-0">
-            <div className="w-[120px] h-[120px] relative">
+        <div className="flex flex-col items-start gap-6">
+          <Link href="/" className="flex items-center group transition-transform hover:scale-105">
+            <div className="w-[140px] h-[140px] relative">
               <Image 
                 src="/logo.png" 
                 alt="The Glam House Logo" 
                 fill 
-                className="object-contain drop-shadow-md" 
+                className="object-contain drop-shadow-sm" 
               />
             </div>
           </Link>
+          <p className="text-xs font-medium text-muted-foreground leading-relaxed max-w-xs">
+            Where luxury meets skill. We provide premium beauty transformations 
+            and world-class academy training in Mohali.
+          </p>
         </div>
 
         {/* Quick Links */}
-        <div className="grid grid-cols-2 gap-x-4 gap-y-2">
-          <div className="col-span-2">
-             <h3 className="font-bold text-sm uppercase tracking-wider mb-4">QUICK LINKS</h3>
+        <div className="space-y-6">
+          <h3 className="font-bold text-xs uppercase tracking-[0.3em] text-primary">QUICK LINKS</h3>
+          <div className="grid grid-cols-2 gap-y-3">
+            {quickLinks.map((link) => (
+              <Link key={link.name} href={link.href} className="text-foreground/70 hover:text-primary transition-all text-[11px] font-bold tracking-wider uppercase">
+                {link.name}
+              </Link>
+            ))}
           </div>
-          {quickLinks.slice(0, 4).map((link) => (
-            <Link key={link.name} href={link.href} className="text-muted-foreground hover:text-primary transition-colors text-xs font-semibold">
-              {link.name}
-            </Link>
-          ))}
-          {quickLinks.slice(4).map((link) => (
-            <Link key={link.name} href={link.href} className="text-muted-foreground hover:text-primary transition-colors text-xs font-semibold">
-              {link.name}
-            </Link>
-          ))}
         </div>
 
         {/* Contact Us */}
-        <div>
-          <h3 className="font-bold text-sm uppercase tracking-wider mb-4">CONTACT US</h3>
-          <ul className="space-y-4">
-            <li className="flex items-start gap-3">
-              <Phone className="w-4 h-4 text-foreground shrink-0 mt-0.5" />
-              <div className="text-xs">
-                <a href="tel:+917087657000" className="text-muted-foreground hover:text-primary transition-colors font-semibold">70876 57000</a>
+        <div className="space-y-6">
+          <h3 className="font-bold text-xs uppercase tracking-[0.3em] text-primary">CONTACT US</h3>
+          <ul className="space-y-5">
+            <li className="flex items-start gap-4">
+              <div className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center flex-shrink-0">
+                <Phone className="w-3.5 h-3.5 text-primary" />
               </div>
+              <a href="tel:+917087657000" className="text-foreground/80 hover:text-primary transition-colors text-[11px] font-bold tracking-wider mt-2">70876 57000</a>
             </li>
-            <li className="flex items-start gap-3">
-              <Mail className="w-4 h-4 text-foreground shrink-0 mt-0.5" />
-              <div className="text-xs">
-                <a href="mailto:theglamhouse.salon@gmail.com" className="text-muted-foreground hover:text-primary transition-colors font-semibold break-all">theglamhouse.salon@gmail.com</a>
+            <li className="flex items-start gap-4">
+              <div className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center flex-shrink-0">
+                <Mail className="w-3.5 h-3.5 text-primary" />
               </div>
+              <a href="mailto:theglamhouse.salon@gmail.com" className="text-foreground/80 hover:text-primary transition-colors text-[11px] font-bold tracking-wider mt-2 break-all">theglamhouse.salon@gmail.com</a>
             </li>
-            <li className="flex items-start gap-3">
-              <MapPin className="w-4 h-4 text-foreground shrink-0 mt-0.5" />
-              <p className="text-muted-foreground text-xs font-semibold leading-relaxed">
+            <li className="flex items-start gap-4">
+              <div className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center flex-shrink-0">
+                <MapPin className="w-3.5 h-3.5 text-primary" />
+              </div>
+              <p className="text-foreground/80 text-[11px] font-bold tracking-wider leading-relaxed mt-2">
                 Sco No. 122, Phase 1&2, M&M Market,<br />Sector 60, Mohali, Punjab 160059
               </p>
             </li>
@@ -76,30 +80,30 @@ export function Footer() {
         </div>
 
         {/* Follow Us */}
-        <div>
-          <h3 className="font-bold text-sm uppercase tracking-wider mb-4">FOLLOW US</h3>
-          <div className="flex gap-3">
-            <a href="https://instagram.com/the_glam_house_salon" target="_blank" className="w-8 h-8 rounded-full bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-500 flex items-center justify-center text-white hover:scale-110 transition-transform shadow-md">
-              <Instagram className="w-4 h-4" />
-            </a>
-            <a href="#" className="w-8 h-8 rounded-full bg-[#1877F2] flex items-center justify-center text-white hover:scale-110 transition-transform shadow-md">
-              <Facebook className="w-4 h-4 fill-current border-none" />
-            </a>
-            <a href="#" className="w-8 h-8 rounded-full bg-[#FF0000] flex items-center justify-center text-white hover:scale-110 transition-transform shadow-md">
-              <Youtube className="w-4 h-4 fill-current" />
-            </a>
-            <a href="https://wa.me/917087657000" target="_blank" className="w-8 h-8 rounded-full bg-[#25D366] flex items-center justify-center text-white hover:scale-110 transition-transform shadow-md">
-               <Phone className="w-4 h-4 fill-current" />
-            </a>
+        <div className="space-y-6">
+          <h3 className="font-bold text-xs uppercase tracking-[0.3em] text-primary">FOLLOW US</h3>
+          <div className="flex gap-4">
+            {[
+              { icon: Instagram, href: "https://instagram.com/the_glam_house_salon", color: "from-yellow-400 via-pink-500 to-purple-500" },
+              { icon: Facebook, href: "#", color: "bg-[#1877F2]" },
+              { icon: Youtube, href: "#", color: "bg-[#FF0000]" },
+              { icon: Phone, href: "https://wa.me/917087657000", color: "bg-[#25D366]" }
+            ].map((social, i) => (
+              <a key={i} href={social.href} target="_blank" className={cn(
+                "w-10 h-10 rounded-full flex items-center justify-center text-white hover:scale-110 transition-all shadow-lg bg-gradient-to-tr",
+                social.color
+              )}>
+                <social.icon className="w-4 h-4" />
+              </a>
+            ))}
           </div>
         </div>
       </div>
 
-      <div className="max-w-[1400px] mx-auto px-4 mt-12 pt-6 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] text-muted-foreground font-semibold">
+      <div className="max-w-[1500px] mx-auto px-6 mt-20 pt-8 border-t border-primary/5 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] text-muted-foreground font-bold tracking-[0.1em] uppercase">
         <p>© 2024 The Glam House Salon & Academy. All Rights Reserved.</p>
-        <div className="flex gap-4">
+        <div className="flex gap-6">
            <Link href="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link>
-           <span>|</span>
            <Link href="/terms" className="hover:text-primary transition-colors">Terms & Conditions</Link>
         </div>
       </div>
