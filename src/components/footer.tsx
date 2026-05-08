@@ -25,12 +25,12 @@ export function Footer() {
         {/* Brand */}
         <div className="flex flex-col items-start gap-6">
           <Link href="/" className="flex items-center group transition-transform hover:scale-105">
-            <div className="w-[140px] h-[140px] relative">
+            <div className="w-[120px] h-[120px] relative bg-white rounded-full p-2 shadow-md border border-primary/5">
               <Image 
                 src="/logo.png" 
                 alt="The Glam House Logo" 
                 fill 
-                className="object-contain drop-shadow-sm" 
+                className="object-contain p-2" 
               />
             </div>
           </Link>

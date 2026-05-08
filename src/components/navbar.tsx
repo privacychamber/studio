@@ -63,15 +63,17 @@ export function Navbar() {
     >
       <div className="max-w-[1500px] mx-auto flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center group flex-shrink-0 transition-transform hover:scale-105">
-          <Image 
-            src="/logo.png" 
-            alt="The Glam House Logo" 
-            width={140} 
-            height={140} 
-            className="w-[90px] h-[90px] md:w-[120px] md:h-[120px] object-contain drop-shadow-sm" 
-            priority
-          />
+        <Link href="/" className="flex items-center group flex-shrink-0 transition-transform hover:scale-105 relative z-10">
+          <div className="bg-white p-2 rounded-full shadow-lg border border-primary/10">
+            <Image 
+              src="/logo.png" 
+              alt="The Glam House Logo" 
+              width={140} 
+              height={140} 
+              className="w-[70px] h-[70px] md:w-[90px] md:h-[90px] object-contain" 
+              priority
+            />
+          </div>
         </Link>
 
         {/* Desktop Nav */}
