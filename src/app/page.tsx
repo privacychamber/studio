@@ -4,7 +4,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { motion } from "framer-motion"
-import { ArrowRight, Check, Star, Instagram, Calendar, GraduationCap, MapPin, ShieldCheck, User, Sparkles, Heart } from "lucide-react"
+import { ArrowRight, Check, Star, Instagram, Calendar, GraduationCap, MapPin, ShieldCheck, User, Sparkles, Heart, Phone } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
