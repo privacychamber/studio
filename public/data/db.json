@@ -5,126 +5,126 @@
       "title": "Keratin Treatment",
       "desc": "Transform your hair with our premium keratin treatment for smooth, frizz-free results.",
       "price": "Starting ₹1,999/-",
-      "imageUrl": "/images/IMG_1401.JPG.jpeg"
+      "imageUrl": "/studio/images/IMG_1401.JPG.jpeg"
     },
     {
       "id": "2",
       "title": "Smoothing Treatment",
       "desc": "Get silky-smooth, manageable hair with our professional smoothing therapy.",
       "price": "Starting ₹1,999/-",
-      "imageUrl": "/images/IMG_1796.JPG.jpeg"
+      "imageUrl": "/studio/images/IMG_1796.JPG.jpeg"
     },
     {
       "id": "3",
       "title": "Nail Art",
       "desc": "Beautiful, creative nail art designs crafted with precision by our experts.",
       "price": "Starting ₹500/-",
-      "imageUrl": "/images/IMG_3592.PNG"
+      "imageUrl": "/studio/images/IMG_3592.PNG"
     },
     {
       "id": "4",
       "title": "Facial",
       "desc": "Rejuvenate your skin with our luxury facial treatments for a radiant glow.",
       "price": "Starting ₹1,000/-",
-      "imageUrl": "/images/IMG_2831.JPG.jpeg"
+      "imageUrl": "/studio/images/IMG_2831.JPG.jpeg"
     },
     {
       "id": "5",
       "title": "Mani Pedicure",
       "desc": "Pamper your hands and feet with our relaxing manicure and pedicure sessions.",
       "price": "Starting ₹1,000/-",
-      "imageUrl": "/images/IMG_3593.PNG"
+      "imageUrl": "/studio/images/IMG_3593.PNG"
     },
     {
       "id": "6",
       "title": "Hair Colour",
       "desc": "Expert color formulation for a stunning, dimensional look that suits you.",
       "price": "Price on Consultation",
-      "imageUrl": "/images/IMG_1413.JPG.jpeg"
+      "imageUrl": "/studio/images/IMG_1413.JPG.jpeg"
     },
     {
       "id": "7",
       "title": "Root Touch-Up",
       "desc": "Refresh your look with a precise root touch-up to cover greys and regrowth.",
       "price": "Price on Consultation",
-      "imageUrl": "/images/IMG_1404.JPG.jpeg"
+      "imageUrl": "/studio/images/IMG_1404.JPG.jpeg"
     },
     {
       "id": "8",
       "title": "Makeup",
       "desc": "Professional makeup for all occasions — bridal, party, editorial, and more.",
       "price": "Price on Consultation",
-      "imageUrl": "/images/IMG_0584.JPG.jpeg"
+      "imageUrl": "/studio/images/IMG_0584.JPG.jpeg"
     },
     {
       "id": "9",
       "title": "Eyelash Extensions",
       "desc": "Wake up with flawless, voluminous lashes every single day.",
       "price": "Price on Consultation",
-      "imageUrl": "/images/IMG_2515.JPG.jpeg"
+      "imageUrl": "/studio/images/IMG_2515.JPG.jpeg"
     },
     {
       "id": "10",
       "title": "Botox Treatment",
       "desc": "Smooth away fine lines and wrinkles with our professional botox treatments.",
       "price": "Price on Consultation",
-      "imageUrl": "/images/IMG_4260.JPG.jpeg"
+      "imageUrl": "/studio/images/IMG_4260.JPG.jpeg"
     },
     {
       "id": "11",
       "title": "Silk Therapy",
       "desc": "Restore your hair's natural shine and softness with our silk therapy treatment.",
       "price": "Price on Consultation",
-      "imageUrl": "/images/IMG_1405.JPG.jpeg"
+      "imageUrl": "/studio/images/IMG_1405.JPG.jpeg"
     },
     {
       "id": "12",
       "title": "Men's Beard Styling",
       "desc": "Precision beard shaping and grooming for the modern gentleman.",
       "price": "Price on Consultation",
-      "imageUrl": "/images/IMG_1536.JPG.jpeg"
+      "imageUrl": "/studio/images/IMG_1536.JPG.jpeg"
     },
     {
       "id": "13",
       "title": "Hair Cut",
       "desc": "Expert haircuts tailored to your face shape and personal style.",
       "price": "Price on Consultation",
-      "imageUrl": "/images/IMG_1403.JPG.jpeg"
+      "imageUrl": "/studio/images/IMG_1403.JPG.jpeg"
     },
     {
       "id": "14",
       "title": "Lip Blush",
       "desc": "Enhance your lips with our semi-permanent lip blush for a natural tinted look.",
       "price": "Price on Consultation",
-      "imageUrl": "/images/IMG_1538.JPG.jpeg"
+      "imageUrl": "/studio/images/IMG_1538.JPG.jpeg"
     },
     {
       "id": "15",
       "title": "Microblading",
       "desc": "Get perfectly shaped, natural-looking semi-permanent brows that frame your face.",
       "price": "Price on Consultation",
-      "imageUrl": "/images/IMG_3132.JPG.jpeg"
+      "imageUrl": "/studio/images/IMG_3132.JPG.jpeg"
     },
     {
       "id": "16",
       "title": "BB Glow",
       "desc": "Get a flawless, glowing complexion with our BB Glow semi-permanent treatment.",
       "price": "Price on Consultation",
-      "imageUrl": "/images/IMG_2515.JPG.jpeg"
+      "imageUrl": "/studio/images/IMG_2515.JPG.jpeg"
     },
     {
       "id": "17",
       "title": "Eyelash Tint",
       "desc": "Darken and define your natural lashes with our professional eyelash tinting.",
       "price": "Price on Consultation",
-      "imageUrl": "/images/IMG_0810.JPG.jpeg"
+      "imageUrl": "/studio/images/IMG_0810.JPG.jpeg"
     },
     {
       "id": "18",
       "title": "Eyebrow Tint",
       "desc": "Define and fill in your brows with a long-lasting professional eyebrow tint.",
       "price": "Price on Consultation",
-      "imageUrl": "/images/IMG_1633.JPG.jpeg"
+      "imageUrl": "/studio/images/IMG_1633.JPG.jpeg"
     }
   ],
   "courses": [
@@ -133,56 +133,56 @@
       "title": "MICROBLADING COURSE",
       "duration": "Intensive Training",
       "price": "₹30,000/-",
-      "imageUrl": "/images/IMG_2856.JPG.jpeg"
+      "imageUrl": "/studio/images/IMG_2856.JPG.jpeg"
     },
     {
       "id": "2",
       "title": "LIP BLUSH COURSE",
       "duration": "Professional Training",
       "price": "₹20,000/-",
-      "imageUrl": "/images/IMG_2853.JPG.jpeg"
+      "imageUrl": "/studio/images/IMG_2853.JPG.jpeg"
     },
     {
       "id": "3",
       "title": "COMPLETE PMU COURSE",
       "duration": "Comprehensive",
       "price": "₹50,000/-",
-      "imageUrl": "/images/IMG_4490.JPG.jpeg"
+      "imageUrl": "/studio/images/IMG_4490.JPG.jpeg"
     },
     {
       "id": "4",
       "title": "NAIL COURSE",
       "duration": "15 Days",
       "price": "₹15,000/-",
-      "imageUrl": "/images/IMG_3594.PNG"
+      "imageUrl": "/studio/images/IMG_3594.PNG"
     },
     {
       "id": "5",
       "title": "EYELASH COURSE",
       "duration": "7 Days",
       "price": "₹10,000/-",
-      "imageUrl": "/images/IMG_0810.JPG.jpeg"
+      "imageUrl": "/studio/images/IMG_0810.JPG.jpeg"
     },
     {
       "id": "6",
       "title": "MAKEUP COURSE",
       "duration": "Professional Training",
       "price": "₹20,000/-",
-      "imageUrl": "/images/IMG_0722.JPG.jpeg"
+      "imageUrl": "/studio/images/IMG_0722.JPG.jpeg"
     },
     {
       "id": "7",
       "title": "HAIR COURSE",
       "duration": "Comprehensive",
       "price": "₹45,000/-",
-      "imageUrl": "/images/IMG_1401.JPG.jpeg"
+      "imageUrl": "/studio/images/IMG_1401.JPG.jpeg"
     },
     {
       "id": "8",
       "title": "BEAUTY COURSE",
       "duration": "Complete Program",
       "price": "₹15,000/-",
-      "imageUrl": "/images/IMG_0568.JPG.jpeg"
+      "imageUrl": "/studio/images/IMG_0568.JPG.jpeg"
     }
   ],
   "testimonials": [
@@ -219,20 +219,20 @@
     {
       "id": "1",
       "category": "BRIDAL MAKEUP",
-      "beforeImage": "/images/IMG_0722.JPG.jpeg",
-      "afterImage": "/images/IMG_0584.JPG.jpeg"
+      "beforeImage": "/studio/images/IMG_0722.JPG.jpeg",
+      "afterImage": "/studio/images/IMG_0584.JPG.jpeg"
     },
     {
       "id": "2",
       "category": "MICROBLADING",
-      "beforeImage": "/images/IMG_2856.JPG.jpeg",
-      "afterImage": "/images/IMG_1633.JPG.jpeg"
+      "beforeImage": "/studio/images/IMG_2856.JPG.jpeg",
+      "afterImage": "/studio/images/IMG_1633.JPG.jpeg"
     },
     {
       "id": "3",
       "category": "LIP BLUSH",
-      "beforeImage": "/images/IMG_1536.JPG.jpeg",
-      "afterImage": "/images/IMG_1538.JPG.jpeg"
+      "beforeImage": "/studio/images/IMG_1536.JPG.jpeg",
+      "afterImage": "/studio/images/IMG_1538.JPG.jpeg"
     }
   ]
 }

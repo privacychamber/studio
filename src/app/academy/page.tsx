@@ -16,7 +16,7 @@ const courses = [
     duration: "Intensive Training",
     batch: "PMU Series",
     price: "₹30,000/-",
-    imgUrl: "/images/IMG_2856.JPG.jpeg",
+    imgUrl: "/studio/images/IMG_2856.JPG.jpeg",
     features: ["Skin Anatomy", "Blade Techniques", "Color Theory", "Live Model Practice"]
   },
   {
@@ -25,7 +25,7 @@ const courses = [
     duration: "Professional Training",
     batch: "PMU Series",
     price: "₹20,000/-",
-    imgUrl: "/images/IMG_2853.JPG.jpeg",
+    imgUrl: "/studio/images/IMG_2853.JPG.jpeg",
     features: ["Lip Anatomy", "Pigment Mixing", "Machine Technique", "Healing Process"]
   },
   {
@@ -34,7 +34,7 @@ const courses = [
     duration: "Comprehensive",
     batch: "Best Value",
     price: "₹50,000/-",
-    imgUrl: "/images/IMG_4490.JPG.jpeg",
+    imgUrl: "/studio/images/IMG_4490.JPG.jpeg",
     features: ["Microblading", "Lip Blush", "Machine Work", "Portfolio Building"]
   },
   {
@@ -43,7 +43,7 @@ const courses = [
     duration: "15 Days",
     batch: "Limited Seats",
     price: "₹15,000/-",
-    imgUrl: "/images/IMG_3594.PNG",
+    imgUrl: "/studio/images/IMG_3594.PNG",
     features: ["Gel Nails & Art", "Acrylic Extensions", "Product Knowledge", "Business Setup Tips"]
   },
   {
@@ -52,7 +52,7 @@ const courses = [
     duration: "7 Days",
     batch: "Practical Focus",
     price: "₹10,000/-",
-    imgUrl: "/images/IMG_0810.JPG.jpeg",
+    imgUrl: "/studio/images/IMG_0810.JPG.jpeg",
     features: ["Classic & Volume", "Lash Mapping", "Safety & Hygiene", "Maintenance Guide"]
   },
   {
@@ -61,7 +61,7 @@ const courses = [
     duration: "Professional Training",
     batch: "Beginner Friendly",
     price: "₹20,000/-",
-    imgUrl: "/images/IMG_0722.JPG.jpeg",
+    imgUrl: "/studio/images/IMG_0722.JPG.jpeg",
     features: ["HD Makeup", "Bridal Looks", "Skin Prep", "Color Theory"]
   },
   {
@@ -70,7 +70,7 @@ const courses = [
     duration: "Comprehensive",
     batch: "Advanced",
     price: "₹45,000/-",
-    imgUrl: "/images/IMG_1401.JPG.jpeg",
+    imgUrl: "/studio/images/IMG_1401.JPG.jpeg",
     features: ["Cuts & Styling", "Keratin & Smoothing", "Hair Coloring", "Trichology Basics"]
   },
   {
@@ -79,7 +79,7 @@ const courses = [
     duration: "Complete Program",
     batch: "All-in-One",
     price: "₹15,000/-",
-    imgUrl: "/images/IMG_0568.JPG.jpeg",
+    imgUrl: "/studio/images/IMG_0568.JPG.jpeg",
     features: ["Facials & Skincare", "Waxing & Threading", "Mani-Pedi", "Client Handling"]
   }
 ]

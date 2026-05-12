@@ -70,7 +70,7 @@ export function Navbar() {
         <Link href="/" className="flex items-center group flex-shrink-0 transition-transform hover:scale-105 relative z-10">
           <div className="bg-white p-2 rounded-full shadow-lg border border-primary/10">
             <Image 
-              src="/logo.png" 
+              src="/studio/logo.png" 
               alt="The Glam House Logo" 
               width={140} 
               height={140} 

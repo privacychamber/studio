@@ -13,7 +13,7 @@ const SERVICES_LIST = [
     problem: "Struggling with frizzy, unmanageable hair?",
     solution: "Our Keratin treatment deep-conditions and smooths your hair for weeks.",
     price: "Starting ₹1,999/-",
-    imgUrl: "/images/IMG_1401.JPG.jpeg",
+    imgUrl: "/studio/images/IMG_1401.JPG.jpeg",
     details: ["Eliminates 90% frizz", "Adds intense shine", "Long-lasting results", "Safe for colored hair"]
   },
   {
@@ -21,7 +21,7 @@ const SERVICES_LIST = [
     problem: "Want silky-smooth, salon-straight hair at home?",
     solution: "Professional smoothing therapy for ultra-sleek, frizz-free hair.",
     price: "Starting ₹1,999/-",
-    imgUrl: "/images/IMG_1796.JPG.jpeg",
+    imgUrl: "/studio/images/IMG_1796.JPG.jpeg",
     details: ["Salon-grade formula", "Lasting smoothness", "Zero damage", "Suitable all hair types"]
   },
   {
@@ -29,7 +29,7 @@ const SERVICES_LIST = [
     problem: "Want creative, eye-catching nails?",
     solution: "Stunning nail art designs crafted with precision by our experts.",
     price: "Starting ₹500/-",
-    imgUrl: "/images/IMG_3592.PNG",
+    imgUrl: "/studio/images/IMG_3592.PNG",
     details: ["Gel & acrylic options", "Custom designs", "Long-lasting polish", "Nail health care"]
   },
   {
@@ -37,7 +37,7 @@ const SERVICES_LIST = [
     problem: "Looking for a glowing, refreshed complexion?",
     solution: "Luxury facial treatments to rejuvenate your skin and restore radiance.",
     price: "Starting ₹1,000/-",
-    imgUrl: "/images/IMG_2831.JPG.jpeg",
+    imgUrl: "/studio/images/IMG_2831.JPG.jpeg",
     details: ["Deep cleansing", "Skin brightening", "Anti-aging formulas", "Tailored to skin type"]
   },
   {
@@ -45,7 +45,7 @@ const SERVICES_LIST = [
     problem: "Want perfectly groomed hands and feet?",
     solution: "Relaxing manicure and pedicure sessions for pampered, beautiful results.",
     price: "Starting ₹1,000/-",
-    imgUrl: "/images/IMG_3593.PNG",
+    imgUrl: "/studio/images/IMG_3593.PNG",
     details: ["Cuticle care", "Exfoliation & massage", "Polish of choice", "Soothing soak"]
   },
   {
@@ -53,7 +53,7 @@ const SERVICES_LIST = [
     problem: "Bored with your current hair look?",
     solution: "Expert color formulation for a stunning, dimensional look that suits you.",
     price: "Price on Consultation",
-    imgUrl: "/images/IMG_1413.JPG.jpeg",
+    imgUrl: "/studio/images/IMG_1413.JPG.jpeg",
     details: ["Global coloring", "Balayage experts", "Moisture-lock formulas", "Trend-based styling"]
   },
   {
@@ -61,7 +61,7 @@ const SERVICES_LIST = [
     problem: "Grey roots making an unwelcome appearance?",
     solution: "Precise root touch-up to seamlessly blend and cover regrowth.",
     price: "Price on Consultation",
-    imgUrl: "/images/IMG_1404.JPG.jpeg",
+    imgUrl: "/studio/images/IMG_1404.JPG.jpeg",
     details: ["Perfect color match", "Seamless blending", "Ammonia-free options", "Quick & effective"]
   },
   {
@@ -69,7 +69,7 @@ const SERVICES_LIST = [
     problem: "Want a flawless look for your special occasion?",
     solution: "Professional makeup for bridal, party, editorial, and all special events.",
     price: "Price on Consultation",
-    imgUrl: "/images/IMG_0584.JPG.jpeg",
+    imgUrl: "/studio/images/IMG_0584.JPG.jpeg",
     details: ["Bridal & party looks", "HD & airbrush options", "Long-lasting finish", "Skin-safe products"]
   },
   {
@@ -77,7 +77,7 @@ const SERVICES_LIST = [
     problem: "Wish for longer, fuller lashes without mascara?",
     solution: "Enhance your eyes with our premium, lightweight lash extensions.",
     price: "Price on Consultation",
-    imgUrl: "/images/IMG_2515.JPG.jpeg",
+    imgUrl: "/studio/images/IMG_2515.JPG.jpeg",
     details: ["Classic or Volume", "Safe adhesive", "Customized curl/length", "Lightweight feel"]
   },
   {
@@ -85,7 +85,7 @@ const SERVICES_LIST = [
     problem: "Noticing fine lines and wrinkles?",
     solution: "Smooth and rejuvenate your skin with our professional botox treatments.",
     price: "Price on Consultation",
-    imgUrl: "/images/IMG_4260.JPG.jpeg",
+    imgUrl: "/studio/images/IMG_4260.JPG.jpeg",
     details: ["Reduces fine lines", "Non-surgical", "Quick procedure", "Natural-looking results"]
   },
   {
@@ -93,7 +93,7 @@ const SERVICES_LIST = [
     problem: "Is your hair dry, dull and lifeless?",
     solution: "Restore your hair's natural shine and softness with our silk therapy.",
     price: "Price on Consultation",
-    imgUrl: "/images/IMG_1405.JPG.jpeg",
+    imgUrl: "/studio/images/IMG_1405.JPG.jpeg",
     details: ["Deep hydration", "Frizz control", "Mirror-like shine", "Heat protection"]
   },
   {
@@ -101,7 +101,7 @@ const SERVICES_LIST = [
     problem: "Want a sharp, well-groomed beard?",
     solution: "Precision beard shaping and grooming for the modern gentleman.",
     price: "Price on Consultation",
-    imgUrl: "/images/IMG_1536.JPG.jpeg",
+    imgUrl: "/studio/images/IMG_1536.JPG.jpeg",
     details: ["Shape & define", "Beard conditioning", "Precision trimming", "Style consultation"]
   },
   {
@@ -109,7 +109,7 @@ const SERVICES_LIST = [
     problem: "Need a fresh, modern cut that suits your face?",
     solution: "Expert haircuts tailored to your face shape and personal style.",
     price: "Price on Consultation",
-    imgUrl: "/images/IMG_1403.JPG.jpeg",
+    imgUrl: "/studio/images/IMG_1403.JPG.jpeg",
     details: ["Face-shape analysis", "Trending styles", "Blowdry finish", "Styling advice"]
   },
   {
@@ -117,7 +117,7 @@ const SERVICES_LIST = [
     problem: "Want naturally tinted, fuller-looking lips?",
     solution: "Semi-permanent lip blush for a natural, lasting tinted look.",
     price: "Price on Consultation",
-    imgUrl: "/images/IMG_1538.JPG.jpeg",
+    imgUrl: "/studio/images/IMG_1538.JPG.jpeg",
     details: ["Semi-permanent", "Custom shade mixing", "Natural finish", "Long-lasting color"]
   },
   {
@@ -125,7 +125,7 @@ const SERVICES_LIST = [
     problem: "Tired of drawing your eyebrows every morning?",
     solution: "Get perfectly shaped, natural-looking semi-permanent brows.",
     price: "Price on Consultation",
-    imgUrl: "/images/IMG_3132.JPG.jpeg",
+    imgUrl: "/studio/images/IMG_3132.JPG.jpeg",
     details: ["Natural hair strokes", "Custom pigment matching", "Lasts 1-2 years", "Virtually painless"]
   },
   {
@@ -133,7 +133,7 @@ const SERVICES_LIST = [
     problem: "Dreaming of a filter-like glowing complexion?",
     solution: "Semi-permanent BB glow treatment for a radiant, poreless finish.",
     price: "Price on Consultation",
-    imgUrl: "/images/IMG_2930.JPG.jpeg",
+    imgUrl: "/studio/images/IMG_2930.JPG.jpeg",
     details: ["Even skin tone", "Luminous glow", "Semi-permanent", "Skin nourishing"]
   },
   {
@@ -141,7 +141,7 @@ const SERVICES_LIST = [
     problem: "Want dark, defined lashes without mascara?",
     solution: "Professional eyelash tinting to darken and define your natural lashes.",
     price: "Price on Consultation",
-    imgUrl: "/images/IMG_0810.JPG.jpeg",
+    imgUrl: "/studio/images/IMG_0810.JPG.jpeg",
     details: ["Long-lasting color", "Safe formula", "Natural enhancement", "Quick service"]
   },
   {
@@ -149,7 +149,7 @@ const SERVICES_LIST = [
     problem: "Want bold, well-defined brows instantly?",
     solution: "Professional eyebrow tinting for fuller, more defined brows.",
     price: "Price on Consultation",
-    imgUrl: "/images/IMG_1633.JPG.jpeg",
+    imgUrl: "/studio/images/IMG_1633.JPG.jpeg",
     details: ["Custom shade match", "Lasts 3-4 weeks", "Defines brow shape", "Quick & easy"]
   }
 ]
