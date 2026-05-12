@@ -32,7 +32,7 @@ export function Footer() {
           <Link href="/" className="flex items-center group transition-transform hover:scale-105">
             <div className="w-[120px] h-[120px] relative bg-white rounded-full p-2 shadow-md border border-primary/5">
               <Image 
-                src="/logo.png" 
+                src="/studio/logo.png" 
                 alt="The Glam House Logo" 
                 fill 
                 className="object-contain p-2" 

@@ -119,7 +119,7 @@ export default function HomePage() {
                  className="relative w-full max-w-[450px] lg:max-w-[550px] h-[90%] rounded-full overflow-hidden shadow-[0_50px_100px_-20px_rgba(0,0,0,0.25)] border-[12px] border-white z-10"
                >
                  <Image
-                    src="https://images.unsplash.com/photo-1596415901403-22390175973f?auto=format&fit=crop&q=80&w=800"
+                    src="/studio/images/IMG_0584.JPG.jpeg"
                     alt="Luxury Beauty Model"
                     fill
                     className="object-cover"
@@ -237,11 +237,11 @@ export default function HomePage() {
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <div className="grid grid-cols-2 gap-4">
                 <div className="relative aspect-[3/4] rounded-[2rem] overflow-hidden shadow-xl">
-                  <Image src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&q=80&w=800" alt="Training" fill className="object-cover" />
+                  <Image src="/studio/images/IMG_1413.JPG.jpeg" alt="Training" fill className="object-cover" />
                 </div>
                 <div className="space-y-4 pt-12">
                   <div className="relative aspect-square rounded-[2rem] overflow-hidden shadow-xl">
-                    <Image src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&fit=crop&q=80&w=800" alt="Practical" fill className="object-cover" />
+                    <Image src="/studio/images/IMG_0722.JPG.jpeg" alt="Practical" fill className="object-cover" />
                   </div>
                   <div className="relative aspect-[3/2] rounded-[2rem] overflow-hidden shadow-xl bg-accent p-6 flex flex-col justify-center text-white">
                     <p className="text-3xl font-bold mb-1">100%</p>
