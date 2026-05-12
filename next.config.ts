@@ -2,6 +2,8 @@ import type {NextConfig} from 'next';
 
 const nextConfig: NextConfig = {
   output: 'export',       // Static HTML export for Namecheap shared hosting
+  basePath: '/studio',    // Essential for GitHub Pages subfolder hosting
+  assetPrefix: '/studio', // Essential for GitHub Pages subfolder hosting
   trailingSlash: true,   // Ensures /about -> /about/index.html (Apache friendly)
   transpilePackages: ['tailwind-merge', 'clsx'], // Force CJS resolution for static export
   typescript: {

@@ -18,16 +18,19 @@ export default function HomePage() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    // On Namecheap: fetches from /api/data.php (PHP backend)
-    // On local dev: fetches from /api/data (Next.js API route)
-    const apiUrl = process.env.NODE_ENV === 'production' ? '/api/data.php' : '/api/data'
+    const apiUrl = process.env.NODE_ENV === 'production' ? '/studio/data/db.json' : '/api/data'
     fetch(apiUrl)
       .then(res => res.json())
       .then(db => {
-        setData(db)
+        if (db && db.services) {
+          setData(db)
+        }
         setLoading(false)
       })
-      .catch(() => setLoading(false))
+      .catch((err) => {
+        console.error("Data fetch error:", err)
+        setLoading(false)
+      })
   }, [])
 
   const fadeInUp = {
@@ -40,7 +43,7 @@ export default function HomePage() {
     show: { opacity: 1, transition: { staggerChildren: 0.2 } }
   }
 
-  if (loading) return (
+  if (loading || !data) return (
     <div className="min-h-screen flex items-center justify-center bg-background">
       <Loader2 className="w-12 h-12 animate-spin text-primary" />
     </div>

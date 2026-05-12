@@ -16,14 +16,19 @@ export default function AdminDashboard() {
   const [uploadingImage, setUploadingImage] = useState<{ [key: string]: boolean }>({})
 
   useEffect(() => {
-    const apiUrl = process.env.NODE_ENV === 'production' ? '/api/data.php' : '/api/data'
+    const apiUrl = process.env.NODE_ENV === 'production' ? '/studio/data/db.json' : '/api/data'
     fetch(apiUrl)
       .then(res => res.json())
       .then(db => {
-        setData(db)
+        if (db && db.services) {
+          setData(db)
+        }
         setLoading(false)
       })
-      .catch(() => setLoading(false))
+      .catch((err) => {
+        console.error("Admin data fetch error:", err)
+        setLoading(false)
+      })
   }, [])
 
   const handleSave = async () => {
@@ -101,7 +106,7 @@ export default function AdminDashboard() {
     })
   }
 
-  if (loading) return <div className="flex justify-center p-12"><Loader2 className="w-8 h-8 animate-spin text-primary" /></div>
+  if (loading || !data) return <div className="flex justify-center p-12"><Loader2 className="w-8 h-8 animate-spin text-primary" /></div>
 
   return (
     <div className="space-y-6 pb-24">
