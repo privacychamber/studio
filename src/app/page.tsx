@@ -18,12 +18,16 @@ export default function HomePage() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    fetch('/api/data')
+    // On Namecheap: fetches from /api/data.php (PHP backend)
+    // On local dev: fetches from /api/data (Next.js API route)
+    const apiUrl = process.env.NODE_ENV === 'production' ? '/api/data.php' : '/api/data'
+    fetch(apiUrl)
       .then(res => res.json())
       .then(db => {
         setData(db)
         setLoading(false)
       })
+      .catch(() => setLoading(false))
   }, [])
 
   const fadeInUp = {

@@ -16,20 +16,29 @@ export default function AdminDashboard() {
   const [uploadingImage, setUploadingImage] = useState<{ [key: string]: boolean }>({})
 
   useEffect(() => {
-    fetch('/api/data')
+    const apiUrl = process.env.NODE_ENV === 'production' ? '/api/data.php' : '/api/data'
+    fetch(apiUrl)
       .then(res => res.json())
       .then(db => {
         setData(db)
         setLoading(false)
       })
+      .catch(() => setLoading(false))
   }, [])
 
   const handleSave = async () => {
     setSaving(true)
+    // Use PHP endpoint in production, Next.js route in dev
+    const apiUrl = process.env.NODE_ENV === 'production' ? '/api/data.php' : '/api/data'
+    const headers: Record<string, string> = { 'Content-Type': 'application/json' }
+    if (process.env.NODE_ENV === 'production') {
+      // Password is embedded at build time - change in php-backend/api/config.php
+      headers['X-Admin-Password'] = process.env.NEXT_PUBLIC_ADMIN_PASSWORD || 'GlamHouse@Admin2024'
+    }
     try {
-      await fetch('/api/data', {
+      await fetch(apiUrl, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers,
         body: JSON.stringify(data)
       })
       alert("Changes saved successfully!")
@@ -49,8 +58,13 @@ export default function AdminDashboard() {
     const formData = new FormData()
     formData.append('file', file)
 
+    const uploadUrl = process.env.NODE_ENV === 'production' ? '/api/upload.php' : '/api/upload'
+    const uploadHeaders: Record<string, string> = {}
+    if (process.env.NODE_ENV === 'production') {
+      uploadHeaders['X-Admin-Password'] = process.env.NEXT_PUBLIC_ADMIN_PASSWORD || 'GlamHouse@Admin2024'
+    }
     try {
-      const res = await fetch('/api/upload', { method: 'POST', body: formData })
+      const res = await fetch(uploadUrl, { method: 'POST', headers: uploadHeaders, body: formData })
       const { url } = await res.json()
       
       if (url) {

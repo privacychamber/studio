@@ -1,0 +1,63 @@
+# ============================================================
+# .htaccess — Glam House Studio (Namecheap Shared Hosting)
+# Place this in your public_html/ root
+# ============================================================
+
+Options -Indexes
+Options +FollowSymLinks
+
+# --- PHP Settings ---
+php_value upload_max_filesize 10M
+php_value post_max_size 12M
+php_value max_execution_time 30
+
+# --- Compression ---
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json
+</IfModule>
+
+# --- Caching ---
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/webp "access plus 1 month"
+  ExpiresByType text/css "access plus 1 week"
+  ExpiresByType application/javascript "access plus 1 week"
+</IfModule>
+
+# --- Security Headers ---
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# --- Rewrites ---
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Serve existing files and directories as-is
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Route /api/data      -> api/data.php
+  RewriteRule ^api/data/?$ api/data.php [L,QSA]
+
+  # Route /api/upload    -> api/upload.php
+  RewriteRule ^api/upload/?$ api/upload.php [L,QSA]
+
+  # SPA-style fallback: route all other clean URLs to their index.html
+  # (Next.js static export creates /about/index.html, etc.)
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^(.+)/?$ /$1/index.html [L]
+</IfModule>
+
+# --- Prevent direct access to PHP config ---
+<Files "config.php">
+  Order Allow,Deny
+  Deny from all
+</Files>

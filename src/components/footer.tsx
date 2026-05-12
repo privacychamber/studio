@@ -5,6 +5,11 @@ import Link from "next/link"
 import Image from "next/image"
 import { Instagram, Facebook, Youtube, Phone, Mail, MapPin } from "lucide-react"
 
+// Inlined to avoid ESM bundling issues during static pre-rendering
+function cn(...classes: (string | boolean | undefined | null)[]): string {
+  return classes.filter(Boolean).join(' ')
+}
+
 const quickLinks = [
   { name: "Home", href: "/" },
   { name: "Services", href: "/services" },

@@ -2,6 +2,9 @@ import { NextResponse } from 'next/server'
 import fs from 'fs'
 import path from 'path'
 
+// Excluded from static export — replaced by PHP backend on production
+export const dynamic = 'force-dynamic'
+
 export async function POST(request: Request) {
   try {
     const formData = await request.formData()

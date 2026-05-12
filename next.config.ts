@@ -1,7 +1,9 @@
 import type {NextConfig} from 'next';
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  output: 'export',       // Static HTML export for Namecheap shared hosting
+  trailingSlash: true,   // Ensures /about -> /about/index.html (Apache friendly)
+  transpilePackages: ['tailwind-merge', 'clsx'], // Force CJS resolution for static export
   typescript: {
     ignoreBuildErrors: true,
   },

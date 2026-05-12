@@ -1,6 +1,9 @@
 import { NextResponse } from 'next/server'
 import { getDbData, saveDbData } from '@/lib/db'
 
+// This route is excluded from static export (replaced by PHP backend on production)
+export const dynamic = 'force-dynamic'
+
 export async function GET() {
   const data = getDbData()
   return NextResponse.json(data)

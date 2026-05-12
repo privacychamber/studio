@@ -8,44 +8,79 @@ import { Check, GraduationCap, Users, Trophy, BookOpen, ArrowRight, Star } from 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { PlaceHolderImages } from "@/lib/placeholder-images"
 
 const courses = [
   {
+    id: "microblading",
+    title: "Microblading Course",
+    duration: "Intensive Training",
+    batch: "PMU Series",
+    price: "₹30,000/-",
+    imgUrl: "/images/IMG_2856.JPG.jpeg",
+    features: ["Skin Anatomy", "Blade Techniques", "Color Theory", "Live Model Practice"]
+  },
+  {
+    id: "lip-blush",
+    title: "Lip Blush Course",
+    duration: "Professional Training",
+    batch: "PMU Series",
+    price: "₹20,000/-",
+    imgUrl: "/images/IMG_2853.JPG.jpeg",
+    features: ["Lip Anatomy", "Pigment Mixing", "Machine Technique", "Healing Process"]
+  },
+  {
+    id: "pmu",
+    title: "Complete PMU Course",
+    duration: "Comprehensive",
+    batch: "Best Value",
+    price: "₹50,000/-",
+    imgUrl: "/images/IMG_4490.JPG.jpeg",
+    features: ["Microblading", "Lip Blush", "Machine Work", "Portfolio Building"]
+  },
+  {
     id: "nail",
-    title: "Nail Art Masterclass",
+    title: "Nail Course",
     duration: "15 Days",
     batch: "Limited Seats",
-    price: "₹14,999/-",
-    img: PlaceHolderImages.find(i => i.id === "nail-course"),
+    price: "₹15,000/-",
+    imgUrl: "/images/IMG_3594.PNG",
     features: ["Gel Nails & Art", "Acrylic Extensions", "Product Knowledge", "Business Setup Tips"]
   },
   {
     id: "lash",
-    title: "Eyelash Extension Course",
+    title: "Eyelash Course",
     duration: "7 Days",
     batch: "Practical Focus",
-    price: "₹9,999/-",
-    img: PlaceHolderImages.find(i => i.id === "lash-course"),
+    price: "₹10,000/-",
+    imgUrl: "/images/IMG_0810.JPG.jpeg",
     features: ["Classic & Volume", "Lash Mapping", "Safety & Hygiene", "Maintenance Guide"]
   },
   {
-    id: "microblading",
-    title: "Professional Microblading",
-    duration: "10 Days",
-    batch: "Intensive Training",
-    price: "₹18,999/-",
-    img: PlaceHolderImages.find(i => i.id === "microblading"),
-    features: ["Skin Anatomy", "Blade Techniques", "Color Theory", "Live Model Practice"]
+    id: "makeup",
+    title: "Makeup Course",
+    duration: "Professional Training",
+    batch: "Beginner Friendly",
+    price: "₹20,000/-",
+    imgUrl: "/images/IMG_0722.JPG.jpeg",
+    features: ["HD Makeup", "Bridal Looks", "Skin Prep", "Color Theory"]
   },
   {
-    id: "pmu",
-    title: "Advance Permanent Makeup",
-    duration: "21 Days",
-    batch: "Comprehensive",
-    price: "₹35,000/-",
-    img: PlaceHolderImages.find(i => i.id === "gallery-1"),
-    features: ["Lip Blush", "Microshading", "Machine Work", "Portfolio Building"]
+    id: "hair",
+    title: "Hair Course",
+    duration: "Comprehensive",
+    batch: "Advanced",
+    price: "₹45,000/-",
+    imgUrl: "/images/IMG_1401.JPG.jpeg",
+    features: ["Cuts & Styling", "Keratin & Smoothing", "Hair Coloring", "Trichology Basics"]
+  },
+  {
+    id: "beauty",
+    title: "Beauty Course",
+    duration: "Complete Program",
+    batch: "All-in-One",
+    price: "₹15,000/-",
+    imgUrl: "/images/IMG_0568.JPG.jpeg",
+    features: ["Facials & Skincare", "Waxing & Threading", "Mani-Pedi", "Client Handling"]
   }
 ]
 
@@ -111,7 +146,7 @@ export default function AcademyPage() {
               >
                 <Card className="overflow-hidden border-none shadow-2xl h-full flex flex-col group">
                   <div className="relative aspect-video">
-                    <Image src={course.img?.imageUrl || ""} alt={course.title} fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+                    <Image src={course.imgUrl} alt={course.title} fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
                     <div className="absolute top-4 right-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-lg">
                       {course.batch}
                     </div>

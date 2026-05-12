@@ -5,10 +5,14 @@ import * as React from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Menu, X, Phone, Moon, Sun, Calendar } from "lucide-react"
-import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import Image from "next/image"
+
+// Inlined cn to prevent ESM resolution issues during static pre-rendering
+function cn(...classes: (string | boolean | undefined | null)[]): string {
+  return classes.filter(Boolean).join(' ')
+}
 
 const navLinks = [
   { name: "HOME", href: "/" },
