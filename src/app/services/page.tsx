@@ -215,11 +215,18 @@ export default function ServicesPage() {
                       <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest mb-0.5">Price</p>
                       <p className="text-xl font-bold text-primary">{service.price}</p>
                     </div>
-                    <Button asChild size="sm" className="bg-primary text-white rounded-full px-6 font-bold hover:opacity-90">
-                      <Link href={`/book?service=${service.title.toLowerCase().replace(/ /g, '-')}`}>
-                        Book Now <ArrowRight className="w-4 h-4 ml-1" />
-                      </Link>
-                    </Button>
+                    <div className="flex gap-2">
+                      <Button asChild size="sm" className="bg-primary text-white rounded-full px-5 font-bold hover:opacity-90 text-[10px]">
+                        <Link href={`/book?service=${service.title.toLowerCase().replace(/ /g, '-')}`}>
+                          Book Now
+                        </Link>
+                      </Button>
+                      <Button asChild size="sm" className="bg-[#25D366] hover:bg-[#128C7E] text-white rounded-full px-5 font-bold text-[10px]">
+                        <a href={`https://wa.me/917087657000?text=Hello,%20I%20would%20like%20to%20book%20the%20${encodeURIComponent(service.title)}%20service.`}>
+                          WhatsApp
+                        </a>
+                      </Button>
+                    </div>
                   </div>
                 </div>
               </motion.div>

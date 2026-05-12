@@ -207,9 +207,12 @@ export default function HomePage() {
                       fill 
                       className="object-cover transition-transform duration-1000 group-hover:scale-110" 
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
-                      <Button className="w-full bg-white text-black hover:bg-primary hover:text-white rounded-full font-bold uppercase tracking-widest text-[10px]">
-                        Book Service
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6 gap-3">
+                      <Button asChild className="w-full bg-white text-black hover:bg-primary hover:text-white rounded-full font-bold uppercase tracking-widest text-[10px]">
+                        <Link href={`/book?service=${service.title.toLowerCase().replace(/ /g, '-')}`}>Book Online</Link>
+                      </Button>
+                      <Button asChild className="w-full bg-[#25D366] text-white hover:bg-[#128C7E] rounded-full font-bold uppercase tracking-widest text-[10px] border-none">
+                        <a href={`https://wa.me/917087657000?text=Hello,%20I%20would%20like%20to%20book%20the%20${encodeURIComponent(service.title)}%20service.`}>WhatsApp Booking</a>
                       </Button>
                     </div>
                   </div>
