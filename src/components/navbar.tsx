@@ -81,13 +81,13 @@ export function Navbar() {
         </Link>
 
         {/* Desktop Nav */}
-        <div className="hidden lg:flex items-center gap-8 xl:gap-10 ml-8">
+        <div className="hidden lg:flex items-center gap-4 xl:gap-6 2xl:gap-8 ml-6">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.href}
               className={cn(
-                "text-[12px] font-bold tracking-[0.2em] transition-all hover:text-primary relative group/link",
+                "text-[11px] xl:text-[12px] font-bold tracking-[0.1em] xl:tracking-[0.15em] transition-all hover:text-primary relative group/link",
                 pathname === link.href ? "text-primary" : "text-foreground/80"
               )}
             >
@@ -101,16 +101,16 @@ export function Navbar() {
         </div>
 
         {/* Action Buttons */}
-        <div className="flex items-center gap-4 md:gap-8 ml-auto">
-          <div className="hidden xl:flex flex-col items-end">
+        <div className="flex items-center gap-3 xl:gap-6 ml-auto">
+          <div className="hidden 2xl:flex flex-col items-end">
             <div className="flex items-center gap-1.5 text-[10px] text-primary uppercase font-bold tracking-[0.1em] mb-1">
               <Phone className="w-3 h-3" /> Call / WhatsApp
             </div>
             <a href="tel:+917087657000" className="font-bold text-sm text-foreground hover:text-primary transition-colors tracking-wider">70876 57000</a>
           </div>
 
-          <Button asChild className="hidden sm:flex bg-gradient-to-r from-primary to-accent hover:opacity-90 text-white font-bold rounded-full px-8 h-12 gap-2 text-[10px] uppercase tracking-[0.2em] shadow-xl shadow-primary/20 transition-all hover:scale-105 active:scale-95 border-none">
-            <Link href="/book"><Calendar className="w-4 h-4" /> BOOK APPOINTMENT</Link>
+          <Button asChild className="hidden sm:flex bg-gradient-to-r from-primary to-accent hover:opacity-90 text-white font-bold rounded-full px-4 xl:px-6 h-11 gap-1.5 text-[9px] xl:text-[10px] uppercase tracking-[0.1em] xl:tracking-[0.15em] shadow-xl shadow-primary/20 transition-all hover:scale-105 active:scale-95 border-none">
+            <Link href="/book"><Calendar className="w-3.5 h-3.5" /> BOOK APPOINTMENT</Link>
           </Button>
           
           <Button
