@@ -14,6 +14,31 @@ export default function AdminDashboard() {
   const [loading, setLoading] = useState(true)
   const [saving, setSaving] = useState(false)
   const [uploadingImage, setUploadingImage] = useState<{ [key: string]: boolean }>({})
+  const [password, setPassword] = useState("")
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
+  const [loginError, setLoginError] = useState("")
+
+  useEffect(() => {
+    if (typeof window !== "undefined" && localStorage.getItem("admin_auth") === "true") {
+      setIsAuthenticated(true)
+    }
+  }, [])
+
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault()
+    const correctPassword = process.env.NEXT_PUBLIC_ADMIN_PASSWORD || 'GlamHouse@Admin2024'
+    if (password === correctPassword) {
+      setIsAuthenticated(true)
+      localStorage.setItem("admin_auth", "true")
+    } else {
+      setLoginError("Incorrect password. Please try again.")
+    }
+  }
+
+  const handleLogout = () => {
+    setIsAuthenticated(false)
+    localStorage.removeItem("admin_auth")
+  }
 
   useEffect(() => {
     const apiUrl = process.env.NODE_ENV === 'production' ? '/studio/data/db.json' : '/api/data'
@@ -106,16 +131,48 @@ export default function AdminDashboard() {
     })
   }
 
+  if (!isAuthenticated) {
+    return (
+      <div className="min-h-[70vh] flex items-center justify-center bg-background px-4 pt-16">
+        <Card className="w-full max-w-md bg-white dark:bg-card border border-primary/10 shadow-[0_30px_80px_rgba(233,30,99,0.1)] rounded-[2.5rem] p-8 md:p-12 text-center">
+          <div className="text-5xl mb-4">💅</div>
+          <h1 className="text-2xl font-bold font-headline mb-2 text-foreground">The Glam House</h1>
+          <p className="text-xs text-muted-foreground mb-8">Admin Dashboard — Enter password to continue</p>
+          <form onSubmit={handleLogin} className="space-y-4">
+            <Input 
+              type="password" 
+              placeholder="Enter password" 
+              value={password} 
+              onChange={e => setPassword(e.target.value)}
+              className="h-12 rounded-xl text-center border-primary/20 focus:border-primary" 
+              autoFocus 
+              required 
+            />
+            {loginError && <p className="text-xs text-red-500 font-semibold">{loginError}</p>}
+            <Button type="submit" className="w-full bg-gradient-to-r from-primary to-accent text-white font-bold h-12 rounded-xl mt-4 border-none hover:opacity-90">
+              Sign In
+            </Button>
+          </form>
+        </Card>
+      </div>
+    )
+  }
+
   if (loading || !data) return <div className="flex justify-center p-12"><Loader2 className="w-8 h-8 animate-spin text-primary" /></div>
 
   return (
-    <div className="space-y-6 pb-24">
-      <div className="flex justify-between items-center bg-white p-4 rounded-lg shadow-sm">
-        <p className="text-sm text-gray-500">Edit your website content below. Changes reflect immediately upon saving.</p>
-        <Button onClick={handleSave} disabled={saving} className="bg-green-600 hover:bg-green-700">
-          {saving ? <Loader2 className="w-4 h-4 mr-2 animate-spin" /> : <Save className="w-4 h-4 mr-2" />}
-          Save Changes
-        </Button>
+    <div className="space-y-6 pb-24 container mx-auto px-4 pt-28">
+      <div className="flex flex-col sm:flex-row gap-4 justify-between items-center bg-white dark:bg-card p-6 rounded-2xl shadow-sm border">
+        <p className="text-sm text-gray-500 dark:text-gray-400">Edit your website content below. Changes reflect immediately upon saving.</p>
+        <div className="flex gap-3 w-full sm:w-auto">
+          <Button variant="outline" onClick={handleLogout} className="flex-1 sm:flex-none border-primary/20 text-foreground rounded-full px-6">
+            Logout
+          </Button>
+          <Button onClick={handleSave} disabled={saving} className="flex-1 sm:flex-none bg-green-600 hover:bg-green-700 text-white rounded-full px-6 font-bold border-none shadow-lg shadow-green-600/20">
+            {saving ? <Loader2 className="w-4 h-4 mr-2 animate-spin" /> : <Save className="w-4 h-4 mr-2" />}
+            Save Changes
+          </Button>
+        </div>
       </div>
 
       <Tabs defaultValue="services" className="w-full">
