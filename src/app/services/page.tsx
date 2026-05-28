@@ -178,7 +178,7 @@ export default function ServicesPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.05 }}
                 viewport={{ once: true }}
-                className="bg-white rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_50px_rgba(233,30,99,0.1)] border border-primary/5 group transition-all flex flex-col"
+                className="bg-white dark:bg-card rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_50px_rgba(233,30,99,0.1)] border border-primary/5 group transition-all flex flex-col"
               >
                 {/* Service Image */}
                 <div className="relative h-52 w-full overflow-hidden">

@@ -61,7 +61,7 @@ export function Navbar() {
       className={cn(
         "fixed top-0 w-full z-50 transition-all duration-500 px-6 py-4",
         isScrolled
-          ? "bg-white/80 backdrop-blur-lg shadow-[0_10px_30px_rgba(0,0,0,0.05)] border-b border-primary/5 py-3"
+          ? "bg-white/80 dark:bg-background/80 backdrop-blur-lg shadow-[0_10px_30px_rgba(0,0,0,0.05)] border-b border-primary/5 py-3"
           : "bg-transparent"
       )}
     >
@@ -130,7 +130,7 @@ export function Navbar() {
                 <Menu className="w-6 h-6" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="flex flex-col gap-8 pt-16 bg-white/95 backdrop-blur-xl border-l border-primary/5">
+            <SheetContent side="right" className="flex flex-col gap-8 pt-16 bg-white/95 dark:bg-card/95 backdrop-blur-xl border-l border-primary/5">
               <div className="flex flex-col gap-6">
                 {navLinks.map((link) => (
                   <Link

@@ -22,7 +22,7 @@ const quickLinks = [
 
 export function Footer() {
   return (
-    <footer className="bg-white pt-24 pb-12 border-t border-primary/5 mt-auto relative overflow-hidden">
+    <footer className="bg-white dark:bg-card pt-24 pb-12 border-t border-primary/5 mt-auto relative overflow-hidden">
       {/* Abstract Background Accent */}
       <div className="absolute bottom-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-[80px] -mr-32 -mb-32" />
 

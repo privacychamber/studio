@@ -14,10 +14,14 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { useToast } from "@/hooks/use-toast"
 
 const COURSES = [
-  { id: "nail", name: "Nail Art Masterclass" },
-  { id: "lash", name: "Eyelash Extension Course" },
-  { id: "microblading", name: "Professional Microblading" },
-  { id: "pmu", name: "Advance Permanent Makeup" },
+  { id: "microblading", name: "Microblading Course" },
+  { id: "lip-blush", name: "Lip Blush Course" },
+  { id: "pmu", name: "Complete PMU Course" },
+  { id: "nail", name: "Nail Course" },
+  { id: "lash", name: "Eyelash Course" },
+  { id: "makeup", name: "Makeup Course" },
+  { id: "hair", name: "Hair Course" },
+  { id: "beauty", name: "Beauty Course" },
   { id: "other", name: "Other / Custom Training" }
 ]
 
@@ -26,7 +30,8 @@ function EnrollContent() {
   const router = useRouter()
   const { toast } = useToast()
 
-  const initialCourse = searchParams.get("course") || ""
+  const initialCourseId = searchParams.get("course") || ""
+  const matchedCourse = COURSES.find(c => c.id === initialCourseId)?.name || ""
 
   const [isSubmitted, setIsSubmitted] = React.useState(false)
   const [formData, setFormData] = React.useState({
@@ -34,12 +39,18 @@ function EnrollContent() {
     phone: "",
     email: "",
     city: "",
-    course: initialCourse,
+    course: matchedCourse,
     education: "",
     experience: "no",
     source: "",
     message: ""
   })
+
+  React.useEffect(() => {
+    if (matchedCourse) {
+      setFormData(prev => ({ ...prev, course: matchedCourse }))
+    }
+  }, [matchedCourse])
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
@@ -171,7 +182,7 @@ function EnrollContent() {
 
               <div className="space-y-2">
                 <Label>Interested Course *</Label>
-                <Select defaultValue={formData.course} onValueChange={(val) => handleSelectChange("course", val)}>
+                <Select value={formData.course} onValueChange={(val) => handleSelectChange("course", val)}>
                   <SelectTrigger className="border-accent/40 bg-accent/5">
                     <SelectValue placeholder="Select a course" />
                   </SelectTrigger>

@@ -2,7 +2,7 @@
 "use client"
 
 import * as React from "react"
-import { useRouter } from "next/navigation"
+import { useRouter, useSearchParams } from "next/navigation"
 import { motion } from "framer-motion"
 import { CheckCircle2, Calendar, Clock, Phone, User, MessageSquare } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -14,12 +14,23 @@ import { useToast } from "@/hooks/use-toast"
 
 const SERVICES = [
   "Keratin Treatment",
-  "Microblading",
-  "Lash Extensions",
-  "Hair Color",
-  "Permanent Makeup",
-  "Skin Treatment",
+  "Smoothing Treatment",
   "Nail Art",
+  "Facial",
+  "Mani Pedicure",
+  "Hair Colour",
+  "Root Touch-Up",
+  "Makeup",
+  "Eyelash Extensions",
+  "Botox Treatment",
+  "Silk Therapy",
+  "Men's Beard Styling",
+  "Hair Cut",
+  "Lip Blush",
+  "Microblading",
+  "BB Glow",
+  "Eyelash Tint",
+  "Eyebrow Tint",
   "Other"
 ]
 
@@ -29,20 +40,33 @@ const TIME_SLOTS = [
   "05:00 PM", "06:00 PM", "07:00 PM"
 ]
 
-export default function BookingPage() {
+function BookingFormContent() {
+  const searchParams = useSearchParams()
+  const router = useRouter()
+  const { toast } = useToast()
+
+  const serviceParam = searchParams.get("service") || ""
+  // Map "keratin-treatment" back to display name
+  const matchedService = SERVICES.find(
+    s => s.toLowerCase().replace(/ /g, '-') === serviceParam.toLowerCase()
+  ) || ""
+
   const [isSubmitted, setIsSubmitted] = React.useState(false)
   const [formData, setFormData] = React.useState({
     fullName: "",
     phone: "",
     email: "",
-    service: "",
+    service: matchedService,
     date: "",
     time: "",
     requests: ""
   })
 
-  const { toast } = useToast()
-  const router = useRouter()
+  React.useEffect(() => {
+    if (matchedService) {
+      setFormData(prev => ({ ...prev, service: matchedService }))
+    }
+  }, [matchedService])
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
@@ -144,7 +168,7 @@ export default function BookingPage() {
 
               <div className="space-y-2">
                 <Label>Select Service *</Label>
-                <Select onValueChange={(val) => handleSelectChange("service", val)}>
+                <Select value={formData.service} onValueChange={(val) => handleSelectChange("service", val)}>
                   <SelectTrigger>
                     <SelectValue placeholder="What are you looking for?" />
                   </SelectTrigger>
@@ -186,6 +210,15 @@ export default function BookingPage() {
               <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-white font-bold h-14 text-lg shimmer-button">
                 Confirm My Booking
               </Button>
+              
+              <div className="text-center pt-2">
+                <p className="text-xs text-muted-foreground mb-2">Or skip the form and book instantly:</p>
+                <Button asChild variant="outline" className="w-full border-[#25D366] text-[#25D366] hover:bg-[#25D366]/5 font-bold h-12 rounded-full">
+                  <a href={`https://wa.me/917087657000?text=Hi!%20I'd%20like%20to%20book%20an%20appointment%20with%20The%20Glam%20House.`}>
+                    Book Direct via WhatsApp
+                  </a>
+                </Button>
+              </div>
             </form>
           </div>
 
@@ -223,5 +256,13 @@ export default function BookingPage() {
         </div>
       </div>
     </div>
+  )
+}
+
+export default function BookingPage() {
+  return (
+    <React.Suspense fallback={<div className="pt-32 pb-24 text-center">Loading booking details...</div>}>
+      <BookingFormContent />
+    </React.Suspense>
   )
 }

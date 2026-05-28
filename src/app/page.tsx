@@ -75,7 +75,19 @@ export default function HomePage() {
               <motion.p variants={fadeInUp} className="font-accent text-accent text-3xl md:text-5xl mb-4 font-bold">
                 Enhance. Elevate. Empower.
               </motion.p>
-              <motion.h1 variants={fadeInUp} className="text-5xl md:text-7xl lg:text-[6.5rem] font-headline font-bold mb-8 leading-[0.95] tracking-tight text-foreground">
+              
+              <motion.div variants={fadeInUp} className="flex flex-wrap justify-center lg:justify-start items-center gap-2 mb-6">
+                <div className="flex gap-0.5">
+                  {[1, 2, 3, 4, 5].map(s => (
+                    <Star key={s} className="w-4 h-4 text-accent fill-accent" />
+                  ))}
+                </div>
+                <span className="text-sm font-bold text-foreground">4.9/5 Rating</span>
+                <span className="text-foreground/45">•</span>
+                <span className="text-xs font-bold text-muted-foreground uppercase tracking-widest">1,000+ Happy Clients</span>
+              </motion.div>
+
+              <motion.h1 variants={fadeInUp} className="text-4xl sm:text-5xl md:text-7xl lg:text-[6.5rem] font-headline font-bold mb-8 leading-[0.95] tracking-tight text-foreground">
                 FLAWLESS <br />
                 <span className="text-primary italic">BEAUTY</span> <br />
                 STARTS HERE
@@ -89,7 +101,7 @@ export default function HomePage() {
                 <Button asChild size="lg" className="bg-gradient-to-r from-primary to-accent hover:opacity-90 text-white rounded-full px-10 h-14 text-sm font-bold uppercase tracking-widest shadow-2xl shadow-primary/30 border-none transition-transform hover:scale-105 active:scale-95">
                   <Link href="/book"><Calendar className="w-5 h-5 mr-2" /> Book Appointment</Link>
                 </Button>
-                <Button asChild variant="outline" size="lg" className="border-primary/20 hover:border-primary bg-white/50 backdrop-blur-sm text-foreground hover:bg-primary/5 rounded-full px-10 h-14 text-sm font-bold uppercase tracking-widest transition-all">
+                <Button asChild variant="outline" size="lg" className="border-primary/20 hover:border-primary bg-white/50 dark:bg-white/5 backdrop-blur-sm text-foreground hover:bg-primary/5 rounded-full px-10 h-14 text-sm font-bold uppercase tracking-widest transition-all">
                   <Link href="/academy"><GraduationCap className="w-5 h-5 mr-2 text-primary" /> Explore Courses</Link>
                 </Button>
               </motion.div>
@@ -111,12 +123,12 @@ export default function HomePage() {
             </motion.div>
 
             {/* Hero Image & Floating Cards */}
-            <div className="relative h-[600px] lg:h-[800px] w-full flex items-center justify-center lg:justify-end">
+            <div className="relative h-[380px] sm:h-[500px] md:h-[600px] lg:h-[800px] w-full flex items-center justify-center lg:justify-end">
                <motion.div 
                  initial={{ opacity: 0, scale: 0.9, rotate: 2 }}
                  whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
                  transition={{ duration: 1.2 }}
-                 className="relative w-full max-w-[450px] lg:max-w-[550px] h-[90%] rounded-full overflow-hidden shadow-[0_50px_100px_-20px_rgba(0,0,0,0.25)] border-[12px] border-white z-10"
+                 className="relative w-full max-w-[300px] sm:max-w-[450px] lg:max-w-[550px] h-[90%] rounded-full overflow-hidden shadow-[0_50px_100px_-20px_rgba(0,0,0,0.25)] border-[8px] sm:border-[12px] border-white dark:border-card z-10"
                >
                  <Image
                     src="/studio/images/IMG_0584.JPG.jpeg"
@@ -128,14 +140,14 @@ export default function HomePage() {
                </motion.div>
 
                {/* Glassmorphism Floating Cards */}
-               <div className="absolute left-0 lg:-left-20 top-1/2 -translate-y-1/2 flex flex-col gap-8 z-20">
+               <div className="absolute left-0 lg:-left-20 top-1/2 -translate-y-1/2 flex-col gap-8 z-20 hidden md:flex">
                   {data.transformations.slice(0, 3).map((item: any, i: number) => (
                     <motion.div 
                       key={i}
                       initial={{ x: -50, opacity: 0 }}
                       whileInView={{ x: 0, opacity: 1 }}
                       transition={{ delay: 0.5 + (i * 0.2), duration: 0.8 }}
-                      className="bg-white/70 backdrop-blur-xl p-4 rounded-3xl shadow-2xl border border-white/50 flex items-center gap-4 w-[180px] md:w-[220px] transition-transform hover:scale-105"
+                      className="bg-white/70 dark:bg-card/70 backdrop-blur-xl p-4 rounded-3xl shadow-2xl border border-white/50 dark:border-white/10 flex items-center gap-4 w-[180px] md:w-[220px] transition-transform hover:scale-105"
                     >
                       <div className="w-12 h-12 rounded-2xl overflow-hidden relative border-2 border-primary/20">
                         <Image src={item.afterImage} alt={item.category} fill className="object-cover" />
@@ -199,7 +211,7 @@ export default function HomePage() {
                 transition={{ delay: i * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="overflow-hidden border-none shadow-[0_20px_50px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_50px_rgba(233,30,99,0.1)] transition-all group rounded-3xl bg-white h-full flex flex-col">
+                <Card className="overflow-hidden border-none shadow-[0_20px_50px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_50px_rgba(233,30,99,0.1)] transition-all group rounded-3xl bg-white dark:bg-card h-full flex flex-col">
                   <div className="relative aspect-[4/5] w-full overflow-hidden">
                     <Image 
                       src={service.imageUrl} 
@@ -207,23 +219,26 @@ export default function HomePage() {
                       fill 
                       className="object-cover transition-transform duration-1000 group-hover:scale-110" 
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6 gap-3">
-                      <Button asChild className="w-full bg-white text-black hover:bg-primary hover:text-white rounded-full font-bold uppercase tracking-widest text-[10px]">
-                        <Link href={`/book?service=${service.title.toLowerCase().replace(/ /g, '-')}`}>Book Online</Link>
-                      </Button>
-                      <Button asChild className="w-full bg-[#25D366] text-white hover:bg-[#128C7E] rounded-full font-bold uppercase tracking-widest text-[10px] border-none">
-                        <a href={`https://wa.me/917087657000?text=Hello,%20I%20would%20like%20to%20book%20the%20${encodeURIComponent(service.title)}%20service.`}>WhatsApp Booking</a>
-                      </Button>
-                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-60" />
                   </div>
-                  <CardContent className="p-8 text-left flex flex-col flex-grow">
-                    <h3 className="text-xl font-bold mb-3 text-foreground group-hover:text-primary transition-colors">{service.title}</h3>
-                    <p className="text-sm text-muted-foreground mb-6 line-clamp-3 leading-relaxed font-medium">{service.desc}</p>
-                    <div className="mt-auto flex justify-between items-center">
-                      <span className="text-primary font-bold text-lg">{service.price}</span>
-                      <Link href="/services" className="text-foreground font-bold text-xs uppercase tracking-widest inline-flex items-center gap-2 group-hover:text-primary transition-all">
-                        KNOW MORE <ArrowRight className="w-4 h-4" />
-                      </Link>
+                  <CardContent className="p-6 text-left flex flex-col flex-grow">
+                    <h3 className="text-xl font-bold mb-2 text-foreground group-hover:text-primary transition-colors">{service.title}</h3>
+                    <p className="text-sm text-muted-foreground mb-4 line-clamp-3 leading-relaxed font-medium">{service.desc}</p>
+                    <div className="mt-auto space-y-4 pt-4 border-t border-primary/10">
+                      <div className="flex justify-between items-center">
+                        <span className="text-primary font-bold text-lg">{service.price}</span>
+                        <Link href="/services" className="text-foreground hover:text-primary font-bold text-xs uppercase tracking-widest inline-flex items-center gap-1 transition-all">
+                          DETAILS <ArrowRight className="w-3.5 h-3.5" />
+                        </Link>
+                      </div>
+                      <div className="grid grid-cols-2 gap-2">
+                        <Button asChild size="sm" className="bg-primary hover:bg-primary/90 text-white rounded-full font-bold uppercase tracking-wider text-[9px] h-9">
+                          <Link href={`/book?service=${service.title.toLowerCase().replace(/ /g, '-')}`}>Book Online</Link>
+                        </Button>
+                        <Button asChild size="sm" className="bg-[#25D366] hover:bg-[#128C7E] text-white rounded-full font-bold uppercase tracking-wider text-[9px] h-9 border-none">
+                          <a href={`https://wa.me/917087657000?text=Hello,%20I%20would%20like%20to%20book%20the%20${encodeURIComponent(service.title)}%20service.`}>WhatsApp</a>
+                        </Button>
+                      </div>
                     </div>
                   </CardContent>
                 </Card>
@@ -233,10 +248,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Academy CTA Section */}
       <section className="py-24 bg-nude relative">
         <div className="container mx-auto px-4">
-          <div className="bg-white rounded-[3rem] p-10 lg:p-20 shadow-[0_50px_100px_rgba(0,0,0,0.05)] border border-primary/5">
+          <div className="bg-white dark:bg-card rounded-[3rem] p-10 lg:p-20 shadow-[0_50px_100px_rgba(0,0,0,0.05)] border border-primary/5">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <div className="grid grid-cols-2 gap-4">
                 <div className="relative aspect-[3/4] rounded-[2rem] overflow-hidden shadow-xl">
@@ -317,7 +331,7 @@ export default function HomePage() {
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ delay: i * 0.1 }}
-                className="bg-white border border-primary/5 shadow-[0_20px_50px_rgba(0,0,0,0.03)] p-10 rounded-[3rem] relative flex flex-col items-center pt-20 mt-10 hover:shadow-2xl hover:shadow-primary/5 transition-all"
+                className="bg-white dark:bg-card border border-primary/5 shadow-[0_20px_50px_rgba(0,0,0,0.03)] p-10 rounded-[3rem] relative flex flex-col items-center pt-20 mt-10 hover:shadow-2xl hover:shadow-primary/5 transition-all"
               >
                 <div className="absolute -top-10 w-20 h-20 rounded-full overflow-hidden border-8 border-background shadow-xl">
                   <Image src={item.imageUrl} alt={item.name} fill className="object-cover" />
