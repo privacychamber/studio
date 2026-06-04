@@ -2,11 +2,13 @@
 
 import * as React from "react"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { Calendar, Phone } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export function MobileStickyBar() {
   const [isVisible, setIsVisible] = React.useState(false)
+  const pathname = usePathname()
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -21,6 +23,10 @@ export function MobileStickyBar() {
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
+
+  if (pathname?.startsWith('/admin')) {
+    return null
+  }
 
   return (
     <div 

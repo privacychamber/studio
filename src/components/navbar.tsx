@@ -56,6 +56,10 @@ export function Navbar() {
     }
   }
 
+  if (pathname?.startsWith('/admin')) {
+    return null
+  }
+
   return (
     <nav
       className={cn(

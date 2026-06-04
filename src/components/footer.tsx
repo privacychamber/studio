@@ -3,6 +3,7 @@
 
 import Link from "next/link"
 import Image from "next/image"
+import { usePathname } from "next/navigation"
 import { Instagram, Facebook, Youtube, Phone, Mail, MapPin } from "lucide-react"
 
 // Inlined to avoid ESM bundling issues during static pre-rendering
@@ -21,6 +22,12 @@ const quickLinks = [
 ]
 
 export function Footer() {
+  const pathname = usePathname()
+  
+  if (pathname?.startsWith('/admin')) {
+    return null
+  }
+
   return (
     <footer className="bg-white dark:bg-card pt-24 pb-12 border-t border-primary/5 mt-auto relative overflow-hidden">
       {/* Abstract Background Accent */}

@@ -2,8 +2,15 @@
 "use client"
 
 import { MessageSquare } from "lucide-react"
+import { usePathname } from "next/navigation"
 
 export function WhatsAppFloat() {
+  const pathname = usePathname()
+  
+  if (pathname?.startsWith('/admin')) {
+    return null
+  }
+
   const message = encodeURIComponent("Hi! I found you on your website and I'm interested in booking an appointment.")
   const waUrl = `https://wa.me/917087657000?text=${message}`
 
