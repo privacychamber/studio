@@ -26,12 +26,13 @@ jobs:
       - name: Build Project
         run: npx next build
 
-      - name: 📂 Sync files to Namecheap
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      - name: 📂 Sync files via SFTP
+        uses: appleboy/scp-action@v0.1.7
         with:
-          server: ${{ secrets.FTP_SERVER }}
+          host: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: ./
-          local-dir: ./out/
-          dangerous-clean-slate: true
+          port: 21098
+          source: "out/"
+          target: "theglamhouseclinicandacademy.com/"
+          strip_components: 1
