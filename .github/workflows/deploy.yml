@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Code
+      - name: 🚚 Get latest code
         uses: actions/checkout@v4
 
       - name: Setup Node.js
@@ -26,12 +26,12 @@ jobs:
       - name: Build Project
         run: npx next build
 
-      - name: Sync files via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      - name: 📂 Sync files to Namecheap
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          protocol: ftp
+          server-dir: ./
           local-dir: ./out/
-          server-dir: /
+          dangerous-clean-slate: true
