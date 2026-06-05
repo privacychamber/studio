@@ -85,9 +85,9 @@ include __DIR__ . '/includes/header.php';
                     <div class="relative w-[300px] h-[450px] sm:w-[400px] sm:h-[600px] md:w-[450px] md:h-[650px] rounded-[200px] overflow-hidden shadow-2xl border-8 border-white dark:border-card group z-10 bg-muted">
                         <!-- Images for Slider -->
                         <div id="hero-slider" class="relative w-full h-full">
-                            <img src="https://picsum.photos/seed/salon1/600/800" class="absolute inset-0 w-full h-full object-cover slider-img transition-opacity duration-1000 z-10" alt="Beautiful Model"/>
-                            <img src="https://picsum.photos/seed/salon2/600/800" class="absolute inset-0 w-full h-full object-cover slider-img transition-opacity duration-1000 opacity-0 z-0" alt="Salon Service"/>
-                            <img src="https://picsum.photos/seed/salon3/600/800" class="absolute inset-0 w-full h-full object-cover slider-img transition-opacity duration-1000 opacity-0 z-0" alt="Permanent Makeup"/>
+                            <img src="/public/images/IMG_0568.JPG.jpeg" class="absolute inset-0 w-full h-full object-cover slider-img transition-opacity duration-1000 z-10" alt="Beautiful Model"/>
+                            <img src="/public/images/IMG_0724.JPG.jpeg" class="absolute inset-0 w-full h-full object-cover slider-img transition-opacity duration-1000 opacity-0 z-0" alt="Salon Service"/>
+                            <img src="/public/images/IMG_1401.JPG.jpeg" class="absolute inset-0 w-full h-full object-cover slider-img transition-opacity duration-1000 opacity-0 z-0" alt="Permanent Makeup"/>
                         </div>
                         <!-- Slider Controls Overlay -->
                         <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-between px-4 z-20 pointer-events-none">
@@ -106,8 +106,8 @@ include __DIR__ . '/includes/header.php';
                         <div class="bg-white/95 dark:bg-card/95 backdrop-blur-md p-2.5 rounded-xl shadow-[0_15px_40px_rgba(0,0,0,0.15)] border border-primary/10 w-[160px] transform hover:-translate-y-1 transition-transform">
                             <p class="text-[11px] font-bold text-center uppercase tracking-widest text-foreground mb-2">BROWS</p>
                             <div class="grid grid-rows-2 gap-1.5 h-[100px]">
-                                <img src="https://picsum.photos/seed/brows1/200/100" class="w-full h-full object-cover rounded-md" alt="Brows Before"/>
-                                <img src="https://picsum.photos/seed/brows2/200/100" class="w-full h-full object-cover rounded-md" alt="Brows After"/>
+                                <img src="/public/images/IMG_3592.PNG" class="w-full h-full object-cover rounded-md" alt="Brows Before"/>
+                                <img src="/public/images/IMG_3593.PNG" class="w-full h-full object-cover rounded-md" alt="Brows After"/>
                             </div>
                         </div>
                         
@@ -115,8 +115,8 @@ include __DIR__ . '/includes/header.php';
                         <div class="bg-white/95 dark:bg-card/95 backdrop-blur-md p-2.5 rounded-xl shadow-[0_15px_40px_rgba(0,0,0,0.15)] border border-primary/10 w-[160px] transform hover:-translate-y-1 transition-transform translate-x-4">
                             <p class="text-[11px] font-bold text-center uppercase tracking-widest text-foreground mb-2">HAIR</p>
                             <div class="grid grid-cols-2 gap-1.5 h-[80px]">
-                                <img src="https://picsum.photos/seed/hair1/100/100" class="w-full h-full object-cover rounded-md" alt="Hair Style 1"/>
-                                <img src="https://picsum.photos/seed/hair2/100/100" class="w-full h-full object-cover rounded-md" alt="Hair Style 2"/>
+                                <img src="/public/images/IMG_0810.JPG.jpeg" class="w-full h-full object-cover rounded-md" alt="Hair Style 1"/>
+                                <img src="/public/images/IMG_0524.JPG.jpeg" class="w-full h-full object-cover rounded-md" alt="Hair Style 2"/>
                             </div>
                         </div>
 
@@ -124,8 +124,8 @@ include __DIR__ . '/includes/header.php';
                         <div class="bg-white/95 dark:bg-card/95 backdrop-blur-md p-2.5 rounded-xl shadow-[0_15px_40px_rgba(0,0,0,0.15)] border border-primary/10 w-[160px] transform hover:-translate-y-1 transition-transform">
                             <p class="text-[11px] font-bold text-center uppercase tracking-widest text-foreground mb-2">LIPS</p>
                             <div class="grid grid-rows-2 gap-1.5 h-[100px]">
-                                <img src="https://picsum.photos/seed/lips1/200/100" class="w-full h-full object-cover rounded-md" alt="Lips Tint"/>
-                                <img src="https://picsum.photos/seed/lips2/200/100" class="w-full h-full object-cover rounded-md" alt="Lips Blush"/>
+                                <img src="/public/images/IMG_3594.PNG" class="w-full h-full object-cover rounded-md" alt="Lips Tint"/>
+                                <img src="/public/images/IMG_3595.PNG" class="w-full h-full object-cover rounded-md" alt="Lips Blush"/>
                             </div>
                         </div>
                     </div>
