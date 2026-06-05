@@ -1,36 +1,39 @@
-name: Deploy Next.js site to FTP
+name: Deploy Static PHP Site to FTP
 
 on:
   push:
     branches:
       - main
-      - master
+  workflow_dispatch:
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
-
     steps:
-      - name: 🚚 Get latest code
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: 'npm'
-
-      - name: Install Dependencies
-        run: npm ci
-
-      - name: Build Project
-        run: npx next build
-
-      - name: 📂 Sync files via lftp
-        env:
-          FTP_SERVER: ${{ secrets.FTP_SERVER }}
-          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
-          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+      - name: Sync files via FTP
         run: |
-          sudo apt-get update && sudo apt-get install -y lftp
-          lftp -c "set ftp:ssl-allow no; set net:timeout 10; set net:max-retries 2; open -u $FTP_USERNAME,$FTP_PASSWORD $FTP_SERVER; mirror -Rnv ./out/ /"
+          sudo apt-get update
+          sudo apt-get install -y lftp
+          
+          echo "Connecting to FTP..."
+          lftp -c "
+          set ftp:ssl-allow no
+          set net:max-retries 2
+          set net:timeout 10
+          set cmd:fail-exit yes
+          open ftp://${{ secrets.FTP_SERVER }}
+          user ${{ secrets.FTP_USERNAME }} '${{ secrets.FTP_PASSWORD }}'
+          
+          # We mirror the entire root directory, but exclude .git, .github, and markdown docs
+          mirror -Rnv \
+            --exclude-glob .git/ \
+            --exclude-glob .github/ \
+            --exclude-glob README.md \
+            --exclude-glob *.md \
+            --exclude-glob cleanup.js \
+            --exclude-glob migrate.js \
+            ./ /public_html
+          "
