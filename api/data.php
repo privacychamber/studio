@@ -46,6 +46,11 @@ $default_data = [
         ['id' => '2', 'category' => 'BROWS', 'beforeImage' => 'https://picsum.photos/seed/browbefore/400/400', 'afterImage' => 'https://picsum.photos/seed/browafter/400/400'],
         ['id' => '3', 'category' => 'LIPS', 'beforeImage' => 'https://picsum.photos/seed/lipbefore/400/400', 'afterImage' => 'https://picsum.photos/seed/lipafter/400/400'],
     ],
+    'reels' => [
+        ['id' => '1', 'title' => 'Glam Transformation', 'videoUrl' => 'https://www.w3schools.com/html/mov_bbb.mp4'],
+        ['id' => '2', 'title' => 'Bridal Makeup', 'videoUrl' => 'https://www.w3schools.com/html/mov_bbb.mp4'],
+        ['id' => '3', 'title' => 'Nail Art Tutorial', 'videoUrl' => 'https://www.w3schools.com/html/mov_bbb.mp4'],
+    ],
 ];
 
 // Initialize DB if it doesn't exist

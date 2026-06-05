@@ -55,7 +55,7 @@ finfo_close($finfo);
 
 if (!in_array($mime, ALLOWED_TYPES)) {
     http_response_code(400);
-    echo json_encode(['error' => 'Invalid file type. Allowed: JPG, PNG, WebP, GIF']);
+    echo json_encode(['error' => 'Invalid file type. Allowed: JPG, PNG, WebP, GIF, MP4, WEBM, MOV']);
     exit;
 }
 
@@ -71,7 +71,10 @@ $ext = match($mime) {
     'image/png'  => 'png',
     'image/webp' => 'webp',
     'image/gif'  => 'gif',
-    default      => 'jpg'
+    'video/mp4'  => 'mp4',
+    'video/webm' => 'webm',
+    'video/quicktime' => 'mov',
+    default      => 'bin'
 };
 
 $unique_name = time() . '_' . bin2hex(random_bytes(8)) . '.' . $ext;

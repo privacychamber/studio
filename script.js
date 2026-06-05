@@ -133,4 +133,45 @@ document.addEventListener('DOMContentLoaded', () => {
         showSlide(currentSlide);
         startAutoPlay();
     }
+
+    // 5. Reels Video Interaction Logic
+    const reelVideos = document.querySelectorAll('.reel-video');
+    if (reelVideos.length > 0) {
+        // Expose togglePlay globally for the onclick handler
+        window.togglePlay = function(container) {
+            const video = container.querySelector('video');
+            if (video.paused) {
+                video.play();
+                video.muted = false; // Unmute on explicit tap
+            } else {
+                video.pause();
+                video.muted = true;
+            }
+        };
+
+        // Intersection Observer to autoplay when visible
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.6 // Play when 60% visible
+        };
+
+        const videoObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const video = entry.target;
+                if (entry.isIntersecting) {
+                    // Play muted automatically when scrolled into view
+                    video.muted = true;
+                    video.play().catch(e => console.log('Autoplay blocked:', e));
+                } else {
+                    // Pause when scrolled out of view to save resources
+                    video.pause();
+                }
+            });
+        }, observerOptions);
+
+        reelVideos.forEach(video => {
+            videoObserver.observe(video);
+        });
+    }
 });

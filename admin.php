@@ -162,6 +162,7 @@ $logged_in = isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in']
     <button class="tab" onclick="switchTab('courses', this)">Courses</button>
     <button class="tab" onclick="switchTab('testimonials', this)">Testimonials</button>
     <button class="tab" onclick="switchTab('transformations', this)">Transformations</button>
+    <button class="tab" onclick="switchTab('reels', this)">Reels</button>
   </div>
 
   <!-- SERVICES -->
@@ -172,6 +173,8 @@ $logged_in = isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in']
   <div id="tab-testimonials" class="section"></div>
   <!-- TRANSFORMATIONS -->
   <div id="tab-transformations" class="section"></div>
+  <!-- REELS -->
+  <div id="tab-reels" class="section"></div>
 </div>
 
 <div class="toast" id="toast"></div>
@@ -198,6 +201,7 @@ function renderAll() {
   renderCourses();
   renderTestimonials();
   renderTransformations();
+  if (db.reels) renderReels();
 }
 
 function renderServices() {
@@ -305,6 +309,34 @@ function renderTransformations() {
   `).join('') + `<button class="btn-add" onclick="addTransformation()">+ Add Transformation</button>`;
 }
 
+function renderReels() {
+  const el = document.getElementById('tab-reels');
+  el.innerHTML = (db.reels || []).map((r, i) => `
+    <div class="card">
+      <div class="card-header">
+        <h3>Reel #${i+1}</h3>
+        <button class="btn-delete" onclick="removeItem('reels', ${i})">🗑 Delete</button>
+      </div>
+      <div class="card-body">
+        <div>
+          <div class="form-group"><label>Title</label><input type="text" value="${esc(r.title)}" oninput="db.reels[${i}].title=this.value" /></div>
+          <div class="form-group"><label>Video URL</label><input type="text" value="${esc(r.videoUrl)}" oninput="db.reels[${i}].videoUrl=this.value; document.getElementById('reel-vid-${i}').src=this.value" /></div>
+          <p style="font-size:11px;color:var(--muted);margin-top:10px;">Upload MP4, WEBM, or MOV. Max size 50MB.</p>
+        </div>
+        <div class="image-section">
+          <div class="form-group"><label>Video Preview</label></div>
+          <div class="image-preview" style="aspect-ratio:9/16; max-width:200px; margin:0 auto 12px; background:#000;">
+            <video id="reel-vid-${i}" src="${esc(r.videoUrl)}" style="width:100%;height:100%;object-fit:cover;" controls muted></video>
+          </div>
+          <div class="image-row">
+            <button class="btn-upload" style="width:100%;" onclick="uploadVideo(this, 'reels', ${i}, 'videoUrl', 'reel-vid-${i}')">🎬 Upload Video</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  `).join('') + `<button class="btn-add" onclick="addReel()">+ Add Reel</button>`;
+}
+
 // ===== CRUD =====
 function removeItem(section, index) {
   if (!confirm('Delete this item?')) return;
@@ -327,6 +359,52 @@ function addTestimonial() {
 function addTransformation() {
   db.transformations.push({ id: Date.now().toString(), category: 'NEW', beforeImage: 'https://picsum.photos/seed/b/400/400', afterImage: 'https://picsum.photos/seed/a/400/400' });
   renderAll(); switchTab('transformations', document.querySelectorAll('.tab')[3]);
+}
+function addReel() {
+  if(!db.reels) db.reels = [];
+  db.reels.push({ id: Date.now().toString(), title: 'New Reel', videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4' });
+  renderAll(); switchTab('reels', document.querySelectorAll('.tab')[4]);
+}
+
+// ===== UPLOAD LOGIC =====
+async function uploadVideo(btn, section, index, field, vidId) {
+  const input = document.createElement('input');
+  input.type = 'file';
+  input.accept = 'video/*';
+  input.onchange = async () => {
+    const file = input.files[0];
+    if (!file) return;
+    if (file.size > 50 * 1024 * 1024) {
+      showToast('File too large. Max 50MB.', 'error');
+      return;
+    }
+    const origText = btn.innerHTML;
+    btn.innerHTML = '<span class="spinner"></span> Uploading...';
+    btn.disabled = true;
+
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('password', ADMIN_PASSWORD);
+
+    try {
+      const res = await fetch(`${API_BASE}/upload.php`, { method: 'POST', body: formData });
+      const data = await res.json();
+      if (data.url) {
+        db[section][index][field] = data.url;
+        const vid = document.getElementById(vidId);
+        if (vid) vid.src = data.url;
+        showToast('Video uploaded!', 'success');
+      } else {
+        showToast(data.error || 'Upload failed', 'error');
+      }
+    } catch(e) {
+      showToast('Upload failed. Check connection.', 'error');
+    }
+
+    btn.innerHTML = origText;
+    btn.disabled = false;
+  };
+  input.click();
 }
 
 // ===== IMAGE UPLOAD =====

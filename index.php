@@ -133,6 +133,40 @@ include __DIR__ . '/includes/header.php';
             </div>
         </section>
 
+        <!-- Reels Section -->
+        <section class="py-24 bg-background overflow-hidden border-t border-primary/5">
+            <div class="container mx-auto px-4">
+                <div class="flex justify-between items-end mb-12">
+                    <div>
+                        <h2 class="text-primary text-sm font-bold tracking-[0.4em] uppercase mb-4">Watch & Learn</h2>
+                        <h3 class="text-3xl md:text-5xl font-headline font-bold text-foreground">LATEST REELS</h3>
+                    </div>
+                </div>
+                
+                <!-- Horizontal scroll container with snap -->
+                <div class="flex gap-6 overflow-x-auto pb-8 snap-x snap-mandatory hide-scrollbar reels-container" style="scrollbar-width: none; -ms-overflow-style: none;">
+                    <?php if(!empty($data['reels'])): foreach($data['reels'] as $reel): ?>
+                    <div class="flex-none w-[280px] md:w-[320px] aspect-[9/16] bg-black rounded-3xl overflow-hidden shadow-2xl snap-center relative group cursor-pointer" onclick="togglePlay(this)">
+                        <video 
+                            src="<?php echo htmlspecialchars($reel['videoUrl']); ?>" 
+                            class="w-full h-full object-cover reel-video"
+                            loop muted playsinline
+                        ></video>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none transition-opacity duration-300"></div>
+                        <div class="absolute bottom-6 left-6 right-6 pointer-events-none transition-transform duration-300 transform group-hover:-translate-y-2">
+                            <h4 class="text-white font-bold text-lg mb-2 line-clamp-2 drop-shadow-md"><?php echo htmlspecialchars($reel['title']); ?></h4>
+                        </div>
+                    </div>
+                    <?php endforeach; else: ?>
+                        <p class="text-muted-foreground italic">No reels uploaded yet.</p>
+                    <?php endif; ?>
+                </div>
+            </div>
+            <style>
+                .hide-scrollbar::-webkit-scrollbar { display: none; }
+            </style>
+        </section>
+
         <!-- Services Section -->
         <section class="py-32 bg-card">
             <div class="container mx-auto px-4">
