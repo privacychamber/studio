@@ -5,6 +5,7 @@
 
 Options -Indexes
 Options +FollowSymLinks
+DirectoryIndex index.php index.html
 
 # --- PHP Settings ---
 php_value upload_max_filesize 10M
