@@ -77,4 +77,60 @@ document.addEventListener('DOMContentLoaded', () => {
             mobileSticky.classList.remove('translate-y-full', 'opacity-0', 'pointer-events-none');
         }, 1000);
     }
+
+    // 4. Hero Slider Logic
+    const heroSlider = document.getElementById('hero-slider');
+    if (heroSlider) {
+        const slides = heroSlider.querySelectorAll('.slider-img');
+        const prevBtn = document.getElementById('hero-prev');
+        const nextBtn = document.getElementById('hero-next');
+        let currentSlide = 0;
+        let slideInterval;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                if (i === index) {
+                    slide.classList.remove('opacity-0', 'z-0');
+                    slide.classList.add('opacity-100', 'z-10');
+                } else {
+                    slide.classList.remove('opacity-100', 'z-10');
+                    slide.classList.add('opacity-0', 'z-0');
+                }
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function startAutoPlay() {
+            slideInterval = setInterval(nextSlide, 4000);
+        }
+
+        function resetAutoPlay() {
+            clearInterval(slideInterval);
+            startAutoPlay();
+        }
+
+        if (nextBtn && prevBtn) {
+            nextBtn.addEventListener('click', () => {
+                nextSlide();
+                resetAutoPlay();
+            });
+            prevBtn.addEventListener('click', () => {
+                prevSlide();
+                resetAutoPlay();
+            });
+        }
+
+        // Initialize
+        showSlide(currentSlide);
+        startAutoPlay();
+    }
 });
