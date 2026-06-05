@@ -27,7 +27,10 @@ jobs:
           open ftp://${{ secrets.FTP_SERVER }}
           user ${{ secrets.FTP_USERNAME }} '${{ secrets.FTP_PASSWORD }}'
           
-          # We mirror the entire root directory, but exclude .git, .github, and markdown docs
+          # If you create an FTP account specifically for this website, set its root directory to 
+          # the folder for this domain (e.g. 'theglamhouseclinicandacademy.com') in Namecheap.
+          # Then we just mirror to '/' (the root of that FTP user's access).
+          # If using your main FTP account, change '/' below to '/theglamhouseclinicandacademy.com'
           mirror -Rnv \
             --exclude-glob .git/ \
             --exclude-glob .github/ \
@@ -35,5 +38,5 @@ jobs:
             --exclude-glob *.md \
             --exclude-glob cleanup.js \
             --exclude-glob migrate.js \
-            ./ /public_html
+            ./ /
           "
