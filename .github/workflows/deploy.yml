@@ -20,7 +20,7 @@ jobs:
           
           echo "Connecting to FTP..."
           lftp -c "
-          set ftp:ssl-allow no
+          set ssl:verify-certificate no
           set net:max-retries 2
           set net:timeout 10
           set cmd:fail-exit yes
