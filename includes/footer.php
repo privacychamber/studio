@@ -5,7 +5,7 @@
             <div class="flex flex-col items-start gap-6">
                 <a class="flex items-center group transition-transform hover:scale-105" href="/">
                     <div class="w-[120px] h-[120px] relative bg-white rounded-full p-2 shadow-md border border-primary/5">
-                        <img alt="The Glam House Logo" class="object-contain p-2 w-full h-full" src="/logo.png"/>
+                        <img alt="The Glam House Logo" class="object-contain p-2 w-full h-full" src="/studio/logo.png"/>
                     </div>
                 </a>
                 <p class="text-xs font-medium text-muted-foreground leading-relaxed max-w-xs">Where luxury meets skill. We provide premium beauty transformations and world-class academy training in Mohali.</p>
