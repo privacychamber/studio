@@ -44,8 +44,8 @@ php_value max_execution_time 30
   RewriteCond %{REQUEST_FILENAME} -d
   RewriteRule ^ - [L]
 
-  # Route /studio/images and logo to public/
-  RewriteRule ^studio/(.*)$ public/$1 [L]
+  # Route Next.js basePath (/studio/*) to the root directory
+  RewriteRule ^studio/(.*)$ /$1 [L]
 
   # Route /api/data      -> api/data.php
   RewriteRule ^api/data/?$ api/data.php [L,QSA]
