@@ -187,7 +187,8 @@ include __DIR__ . '/includes/header.php';
                     <span class="block w-8 h-px bg-primary/30 ml-2"></span>
                 </div>
                 
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left mb-12">
+                <div class="relative max-w-sm mx-auto mb-12 overflow-hidden rounded-xl shadow-lg pb-8">
+                    <div id="services-slider" class="flex transition-transform duration-500 ease-in-out">
                     <?php 
                     $icons = [
                         '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>',
@@ -195,10 +196,10 @@ include __DIR__ . '/includes/header.php';
                         '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20M20 12v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8M12 22V12M8 12V2a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v10"/></svg>',
                         '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>'
                     ];
-                    foreach(array_slice($data['services'], 0, 4) as $index => $service): 
+                    foreach($data['services'] as $index => $service): 
                     ?>
-                    <div class="bg-white dark:bg-background rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.08)] border border-gray-100 dark:border-border overflow-hidden flex flex-col">
-                        <div class="relative h-48 w-full">
+                    <div class="w-full flex-shrink-0 bg-white dark:bg-background border border-gray-100 dark:border-border flex flex-col text-left">
+                        <div class="relative h-56 w-full">
                             <img src="<?php echo htmlspecialchars($service['imageUrl']); ?>" alt="<?php echo htmlspecialchars($service['title']); ?>" class="w-full h-full object-cover"/>
                             <!-- Circular Icon overlapping -->
                             <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-white dark:bg-background flex items-center justify-center text-primary shadow-md border-2 border-white">
@@ -206,16 +207,32 @@ include __DIR__ . '/includes/header.php';
                             </div>
                         </div>
                         <div class="pt-10 pb-6 px-6 flex-grow flex flex-col text-center">
-                            <h4 class="text-[15px] font-bold text-primary uppercase tracking-wide mb-3"><?php echo htmlspecialchars($service['title']); ?></h4>
-                            <p class="text-[13px] text-gray-600 dark:text-gray-300 mb-6 leading-relaxed flex-grow"><?php echo htmlspecialchars($service['desc']); ?></p>
-                            <a href="/services.html" class="text-primary text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1 hover:text-primary/80 transition-colors">
+                            <h4 class="text-[16px] font-bold text-primary uppercase tracking-wide mb-3"><?php echo htmlspecialchars($service['title']); ?></h4>
+                            <p class="text-[14px] text-gray-600 dark:text-gray-300 mb-6 leading-relaxed flex-grow"><?php echo htmlspecialchars($service['desc']); ?></p>
+                            <a href="/services.html" class="text-primary text-sm font-bold uppercase tracking-wider flex items-center justify-center gap-1 hover:text-primary/80 transition-colors">
                                 KNOW MORE 
-                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                             </a>
                         </div>
                     </div>
                     <?php endforeach; ?>
+                    </div>
                 </div>
+
+                <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                    const slider = document.getElementById('services-slider');
+                    const slides = slider.children.length;
+                    let currentIndex = 0;
+
+                    if(slides > 1) {
+                        setInterval(() => {
+                            currentIndex = (currentIndex + 1) % slides;
+                            slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+                        }, 3000);
+                    }
+                });
+                </script>
                 
                 <a href="/services.html" class="inline-block border border-primary text-primary px-8 py-3 rounded text-xs font-bold uppercase tracking-wider hover:bg-primary hover:text-white transition-colors">
                     VIEW ALL SERVICES
