@@ -11,14 +11,14 @@ include __DIR__ . '/includes/header.php';
             <!-- Large Pink Arc Background -->
             <div class="absolute right-0 top-0 w-[55%] h-full bg-primary/10 rounded-l-full -z-10 hidden md:block"></div>
             
-            <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid md:grid-cols-[1fr_auto] gap-8 items-center">
                     
                     <!-- Left Content -->
                     <div class="max-w-2xl pt-4 md:pt-10 pb-6">
                         <?php if(!empty($data["hero"])): ?>
 <p class="font-accent text-primary text-3xl md:text-4xl mb-4"><?php echo htmlspecialchars($data["hero"]["tagline"] ?? ""); ?></p>
-                        <h1 class="text-5xl md:text-[4.8rem] font-headline font-bold leading-[1.05] text-[#0a142f] dark:text-white mb-4">
+                        <h1 class="text-5xl md:text-6xl font-headline font-bold leading-[1.05] text-[#0a142f] dark:text-white mb-4">
     <?php echo htmlspecialchars($data['hero']['headlinePart1'] ?? ''); ?><br/>
     <span class="text-primary"><?php echo htmlspecialchars($data['hero']['headlineHighlight'] ?? ''); ?></span><br/>
     <?php echo htmlspecialchars($data['hero']['headlinePart2'] ?? ''); ?>
@@ -82,7 +82,7 @@ include __DIR__ . '/includes/header.php';
 
                     <!-- Right Images -->
                     <div class="relative hidden md:flex items-center justify-end h-full py-6">
-                        <div class="relative z-10 w-[400px] h-[520px] rounded-t-full rounded-b-full overflow-hidden border-[10px] border-white shadow-2xl mr-12 lg:mr-16">
+                        <div class="relative z-10 w-[340px] h-[480px] rounded-t-full rounded-b-full overflow-hidden border-[10px] border-white shadow-2xl mr-12 lg:mr-16">
                             <?php if(!empty($data['hero']['mainImage'])): ?>
     <img src="<?php echo htmlspecialchars($data['hero']['mainImage']); ?>" alt="Model" class="w-full h-full object-cover object-top" />
   <?php else: ?>
@@ -129,7 +129,7 @@ include __DIR__ . '/includes/header.php';
 
         <!-- Transformations Section -->
         <section class="py-16 bg-white dark:bg-background border-t border-gray-100 dark:border-border">
-            <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <h2 class="text-2xl font-headline font-bold text-[#0a142f] dark:text-white mb-10 tracking-wide">REAL. RESULTS. REAL. <span class="text-primary">TRANSFORMATIONS.</span></h2>
                 
                 <div class="relative px-12">
@@ -154,7 +154,7 @@ include __DIR__ . '/includes/header.php';
 
         <!-- Reels Section -->
         <section class="py-16 bg-[#fffdfc] dark:bg-card border-t border-gray-100 dark:border-border">
-            <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <h2 class="text-2xl font-headline font-bold text-[#0a142f] dark:text-white mb-2 tracking-wide uppercase">TRENDING <span class="text-primary">REELS</span></h2>
                 <p class="text-gray-600 dark:text-gray-300 text-[13px] mb-12">Watch our latest work and transformations</p>
                 
@@ -179,7 +179,7 @@ include __DIR__ . '/includes/header.php';
 
         <!-- Premium Services -->
         <section class="py-16 bg-white dark:bg-background border-t border-gray-100 dark:border-border">
-            <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <h2 class="text-2xl font-headline font-bold text-[#0a142f] dark:text-white mb-2 tracking-wide uppercase">OUR <span class="text-primary">PREMIUM</span> SERVICES</h2>
                 <div class="flex justify-center mb-12 items-center text-primary">
                     <span class="block w-8 h-px bg-primary/30 mr-2"></span>
@@ -225,7 +225,7 @@ include __DIR__ . '/includes/header.php';
 
         <!-- Academy Section -->
         <section class="py-16 bg-white dark:bg-background">
-            <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="bg-[#fff5f7] dark:bg-card rounded-[2rem] p-6 md:p-10 border border-pink-100 dark:border-border shadow-sm">
                     <div class="flex flex-col gap-12">
                         <!-- Top Row: Images and Info -->
@@ -296,7 +296,7 @@ include __DIR__ . '/includes/header.php';
 
         <!-- Why Choose Us -->
         <section class="py-16 bg-[#fafafa] dark:bg-secondary border-y border-gray-100 dark:border-border">
-            <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <h2 class="text-2xl font-headline font-bold text-[#0a142f] dark:text-white mb-12 tracking-wide uppercase">WHY CHOOSE GLAM HOUSE?</h2>
                 
                 <?php 
@@ -327,7 +327,7 @@ $whyIcons = [
 
         <!-- Testimonials -->
         <section class="py-16 bg-white dark:bg-background">
-            <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <h2 class="text-2xl font-headline font-bold text-primary mb-12 tracking-wide uppercase">WHAT OUR CLIENTS SAY</h2>
                 
                 <div class="relative px-12">
@@ -361,7 +361,7 @@ $whyIcons = [
 
         <!-- Instagram -->
         <section class="py-16 bg-white dark:bg-background border-t border-gray-100 dark:border-border">
-            <div class="max-w-[1400px] mx-auto text-center px-4">
+            <div class="max-w-7xl mx-auto text-center px-4">
                 <h2 class="text-xl font-headline font-bold text-[#0a142f] dark:text-white mb-8 tracking-wide uppercase">FOLLOW US ON <span class="text-primary">INSTAGRAM</span></h2>
                 
                 <div class="flex overflow-hidden justify-center mb-8 gap-3 max-w-[1000px] mx-auto">
@@ -386,7 +386,7 @@ $whyIcons = [
 
         <!-- CTA Banner -->
         <section class="py-12 bg-white dark:bg-background pb-20">
-            <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex flex-col lg:flex-row items-center justify-between gap-6 bg-[#fff5f7] dark:bg-card rounded-xl p-8 lg:px-12 border border-pink-100 dark:border-border shadow-sm relative overflow-hidden">
                     <!-- Decorative abstract leaves -->
                     <div class="absolute left-0 top-0 w-32 h-32 opacity-20 bg-[url('/public/images/leaves.png')] bg-no-repeat bg-contain -translate-x-1/2 -translate-y-1/2 mix-blend-multiply"></div>

@@ -1,7 +1,7 @@
     <!-- Footer -->
     <footer class="bg-white dark:bg-card pt-24 pb-12 border-t border-primary/5 mt-auto relative overflow-hidden">
         <div class="absolute bottom-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-[80px] -mr-32 -mb-32"></div>
-        <div class="max-w-[1500px] mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 lg:gap-12 relative z-10">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 lg:gap-12 relative z-10">
             <div class="flex flex-col items-start gap-6">
                 <a class="flex items-center group transition-transform hover:scale-105" href="/">
                     <div class="w-[120px] h-[120px] relative bg-white rounded-full p-2 shadow-md border border-primary/5">
@@ -36,7 +36,7 @@
                 </ul>
             </div>
         </div>
-        <div class="max-w-[1500px] mx-auto px-6 mt-20 pt-8 border-t border-primary/5 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] text-muted-foreground font-bold tracking-[0.1em] uppercase">
+        <div class="max-w-7xl mx-auto px-6 mt-20 pt-8 border-t border-primary/5 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] text-muted-foreground font-bold tracking-[0.1em] uppercase">
             <p>© 2024 The Glam House Salon &amp; Academy. All Rights Reserved.</p>
         </div>
     </footer>

@@ -65,7 +65,7 @@
 <body class="font-body antialiased min-h-screen flex flex-col">
     <!-- Navbar -->
     <nav class="fixed top-0 w-full z-50 transition-all duration-500 px-6 py-4 bg-transparent bg-background/80 backdrop-blur-md">
-        <div class="max-w-[1500px] mx-auto flex items-center justify-between">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
             <a class="flex items-center group flex-shrink-0 transition-transform hover:scale-105 relative z-10" href="/">
                 <div class="bg-white p-2 rounded-full shadow-lg border border-primary/10">
                     <img alt="The Glam House Logo" width="140" height="140" decoding="async" class="w-[70px] h-[70px] md:w-[90px] md:h-[90px] object-contain" src="/studio/logo.png"/>
