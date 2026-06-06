@@ -38,5 +38,7 @@ jobs:
             --exclude-glob *.md \
             --exclude-glob cleanup.js \
             --exclude-glob migrate.js \
+            --exclude-glob studio/ \
+            --exclude-glob website-upload.zip \
             ./ /
           "

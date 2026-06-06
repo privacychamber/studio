@@ -39,13 +39,14 @@ php_value max_execution_time 30
   RewriteEngine On
   RewriteBase /
 
+  # Route Next.js basePath (/studio/*) to the root directory
+  # This MUST be before the physical file/dir check so the Next.js links work even if a 'studio' folder exists physically
+  RewriteRule ^studio/(.*)$ /$1 [L]
+
   # Serve existing files and directories as-is
   RewriteCond %{REQUEST_FILENAME} -f [OR]
   RewriteCond %{REQUEST_FILENAME} -d
   RewriteRule ^ - [L]
-
-  # Route Next.js basePath (/studio/*) to the root directory
-  RewriteRule ^studio/(.*)$ /$1 [L]
 
   # Route /api/data      -> api/data.php
   RewriteRule ^api/data/?$ api/data.php [L,QSA]
