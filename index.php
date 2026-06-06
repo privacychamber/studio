@@ -4,257 +4,394 @@ include __DIR__ . '/includes/header.php';
 ?>
 
     <!-- Main Content -->
-    <main class="flex-grow pt-24">
+    <main class="flex-grow">
+        
         <!-- Hero Section -->
-        <section class="relative min-h-[90vh] pt-32 pb-20 overflow-hidden bg-[#fffdfc] dark:bg-background">
-            <!-- Subtle background circle for the oval frame -->
-            <div class="absolute right-0 top-0 w-[80%] md:w-1/2 h-full bg-primary/5 rounded-l-full blur-3xl -z-10 pointer-events-none"></div>
+        <section class="relative pt-12 pb-12 overflow-hidden bg-white">
+            <!-- Large Pink Arc Background -->
+            <div class="absolute right-0 top-0 w-[55%] h-full bg-primary/10 rounded-l-full -z-10 hidden md:block"></div>
             
-            <div class="max-w-[1500px] mx-auto px-6 grid lg:grid-cols-2 gap-12 lg:gap-8 items-center relative z-10">
-                <!-- Left Column: Typography & CTAs -->
-                <div class="flex flex-col items-start text-left space-y-8 mt-12 lg:mt-0">
-                    <div class="space-y-4">
-                        <p class="font-accent text-primary text-3xl md:text-5xl drop-shadow-sm">Enhance. Elevate. Empower.</p>
-                        <h1 class="text-5xl md:text-7xl lg:text-8xl font-headline font-bold leading-[1.05] text-foreground">
-                            FLAWLESS <br/>
-                            <span class="text-primary">BEAUTY</span> <br/>
+            <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid md:grid-cols-[1fr_auto] gap-8 items-center">
+                    
+                    <!-- Left Content -->
+                    <div class="max-w-2xl pt-10 md:pt-20 pb-10">
+                        <p class="font-accent text-primary text-3xl md:text-4xl mb-4">Enhance. Elevate. Empower.</p>
+                        <h1 class="text-5xl md:text-[5.5rem] font-headline font-bold leading-[1.05] text-[#0a142f] mb-6">
+                            FLAWLESS<br/>
+                            <span class="text-primary">BEAUTY</span><br/>
                             STARTS HERE
                         </h1>
-                    </div>
-                    
-                    <p class="text-base md:text-lg text-muted-foreground font-medium border-l-4 border-primary pl-4 py-1">
-                        Permanent Makeup | Hair Treatments | <br class="hidden sm:block"/>
-                        Lash &amp; Brow | Skin | Certified Courses
-                    </p>
-                    
-                    <div class="flex flex-col sm:flex-row items-center gap-4 pt-4 w-full sm:w-auto">
-                        <a href="/book.html" class="inline-flex items-center justify-center gap-2 h-14 px-8 w-full sm:w-auto rounded-md bg-primary hover:bg-primary/90 text-white font-bold text-xs uppercase tracking-widest shadow-xl shadow-primary/20 transition-all hover:scale-105">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>
-                            BOOK APPOINTMENT
-                        </a>
-                        <a href="/academy.html" class="inline-flex items-center justify-center gap-2 h-14 px-8 w-full sm:w-auto rounded-md border-2 border-primary/20 hover:border-primary text-foreground font-bold text-xs uppercase tracking-widest transition-all hover:bg-primary/5">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-primary"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-                            EXPLORE COURSES
-                        </a>
-                    </div>
-                    
-                    <!-- Trust Badges -->
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 pt-10 mt-6 border-t border-primary/10 w-full">
-                        <div class="flex flex-col md:flex-row items-start md:items-center gap-3">
-                            <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                            </div>
-                            <div>
-                                <p class="text-sm font-bold text-foreground">1000+</p>
-                                <p class="text-[9px] uppercase tracking-widest text-muted-foreground mt-0.5">Happy Clients</p>
-                            </div>
-                        </div>
-                        <div class="flex flex-col md:flex-row items-start md:items-center gap-3">
-                            <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" x2="12" y1="9" y2="13"/><line x1="12" x2="12.01" y1="17" y2="17"/></svg>
-                            </div>
-                            <div>
-                                <p class="text-sm font-bold text-foreground">Certified</p>
-                                <p class="text-[9px] uppercase tracking-widest text-muted-foreground mt-0.5">Beauty Academy</p>
-                            </div>
-                        </div>
-                        <div class="flex flex-col md:flex-row items-start md:items-center gap-3">
-                            <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
-                            </div>
-                            <div>
-                                <p class="text-sm font-bold text-foreground">Premium Salon</p>
-                                <p class="text-[9px] uppercase tracking-widest text-muted-foreground mt-0.5">in Your City</p>
-                            </div>
-                        </div>
-                        <div class="flex flex-col md:flex-row items-start md:items-center gap-3">
-                            <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                            </div>
-                            <div>
-                                <p class="text-sm font-bold text-foreground">Hygienic &amp; Safe</p>
-                                <p class="text-[9px] uppercase tracking-widest text-muted-foreground mt-0.5">Environment</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Right Column: Oval Slider Frame & Floating Cards -->
-                <div class="relative w-full h-full flex justify-center lg:justify-end items-center mt-12 lg:mt-0 pb-10">
-                    <!-- The Main Oval Frame -->
-                    <div class="relative w-[300px] h-[450px] sm:w-[400px] sm:h-[600px] md:w-[450px] md:h-[650px] rounded-[200px] overflow-hidden shadow-2xl border-8 border-white dark:border-card group z-10 bg-muted">
-                        <!-- Images for Slider -->
-                        <div id="hero-slider" class="relative w-full h-full">
-                            <img src="/public/images/IMG_0568.JPG.jpeg" class="absolute inset-0 w-full h-full object-cover slider-img transition-opacity duration-1000 z-10" alt="Beautiful Model"/>
-                            <img src="/public/images/IMG_0724.JPG.jpeg" class="absolute inset-0 w-full h-full object-cover slider-img transition-opacity duration-1000 opacity-0 z-0" alt="Salon Service"/>
-                            <img src="/public/images/IMG_1401.JPG.jpeg" class="absolute inset-0 w-full h-full object-cover slider-img transition-opacity duration-1000 opacity-0 z-0" alt="Permanent Makeup"/>
-                        </div>
-                        <!-- Slider Controls Overlay -->
-                        <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-between px-4 z-20 pointer-events-none">
-                            <button id="hero-prev" class="w-10 h-10 rounded-full bg-white/90 hover:bg-white flex items-center justify-center shadow-lg text-primary transition-transform hover:scale-110 pointer-events-auto">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="m15 18-6-6 6-6"/></svg>
-                            </button>
-                            <button id="hero-next" class="w-10 h-10 rounded-full bg-white/90 hover:bg-white flex items-center justify-center shadow-lg text-primary transition-transform hover:scale-110 pointer-events-auto">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="m9 18 6-6-6-6"/></svg>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Floating Service Cards -->
-                    <div class="absolute -right-2 sm:-right-8 top-1/2 -translate-y-1/2 flex flex-col gap-6 z-20 hidden md:flex">
-                        <!-- Card 1 -->
-                        <div class="bg-white/95 dark:bg-card/95 backdrop-blur-md p-2.5 rounded-xl shadow-[0_15px_40px_rgba(0,0,0,0.15)] border border-primary/10 w-[160px] transform hover:-translate-y-1 transition-transform">
-                            <p class="text-[11px] font-bold text-center uppercase tracking-widest text-foreground mb-2">BROWS</p>
-                            <div class="grid grid-rows-2 gap-1.5 h-[100px]">
-                                <img src="/public/images/IMG_3592.PNG" class="w-full h-full object-cover rounded-md" alt="Brows Before"/>
-                                <img src="/public/images/IMG_3593.PNG" class="w-full h-full object-cover rounded-md" alt="Brows After"/>
-                            </div>
+                        <p class="text-[#4b5563] text-lg font-medium mb-8">
+                            Permanent Makeup | Hair Treatments |<br/>
+                            Lash &amp; Brow | Skin | Certified Courses
+                        </p>
+                        
+                        <div class="flex flex-col sm:flex-row gap-4 mb-12">
+                            <a href="/book.html" class="inline-flex items-center justify-center gap-2 bg-primary text-white px-8 py-3.5 rounded-md font-bold text-xs uppercase tracking-wider hover:bg-primary/90 transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                                BOOK APPOINTMENT
+                            </a>
+                            <a href="/academy.html" class="inline-flex items-center justify-center gap-2 border border-primary text-[#0a142f] px-8 py-3.5 rounded-md font-bold text-xs uppercase tracking-wider hover:bg-primary/5 transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                                EXPLORE COURSES
+                            </a>
                         </div>
                         
-                        <!-- Card 2 -->
-                        <div class="bg-white/95 dark:bg-card/95 backdrop-blur-md p-2.5 rounded-xl shadow-[0_15px_40px_rgba(0,0,0,0.15)] border border-primary/10 w-[160px] transform hover:-translate-y-1 transition-transform translate-x-4">
-                            <p class="text-[11px] font-bold text-center uppercase tracking-widest text-foreground mb-2">HAIR</p>
-                            <div class="grid grid-cols-2 gap-1.5 h-[80px]">
-                                <img src="/public/images/IMG_0810.JPG.jpeg" class="w-full h-full object-cover rounded-md" alt="Hair Style 1"/>
-                                <img src="/public/images/IMG_0524.JPG.jpeg" class="w-full h-full object-cover rounded-md" alt="Hair Style 2"/>
+                        <!-- Trust Badges -->
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 pt-6 border-t border-gray-200">
+                            <div class="flex items-center gap-3">
+                                <div class="text-primary shrink-0">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-sm text-[#0a142f] leading-tight">1000+</p>
+                                    <p class="text-[9px] uppercase tracking-wider text-gray-500">Happy Clients</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="text-primary shrink-0">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" x2="12" y1="9" y2="13"/><line x1="12" x2="12.01" y1="17" y2="17"/></svg>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-sm text-[#0a142f] leading-tight">Certified</p>
+                                    <p class="text-[9px] uppercase tracking-wider text-gray-500">Beauty Academy</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="text-primary shrink-0">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-sm text-[#0a142f] leading-tight">Premium Salon</p>
+                                    <p class="text-[9px] uppercase tracking-wider text-gray-500">in Your City</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="text-primary shrink-0">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><circle cx="12" cy="10" r="3"/></svg>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-sm text-[#0a142f] leading-tight">Hygienic &amp; Safe</p>
+                                    <p class="text-[9px] uppercase tracking-wider text-gray-500">Environment</p>
+                                </div>
                             </div>
                         </div>
+                    </div>
 
-                        <!-- Card 3 -->
-                        <div class="bg-white/95 dark:bg-card/95 backdrop-blur-md p-2.5 rounded-xl shadow-[0_15px_40px_rgba(0,0,0,0.15)] border border-primary/10 w-[160px] transform hover:-translate-y-1 transition-transform">
-                            <p class="text-[11px] font-bold text-center uppercase tracking-widest text-foreground mb-2">LIPS</p>
-                            <div class="grid grid-rows-2 gap-1.5 h-[100px]">
-                                <img src="/public/images/IMG_3594.PNG" class="w-full h-full object-cover rounded-md" alt="Lips Tint"/>
-                                <img src="/public/images/IMG_3595.PNG" class="w-full h-full object-cover rounded-md" alt="Lips Blush"/>
+                    <!-- Right Images -->
+                    <div class="relative hidden md:flex items-center justify-end h-full py-10">
+                        <div class="relative z-10 w-[450px] h-[600px] rounded-t-full rounded-b-full overflow-hidden border-[12px] border-white shadow-2xl mr-16">
+                            <img src="/public/images/IMG_0568.JPG.jpeg" alt="Model" class="w-full h-full object-cover object-top" />
+                        </div>
+                        
+                        <!-- Floating Sidebar Cards -->
+                        <div class="absolute right-0 top-1/2 -translate-y-1/2 flex flex-col gap-4 z-20">
+                            <!-- Brows -->
+                            <div class="bg-[#fff9fa] rounded-xl p-2.5 shadow-lg w-[140px] border border-pink-100 bg-white">
+                                <p class="text-[10px] font-bold text-center uppercase tracking-widest text-[#0a142f] mb-2">BROWS</p>
+                                <div class="grid grid-rows-2 gap-1 h-[80px]">
+                                    <img src="/public/images/IMG_3592.PNG" class="w-full h-full object-cover rounded" alt="Before"/>
+                                    <img src="/public/images/IMG_3593.PNG" class="w-full h-full object-cover rounded" alt="After"/>
+                                </div>
+                            </div>
+                            <!-- Hair -->
+                            <div class="bg-[#fff9fa] rounded-xl p-2.5 shadow-lg w-[140px] border border-pink-100 -translate-x-6 bg-white">
+                                <p class="text-[10px] font-bold text-center uppercase tracking-widest text-[#0a142f] mb-2">HAIR</p>
+                                <div class="grid grid-cols-2 gap-1 h-[60px]">
+                                    <img src="/public/images/IMG_0810.JPG.jpeg" class="w-full h-full object-cover rounded" alt="Before"/>
+                                    <img src="/public/images/IMG_0524.JPG.jpeg" class="w-full h-full object-cover rounded" alt="After"/>
+                                </div>
+                            </div>
+                            <!-- Lips -->
+                            <div class="bg-[#fff9fa] rounded-xl p-2.5 shadow-lg w-[140px] border border-pink-100 bg-white">
+                                <p class="text-[10px] font-bold text-center uppercase tracking-widest text-[#0a142f] mb-2">LIPS</p>
+                                <div class="grid grid-rows-2 gap-1 h-[80px]">
+                                    <img src="/public/images/IMG_3594.PNG" class="w-full h-full object-cover rounded" alt="Before"/>
+                                    <img src="/public/images/IMG_3595.PNG" class="w-full h-full object-cover rounded" alt="After"/>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            
+            <!-- WhatsApp Float -->
+            <a href="https://wa.me/917087657000" target="_blank" class="fixed bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-[0_4px_14px_rgba(37,211,102,0.4)] z-50 hover:scale-110 transition-transform">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.82 9.82 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+            </a>
         </section>
 
-
-
-        <!-- Services Section -->
-        <section class="py-32 bg-card">
-            <div class="container mx-auto px-4">
-                <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-                    <div class="max-w-2xl">
-                        <h2 class="text-primary text-sm font-bold tracking-[0.4em] uppercase mb-4">What We Do</h2>
-                        <h3 class="text-4xl md:text-5xl font-headline font-bold text-foreground">SIGNATURE SERVICES</h3>
+        <!-- Transformations Section -->
+        <section class="py-16 bg-white border-t border-gray-100">
+            <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-2xl font-headline font-bold text-[#0a142f] mb-10 tracking-wide">REAL. RESULTS. REAL. <span class="text-primary">TRANSFORMATIONS.</span></h2>
+                
+                <div class="relative px-12">
+                    <!-- Carousel container -->
+                    <div class="flex items-center gap-4 overflow-hidden justify-center flex-wrap">
+                        <img src="/public/images/IMG_3592.PNG" class="w-[180px] h-[180px] object-cover rounded-lg shadow-sm" alt="Transform 1"/>
+                        <img src="/public/images/IMG_3593.PNG" class="w-[180px] h-[180px] object-cover rounded-lg shadow-sm" alt="Transform 2"/>
+                        <img src="/public/images/IMG_0810.JPG.jpeg" class="w-[180px] h-[180px] object-cover rounded-lg shadow-sm" alt="Transform 3"/>
+                        <img src="/public/images/IMG_3594.PNG" class="w-[180px] h-[180px] object-cover rounded-lg shadow-sm" alt="Transform 4"/>
+                        <img src="/public/images/IMG_3595.PNG" class="w-[180px] h-[180px] object-cover rounded-lg shadow-sm" alt="Transform 5"/>
                     </div>
-                    <a href="/services.html" class="text-sm font-bold tracking-[0.2em] uppercase hover:text-primary transition-colors flex items-center gap-2">View All Services →</a>
+                    <!-- Carousel Arrows -->
+                    <button class="absolute left-4 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center shadow-md">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                    </button>
+                    <button class="absolute right-4 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center shadow-md">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Premium Services -->
+        <section class="py-16 bg-white border-t border-gray-100">
+            <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-2xl font-headline font-bold text-[#0a142f] mb-2 tracking-wide uppercase">OUR <span class="text-primary">PREMIUM</span> SERVICES</h2>
+                <div class="flex justify-center mb-12 items-center text-primary">
+                    <span class="block w-8 h-px bg-primary/30 mr-2"></span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                    <span class="block w-8 h-px bg-primary/30 ml-2"></span>
                 </div>
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <?php foreach(array_slice($data['services'], 0, 4) as $index => $service): ?>
-                    <div class="bg-background rounded-3xl overflow-hidden shadow-xl border border-primary/5 hover:-translate-y-2 transition-transform duration-300 group">
-                        <div class="relative h-64 overflow-hidden">
-                            <img src="<?php echo htmlspecialchars($service['imageUrl']); ?>" alt="<?php echo htmlspecialchars($service['title']); ?>" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"/>
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-                            <div class="absolute bottom-4 left-4 right-4">
-                                <h4 class="text-xl font-bold text-white mb-1"><?php echo htmlspecialchars($service['title']); ?></h4>
-                                <p class="text-primary font-bold"><?php echo htmlspecialchars($service['price']); ?></p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left mb-12">
+                    <?php 
+                    $icons = [
+                        '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>',
+                        '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>',
+                        '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20M20 12v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8M12 22V12M8 12V2a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v10"/></svg>',
+                        '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>'
+                    ];
+                    foreach(array_slice($data['services'], 0, 4) as $index => $service): 
+                    ?>
+                    <div class="bg-white rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.08)] border border-gray-100 overflow-hidden flex flex-col">
+                        <div class="relative h-48 w-full">
+                            <img src="<?php echo htmlspecialchars($service['imageUrl']); ?>" alt="<?php echo htmlspecialchars($service['title']); ?>" class="w-full h-full object-cover"/>
+                            <!-- Circular Icon overlapping -->
+                            <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-white flex items-center justify-center text-primary shadow-md border-2 border-white">
+                                <?php echo $icons[$index % 4]; ?>
                             </div>
                         </div>
-                        <div class="p-6">
-                            <p class="text-sm text-muted-foreground line-clamp-2 mb-6"><?php echo htmlspecialchars($service['desc']); ?></p>
-                            <a href="/book.html" class="block w-full text-center py-3 rounded-full border border-primary/20 text-xs font-bold uppercase tracking-widest hover:bg-primary hover:text-white transition-colors">Book Now</a>
+                        <div class="pt-10 pb-6 px-6 flex-grow flex flex-col text-center">
+                            <h4 class="text-[15px] font-bold text-primary uppercase tracking-wide mb-3"><?php echo htmlspecialchars($service['title']); ?></h4>
+                            <p class="text-[13px] text-gray-600 mb-6 leading-relaxed flex-grow"><?php echo htmlspecialchars($service['desc']); ?></p>
+                            <a href="/services.html" class="text-primary text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1 hover:text-primary/80 transition-colors">
+                                KNOW MORE 
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                            </a>
                         </div>
                     </div>
                     <?php endforeach; ?>
                 </div>
-            </div>
-        </section>
-
-        <!-- Courses Section -->
-        <section class="py-24 bg-[#fdf8f5]">
-            <div class="container mx-auto px-4">
-                <div class="bg-white rounded-[3rem] p-10 lg:p-20 shadow-xl border border-primary/5">
-                    <div class="grid lg:grid-cols-2 gap-16 items-center">
-                        <div class="grid grid-cols-2 gap-4">
-                            <div class="relative aspect-[3/4] rounded-[2rem] overflow-hidden shadow-xl">
-                                <img src="/studio/images/IMG_1413.JPG.jpeg" class="w-full h-full object-cover" alt="Training"/>
-                            </div>
-                            <div class="space-y-4 pt-12">
-                                <div class="relative aspect-square rounded-[2rem] overflow-hidden shadow-xl">
-                                    <img src="/studio/images/IMG_0722.JPG.jpeg" class="w-full h-full object-cover" alt="Practical"/>
-                                </div>
-                                <div class="relative aspect-[3/2] rounded-[2rem] overflow-hidden shadow-xl bg-accent p-6 flex flex-col justify-center text-white">
-                                    <p class="text-3xl font-bold mb-1">100%</p>
-                                    <p class="text-[10px] font-bold uppercase tracking-widest">Placement Assistance</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="space-y-8">
-                            <div>
-                                <h3 class="text-accent text-sm font-bold tracking-[0.4em] uppercase mb-4">Glam House Academy</h3>
-                                <h2 class="text-4xl md:text-5xl lg:text-6xl font-headline font-bold text-foreground leading-tight">
-                                    START YOUR CAREER IN <br />
-                                    <span class="text-primary italic">BEAUTY INDUSTRY</span>
-                                </h2>
-                            </div>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                                <?php foreach($data['courses'] as $course): ?>
-                                <div class="overflow-hidden shadow-xl rounded-3xl bg-secondary/20 hover:bg-secondary/40 transition-colors">
-                                    <div class="p-6">
-                                        <h4 class="text-sm font-bold uppercase tracking-widest mb-2"><?php echo htmlspecialchars($course['title']); ?></h4>
-                                        <div class="flex items-center gap-2 text-muted-foreground mb-4 text-[10px] font-bold uppercase tracking-widest">
-                                            <span><?php echo htmlspecialchars($course['duration']); ?></span>
-                                        </div>
-                                        <p class="text-2xl font-bold text-primary mb-4"><?php echo htmlspecialchars($course['price']); ?></p>
-                                        <a href="/enroll.html" class="block w-full text-center bg-foreground text-background hover:bg-primary rounded-full text-[10px] font-bold uppercase tracking-widest py-4 transition-colors">Enroll Now</a>
-                                    </div>
-                                </div>
-                                <?php endforeach; ?>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Reels Section -->
-        <section class="py-24 bg-background overflow-hidden border-t border-primary/5">
-            <div class="container mx-auto px-4">
-                <div class="text-center max-w-3xl mx-auto mb-16">
-                    <h3 class="text-4xl md:text-5xl font-headline font-bold text-foreground mb-6">Watch & Learn</h3>
-                    <p class="text-foreground/80 font-medium leading-relaxed">Experience our signature transformations and learn more about our premium services through our curated video showcase.</p>
-                </div>
                 
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 reels-container">
-                    <?php if(!empty($data['reels'])): foreach(array_slice($data['reels'], 0, 4) as $reel): ?>
-                    <div class="aspect-[9/16] bg-black rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow relative group cursor-pointer" onclick="togglePlay(this)">
-                        <video 
-                            src="<?php echo htmlspecialchars($reel['videoUrl']); ?>" 
-                            class="w-full h-full object-cover reel-video"
-                            loop muted playsinline
-                        ></video>
+                <a href="/services.html" class="inline-block border border-primary text-primary px-8 py-3 rounded text-xs font-bold uppercase tracking-wider hover:bg-primary hover:text-white transition-colors">
+                    VIEW ALL SERVICES
+                </a>
+            </div>
+        </section>
+
+        <!-- Academy Section -->
+        <section class="py-16 bg-white">
+            <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="bg-[#fff5f7] rounded-[2rem] p-6 md:p-10 border border-pink-100 shadow-sm">
+                    <div class="grid lg:grid-cols-[1fr_1.2fr_1fr] gap-8 items-center">
+                        
+                        <!-- Left Collage -->
+                        <div class="grid grid-cols-2 grid-rows-2 gap-2 h-[400px]">
+                            <img src="/studio/images/IMG_1413.JPG.jpeg" class="col-span-2 w-full h-full object-cover rounded-lg shadow-sm" alt="Class"/>
+                            <img src="/studio/images/IMG_0722.JPG.jpeg" class="w-full h-full object-cover rounded-lg shadow-sm" alt="Practice 1"/>
+                            <img src="/studio/images/IMG_1413.JPG.jpeg" class="w-full h-full object-cover rounded-lg shadow-sm" alt="Practice 2"/>
+                        </div>
+                        
+                        <!-- Middle Checklist -->
+                        <div class="flex flex-col justify-center px-4 md:px-8 text-center lg:text-left">
+                            <h3 class="text-primary text-lg font-bold tracking-widest uppercase mb-1">START YOUR CAREER IN</h3>
+                            <h2 class="text-3xl md:text-4xl font-headline font-bold text-[#0a142f] mb-8">BEAUTY INDUSTRY</h2>
+                            
+                            <ul class="space-y-4 mb-8 mx-auto lg:mx-0 inline-block text-left">
+                                <li class="flex items-center gap-3 text-sm font-semibold text-[#0a142f]">
+                                    <div class="w-5 h-5 rounded-full border border-primary text-primary flex items-center justify-center shrink-0">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                    </div>
+                                    Certified Professional Courses
+                                </li>
+                                <li class="flex items-center gap-3 text-sm font-semibold text-[#0a142f]">
+                                    <div class="w-5 h-5 rounded-full border border-primary text-primary flex items-center justify-center shrink-0">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                    </div>
+                                    Hands-on Practical Training
+                                </li>
+                                <li class="flex items-center gap-3 text-sm font-semibold text-[#0a142f]">
+                                    <div class="w-5 h-5 rounded-full border border-primary text-primary flex items-center justify-center shrink-0">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                    </div>
+                                    Learn from Industry Experts
+                                </li>
+                                <li class="flex items-center gap-3 text-sm font-semibold text-[#0a142f]">
+                                    <div class="w-5 h-5 rounded-full border border-primary text-primary flex items-center justify-center shrink-0">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                    </div>
+                                    Lifetime Support &amp; Guidance
+                                </li>
+                                <li class="flex items-center gap-3 text-sm font-semibold text-[#0a142f]">
+                                    <div class="w-5 h-5 rounded-full border border-primary text-primary flex items-center justify-center shrink-0">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                    </div>
+                                    Placement Assistance
+                                </li>
+                            </ul>
+                            
+                            <p class="text-[11px] font-bold text-[#0a142f] tracking-widest mb-1">LIMITED SEATS PER BATCH!</p>
+                            <div class="flex items-center justify-center lg:justify-start gap-2 text-primary font-accent text-3xl">
+                                Book Your Seat Now!
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                            </div>
+                        </div>
+                        
+                        <!-- Right Course Cards -->
+                        <div class="flex flex-col sm:flex-row lg:flex-col gap-4">
+                            <?php foreach($data['courses'] as $course): ?>
+                            <div class="bg-white rounded-xl shadow-md border border-gray-100 overflow-hidden flex flex-col flex-1">
+                                <img src="<?php echo htmlspecialchars($course['imageUrl']); ?>" class="w-full h-[150px] object-cover" alt="<?php echo htmlspecialchars($course['title']); ?>"/>
+                                <div class="p-5 text-center bg-[#fffdfc]">
+                                    <h4 class="font-headline font-bold text-sm text-[#0a142f] uppercase mb-1 tracking-wide"><?php echo htmlspecialchars($course['title']); ?></h4>
+                                    <p class="text-[11px] text-gray-500 mb-2">Duration: <?php echo htmlspecialchars($course['duration']); ?></p>
+                                    <p class="text-xl font-bold text-[#0a142f] mb-3"><?php echo htmlspecialchars($course['price']); ?></p>
+                                    <a href="/enroll.html" class="block w-full bg-primary text-white py-2.5 rounded text-[10px] font-bold uppercase tracking-widest hover:bg-primary/90 transition-colors shadow-sm">ENROLL NOW</a>
+                                </div>
+                            </div>
+                            <?php endforeach; ?>
+                        </div>
                     </div>
-                    <?php endforeach; else: ?>
-                        <p class="text-muted-foreground italic col-span-full text-center">No reels uploaded yet.</p>
-                    <?php endif; ?>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us -->
+        <section class="py-16 bg-[#fafafa] border-y border-gray-100">
+            <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-2xl font-headline font-bold text-[#0a142f] mb-12 tracking-wide uppercase">WHY CHOOSE GLAM HOUSE?</h2>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="flex flex-col items-center text-center gap-4 px-4">
+                        <div class="w-16 h-16 rounded-full border border-primary text-primary flex items-center justify-center shrink-0 bg-white shadow-sm">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-[12px] uppercase tracking-wider text-[#0a142f] mb-2">EXPERT PROFESSIONALS</h4>
+                            <p class="text-[13px] text-gray-600 leading-relaxed">Experienced &amp; certified beauty experts</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col items-center text-center gap-4 px-4">
+                        <div class="w-16 h-16 rounded-full border border-primary text-primary flex items-center justify-center shrink-0 bg-white shadow-sm">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" x2="12" y1="9" y2="13"/><line x1="12" x2="12.01" y1="17" y2="17"/></svg>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-[12px] uppercase tracking-wider text-[#0a142f] mb-2">PREMIUM PRODUCTS</h4>
+                            <p class="text-[13px] text-gray-600 leading-relaxed">We use high-quality, skin-friendly products</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col items-center text-center gap-4 px-4">
+                        <div class="w-16 h-16 rounded-full border border-primary text-primary flex items-center justify-center shrink-0 bg-white shadow-sm">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-[12px] uppercase tracking-wider text-[#0a142f] mb-2">HYGIENE &amp; SAFETY</h4>
+                            <p class="text-[13px] text-gray-600 leading-relaxed">100% hygienic tools &amp; sanitized environment</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col items-center text-center gap-4 px-4">
+                        <div class="w-16 h-16 rounded-full border border-primary text-primary flex items-center justify-center shrink-0 bg-white shadow-sm">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-[12px] uppercase tracking-wider text-[#0a142f] mb-2">CUSTOMER SATISFACTION</h4>
+                            <p class="text-[13px] text-gray-600 leading-relaxed">Your satisfaction is our top priority</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Testimonials -->
-        <section class="py-32 bg-background">
-            <div class="container mx-auto px-4 text-center">
-                <div class="max-w-2xl mx-auto mb-20">
-                    <h2 class="text-primary text-sm font-bold tracking-[0.4em] uppercase mb-4">Wall of Love</h2>
-                    <h3 class="text-4xl md:text-5xl font-headline font-bold text-foreground mb-6">WHAT OUR GUESTS SAY</h3>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <?php foreach($data['testimonials'] as $item): ?>
-                    <div class="bg-white dark:bg-card border border-primary/5 shadow-lg p-10 rounded-[3rem] relative flex flex-col items-center pt-20 mt-10 hover:shadow-2xl transition-all">
-                        <div class="absolute -top-10 w-20 h-20 rounded-full overflow-hidden border-8 border-background shadow-xl">
-                            <img src="<?php echo htmlspecialchars($item['imageUrl']); ?>" class="w-full h-full object-cover" alt="<?php echo htmlspecialchars($item['name']); ?>"/>
+        <section class="py-16 bg-white">
+            <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-2xl font-headline font-bold text-primary mb-12 tracking-wide uppercase">WHAT OUR CLIENTS SAY</h2>
+                
+                <div class="relative px-12">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <?php foreach($data['testimonials'] as $item): ?>
+                        <div class="bg-white border border-pink-100 shadow-[0_4px_15px_rgba(0,0,0,0.05)] rounded-xl p-6 relative flex flex-col text-center items-center">
+                            <div class="w-full flex justify-between items-start mb-4 px-2">
+                                <img src="<?php echo htmlspecialchars($item['imageUrl']); ?>" class="w-12 h-12 rounded-full object-cover border border-gray-100 shadow-sm" alt="<?php echo htmlspecialchars($item['name']); ?>"/>
+                                <span class="text-primary text-5xl leading-none font-serif opacity-80 pt-2">"</span>
+                            </div>
+                            <h4 class="font-bold text-[13px] text-[#0a142f] mb-1"><?php echo htmlspecialchars($item['name']); ?></h4>
+                            <div class="flex justify-center gap-1 mb-4 text-[#facc15]">
+                                <?php for($i=0; $i<5; $i++): ?>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-3.5 h-3.5"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd" /></svg>
+                                <?php endfor; ?>
+                            </div>
+                            <p class="text-[13px] text-gray-600 leading-relaxed italic px-2">"<?php echo htmlspecialchars($item['review']); ?>"</p>
                         </div>
-                        <p class="text-sm text-foreground/80 text-center font-medium leading-relaxed mb-6 italic">"<?php echo htmlspecialchars($item['review']); ?>"</p>
-                        <h4 class="font-bold text-xs uppercase tracking-[0.2em] text-foreground mt-auto"><?php echo htmlspecialchars($item['name']); ?></h4>
+                        <?php endforeach; ?>
                     </div>
-                    <?php endforeach; ?>
+                    <!-- Carousel Arrows -->
+                    <button class="absolute left-0 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center shadow-md">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                    </button>
+                    <button class="absolute right-0 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center shadow-md">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Instagram -->
+        <section class="py-16 bg-white border-t border-gray-100">
+            <div class="max-w-[1400px] mx-auto text-center px-4">
+                <h2 class="text-xl font-headline font-bold text-[#0a142f] mb-8 tracking-wide uppercase">FOLLOW US ON <span class="text-primary">INSTAGRAM</span></h2>
+                
+                <div class="flex overflow-hidden justify-center mb-8 gap-3 max-w-[1000px] mx-auto">
+                    <img src="/public/images/IMG_0568.JPG.jpeg" class="w-[150px] h-[150px] object-cover rounded-md shadow-sm shrink-0" alt="IG 1"/>
+                    <img src="/public/images/IMG_3592.PNG" class="w-[150px] h-[150px] object-cover rounded-md shadow-sm shrink-0 hidden sm:block" alt="IG 2"/>
+                    <img src="/public/images/IMG_0810.JPG.jpeg" class="w-[150px] h-[150px] object-cover rounded-md shadow-sm shrink-0 hidden md:block" alt="IG 3"/>
+                    <img src="/public/images/IMG_1413.JPG.jpeg" class="w-[150px] h-[150px] object-cover rounded-md shadow-sm shrink-0 hidden lg:block" alt="IG 4"/>
+                    <img src="/public/images/IMG_3595.PNG" class="w-[150px] h-[150px] object-cover rounded-md shadow-sm shrink-0 hidden xl:block" alt="IG 5"/>
+                    <img src="/public/images/IMG_0524.JPG.jpeg" class="w-[150px] h-[150px] object-cover rounded-md shadow-sm shrink-0 hidden xl:block" alt="IG 6"/>
+                </div>
+                
+                <a href="https://instagram.com/the_glam_house_salon" target="_blank" class="inline-block border border-primary text-primary px-8 py-2.5 rounded text-[11px] font-bold tracking-wider hover:bg-primary hover:text-white transition-colors">
+                    @the_glam_house_salon
+                </a>
+            </div>
+        </section>
+
+        <!-- CTA Banner -->
+        <section class="py-12 bg-white pb-20">
+            <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col lg:flex-row items-center justify-between gap-6 bg-[#fff5f7] rounded-xl p-8 lg:px-12 border border-pink-100 shadow-sm relative overflow-hidden">
+                    <!-- Decorative abstract leaves -->
+                    <div class="absolute left-0 top-0 w-32 h-32 opacity-20 bg-[url('/public/images/leaves.png')] bg-no-repeat bg-contain -translate-x-1/2 -translate-y-1/2 mix-blend-multiply"></div>
+                    <div class="absolute right-0 bottom-0 w-48 h-48 opacity-20 bg-[url('/public/images/leaves.png')] bg-no-repeat bg-contain translate-x-1/4 translate-y-1/4 mix-blend-multiply rotate-180"></div>
+                    
+                    <div class="text-center lg:text-left relative z-10">
+                        <h2 class="text-2xl font-headline font-bold text-[#0a142f] mb-2">READY FOR YOUR TRANSFORMATION?</h2>
+                        <p class="text-gray-600 text-[15px]">Let our experts bring out the most beautiful you.</p>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-4 relative z-10">
+                        <a href="https://wa.me/917087657000" target="_blank" class="inline-flex items-center justify-center gap-2 bg-[#D82B68] text-white px-8 py-3.5 rounded text-[11px] font-bold uppercase tracking-wider hover:bg-[#c0235b] transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.82 9.82 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+                            BOOK ON WHATSAPP
+                        </a>
+                        <a href="/book.html" class="inline-flex items-center justify-center gap-2 bg-white text-[#0a142f] border border-gray-200 px-8 py-3.5 rounded text-[11px] font-bold uppercase tracking-wider hover:bg-gray-50 transition-colors shadow-sm">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+                            SCHEDULE APPOINTMENT
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
