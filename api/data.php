@@ -51,6 +51,44 @@ $default_data = [
         ['id' => '2', 'title' => 'Bridal Makeup', 'videoUrl' => 'https://www.w3schools.com/html/mov_bbb.mp4'],
         ['id' => '3', 'title' => 'Nail Art Tutorial', 'videoUrl' => 'https://www.w3schools.com/html/mov_bbb.mp4'],
     ],
+    'hero' => [
+        'tagline' => 'Enhance. Elevate. Empower.',
+        'headlinePart1' => 'FLAWLESS',
+        'headlineHighlight' => 'BEAUTY',
+        'headlinePart2' => 'STARTS HERE',
+        'subtext' => 'Permanent Makeup | Hair Treatments | Lash & Brow | Skin | Certified Courses',
+        'mainImage' => '/public/images/IMG_0568.JPG.jpeg',
+    ],
+    'academyInfo' => [
+        'subtitle' => 'START YOUR CAREER IN',
+        'title' => 'BEAUTY INDUSTRY',
+        'features' => [
+            'Certified Professional Courses',
+            'Hands-on Practical Training',
+            'Learn from Industry Experts',
+            'Lifetime Support & Guidance',
+            'Placement Assistance'
+        ],
+        'images' => [
+            '/studio/images/IMG_1413.JPG.jpeg',
+            '/studio/images/IMG_0722.JPG.jpeg',
+            '/studio/images/IMG_1413.JPG.jpeg'
+        ]
+    ],
+    'whyChooseUs' => [
+        ['title' => 'EXPERT PROFESSIONALS', 'desc' => 'Experienced & certified beauty experts'],
+        ['title' => 'PREMIUM PRODUCTS', 'desc' => 'We use high-quality, skin-friendly products'],
+        ['title' => 'HYGIENE & SAFETY', 'desc' => '100% hygienic tools & sanitized environment'],
+        ['title' => 'CUSTOMER SATISFACTION', 'desc' => 'Your satisfaction is our top priority']
+    ],
+    'instagramImages' => [
+        '/public/images/IMG_0568.JPG.jpeg',
+        '/public/images/IMG_3592.PNG',
+        '/public/images/IMG_0810.JPG.jpeg',
+        '/public/images/IMG_1413.JPG.jpeg',
+        '/public/images/IMG_3595.PNG',
+        '/public/images/IMG_0524.JPG.jpeg'
+    ]
 ];
 
 // Initialize DB if it doesn't exist
@@ -67,7 +105,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     if ($content === false) {
         echo json_encode($default_data);
     } else {
-        echo $content;
+        $loaded_data = json_decode($content, true);
+        if (is_array($loaded_data)) {
+            $merged_data = array_replace_recursive($default_data, $loaded_data);
+            echo json_encode($merged_data);
+        } else {
+            echo json_encode($default_data);
+        }
     }
     exit;
 }
