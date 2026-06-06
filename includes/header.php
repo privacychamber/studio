@@ -3,7 +3,7 @@
 <head>
     <meta charSet="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <link rel="preload" as="image" href="/studio/logo.png"/>
+    <link rel="preload" as="image" href="/logo.png"/>
     <link rel="stylesheet" href="/style.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
@@ -68,7 +68,7 @@
         <div class="max-w-7xl mx-auto flex items-center justify-between">
             <a class="flex items-center group flex-shrink-0 transition-transform hover:scale-105 relative z-10" href="/">
                 <div class="bg-white p-2 rounded-full shadow-lg border border-primary/10">
-                    <img alt="The Glam House Logo" width="140" height="140" decoding="async" class="w-[70px] h-[70px] md:w-[90px] md:h-[90px] object-contain" src="/studio/logo.png"/>
+                    <img alt="The Glam House Logo" width="140" height="140" decoding="async" class="w-[70px] h-[70px] md:w-[90px] md:h-[90px] object-contain" src="/logo.png"/>
                 </div>
             </a>
             <div class="hidden lg:flex items-center gap-4 xl:gap-6 2xl:gap-8 ml-6">

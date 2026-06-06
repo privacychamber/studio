@@ -43,9 +43,9 @@ $data = [
             'Placement Assistance'
         ],
         'images' => [
-            '/studio/images/IMG_1413.JPG.jpeg',
-            '/studio/images/IMG_0722.JPG.jpeg',
-            '/studio/images/IMG_1413.JPG.jpeg'
+            '/images/IMG_1413.JPG.jpeg',
+            '/images/IMG_0722.JPG.jpeg',
+            '/images/IMG_1413.JPG.jpeg'
         ]
     ],
     'whyChooseUs' => [
