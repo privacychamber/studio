@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 
 // Path to the JSON database file (one level up from public_html/api/)
 // On Namecheap: stored OUTSIDE public_html for security
-$db_path = __DIR__ . '/../../data/db.json';
+$db_path = __DIR__ . '/../data/db.json';
 $data_dir = dirname($db_path);
 
 // Default data — mirrors src/lib/db.ts

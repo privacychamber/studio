@@ -473,7 +473,15 @@ async function uploadImageObj(btn, obj, field, imgId) {
     try {
       const res = await fetch(`${API_BASE}/upload.php`, { method: 'POST', body: formData });
       const data = await res.json();
-      if (data.url) { obj[field] = data.url; const img = document.getElementById(imgId); if(img) img.src = data.url; showToast('Uploaded!', 'success'); }
+      if (data.url) { 
+          obj[field] = data.url; 
+          const img = document.getElementById(imgId); 
+          if(img) img.src = data.url; 
+          if(btn.previousElementSibling && btn.previousElementSibling.tagName === 'INPUT') {
+              btn.previousElementSibling.value = data.url;
+          }
+          showToast('Uploaded!', 'success'); 
+      }
       else showToast(data.error || 'Failed', 'error');
     } catch(e) { showToast('Upload failed', 'error'); }
     btn.innerHTML = origText; btn.disabled = false;
@@ -492,7 +500,15 @@ async function uploadImageArray(btn, arr, index, imgId) {
     try {
       const res = await fetch(`${API_BASE}/upload.php`, { method: 'POST', body: formData });
       const data = await res.json();
-      if (data.url) { arr[index] = data.url; const img = document.getElementById(imgId); if(img) img.src = data.url; showToast('Uploaded!', 'success'); }
+      if (data.url) { 
+          arr[index] = data.url; 
+          const img = document.getElementById(imgId); 
+          if(img) img.src = data.url; 
+          if(btn.previousElementSibling && btn.previousElementSibling.tagName === 'INPUT') {
+              btn.previousElementSibling.value = data.url;
+          }
+          showToast('Uploaded!', 'success'); 
+      }
       else showToast(data.error || 'Failed', 'error');
     } catch(e) { showToast('Upload failed', 'error'); }
     btn.innerHTML = origText; btn.disabled = false;
@@ -594,6 +610,9 @@ async function uploadImage(btn, section, index, field, imgId) {
         db[section][index][field] = data.url;
         const img = document.getElementById(imgId);
         if (img) img.src = data.url;
+        if(btn.previousElementSibling && btn.previousElementSibling.tagName === 'INPUT') {
+            btn.previousElementSibling.value = data.url;
+        }
         showToast('Image uploaded!', 'success');
       } else {
         showToast(data.error || 'Upload failed', 'error');
