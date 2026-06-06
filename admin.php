@@ -202,7 +202,7 @@ function renderAll() {
   renderCourses();
   renderTestimonials();
   renderTransformations();
-  if (db.reels) renderReels();
+  renderReels();
 }
 
 function renderServices() {
