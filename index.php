@@ -7,7 +7,7 @@ include __DIR__ . '/includes/header.php';
     <main class="flex-grow">
         
         <!-- Hero Section -->
-        <section class="relative pt-12 pb-12 overflow-hidden bg-white dark:bg-background">
+        <section class="relative pt-6 pb-8 overflow-hidden bg-white dark:bg-background min-h-[calc(100vh-90px)] flex items-center">
             <!-- Large Pink Arc Background -->
             <div class="absolute right-0 top-0 w-[55%] h-full bg-primary/10 rounded-l-full -z-10 hidden md:block"></div>
             
@@ -15,20 +15,20 @@ include __DIR__ . '/includes/header.php';
                 <div class="grid md:grid-cols-[1fr_auto] gap-8 items-center">
                     
                     <!-- Left Content -->
-                    <div class="max-w-2xl pt-10 md:pt-20 pb-10">
+                    <div class="max-w-2xl pt-4 md:pt-10 pb-6">
                         <?php if(!empty($data["hero"])): ?>
 <p class="font-accent text-primary text-3xl md:text-4xl mb-4"><?php echo htmlspecialchars($data["hero"]["tagline"] ?? ""); ?></p>
-                        <h1 class="text-5xl md:text-[5.5rem] font-headline font-bold leading-[1.05] text-[#0a142f] dark:text-white mb-6">
+                        <h1 class="text-5xl md:text-[4.8rem] font-headline font-bold leading-[1.05] text-[#0a142f] dark:text-white mb-4">
     <?php echo htmlspecialchars($data['hero']['headlinePart1'] ?? ''); ?><br/>
     <span class="text-primary"><?php echo htmlspecialchars($data['hero']['headlineHighlight'] ?? ''); ?></span><br/>
     <?php echo htmlspecialchars($data['hero']['headlinePart2'] ?? ''); ?>
 </h1>
-                        <p class="text-[#4b5563] dark:text-gray-300 text-lg font-medium mb-8">
+                        <p class="text-[#4b5563] dark:text-gray-300 text-lg font-medium mb-6">
     <?php echo htmlspecialchars($data['hero']['subtext'] ?? ''); ?>
 </p>
 <?php endif; ?>
                         
-                        <div class="flex flex-col sm:flex-row gap-4 mb-12">
+                        <div class="flex flex-col sm:flex-row gap-4 mb-8">
                             <a href="/book.html" class="inline-flex items-center justify-center gap-2 bg-primary text-white px-8 py-3.5 rounded-md font-bold text-xs uppercase tracking-wider hover:bg-primary/90 transition-colors">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
                                 BOOK APPOINTMENT
@@ -40,7 +40,7 @@ include __DIR__ . '/includes/header.php';
                         </div>
                         
                         <!-- Trust Badges -->
-                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 pt-6 border-t border-gray-200 dark:border-border">
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 pt-4 border-t border-gray-200 dark:border-border">
                             <div class="flex items-center gap-3">
                                 <div class="text-primary shrink-0">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
@@ -81,8 +81,8 @@ include __DIR__ . '/includes/header.php';
                     </div>
 
                     <!-- Right Images -->
-                    <div class="relative hidden md:flex items-center justify-end h-full py-10">
-                        <div class="relative z-10 w-[450px] h-[600px] rounded-t-full rounded-b-full overflow-hidden border-[12px] border-white shadow-2xl mr-16">
+                    <div class="relative hidden md:flex items-center justify-end h-full py-6">
+                        <div class="relative z-10 w-[400px] h-[520px] rounded-t-full rounded-b-full overflow-hidden border-[10px] border-white shadow-2xl mr-12 lg:mr-16">
                             <?php if(!empty($data['hero']['mainImage'])): ?>
     <img src="<?php echo htmlspecialchars($data['hero']['mainImage']); ?>" alt="Model" class="w-full h-full object-cover object-top" />
   <?php else: ?>
