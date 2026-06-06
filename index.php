@@ -227,7 +227,9 @@ include __DIR__ . '/includes/header.php';
         <section class="py-16 bg-white dark:bg-background">
             <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="bg-[#fff5f7] dark:bg-card rounded-[2rem] p-6 md:p-10 border border-pink-100 dark:border-border shadow-sm">
-                    <div class="grid lg:grid-cols-[1fr_1.2fr_1fr] gap-8 items-center">
+                    <div class="flex flex-col gap-12">
+                        <!-- Top Row: Images and Info -->
+                        <div class="grid lg:grid-cols-2 gap-8 items-center">
                         
                         <!-- Left Collage -->
                         <div class="grid grid-cols-2 grid-rows-2 gap-2 h-[400px]">
@@ -263,16 +265,26 @@ include __DIR__ . '/includes/header.php';
                             </div>
                         </div>
                         
-                        <!-- Right Course Cards -->
-                        <div class="flex flex-col sm:flex-row lg:flex-col gap-4">
+                        </div>
+                        
+                    </div>
+                    
+                    <!-- Bottom Row: Course Cards -->
+                    <div class="border-t border-pink-200 dark:border-border pt-8 mt-2">
+                        <h3 class="text-xl font-headline font-bold text-center text-[#0a142f] dark:text-white mb-8 tracking-wide">EXPLORE OUR <span class="text-primary">COURSES</span></h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                             <?php foreach($data['courses'] as $course): ?>
-                            <div class="bg-white dark:bg-background rounded-xl shadow-md border border-gray-100 dark:border-border overflow-hidden flex flex-col flex-1">
-                                <img src="<?php echo htmlspecialchars($course['imageUrl']); ?>" class="w-full h-[150px] object-cover" alt="<?php echo htmlspecialchars($course['title']); ?>"/>
-                                <div class="p-5 text-center bg-[#fffdfc] dark:bg-card">
-                                    <h4 class="font-headline font-bold text-sm text-[#0a142f] dark:text-white uppercase mb-1 tracking-wide"><?php echo htmlspecialchars($course['title']); ?></h4>
-                                    <p class="text-[11px] text-gray-500 dark:text-gray-400 mb-2">Duration: <?php echo htmlspecialchars($course['duration']); ?></p>
-                                    <p class="text-xl font-bold text-[#0a142f] dark:text-white mb-3"><?php echo htmlspecialchars($course['price']); ?></p>
-                                    <a href="/enroll.html" class="block w-full bg-primary text-white py-2.5 rounded text-[10px] font-bold uppercase tracking-widest hover:bg-primary/90 transition-colors shadow-sm">ENROLL NOW</a>
+                            <div class="bg-white dark:bg-background rounded-xl shadow-md border border-gray-100 dark:border-border overflow-hidden flex flex-col hover:shadow-lg transition-shadow">
+                                <img src="<?php echo htmlspecialchars($course['imageUrl']); ?>" class="w-full h-[180px] object-cover" alt="<?php echo htmlspecialchars($course['title']); ?>"/>
+                                <div class="p-6 text-center bg-[#fffdfc] dark:bg-card flex-grow flex flex-col justify-between">
+                                    <div>
+                                        <h4 class="font-headline font-bold text-sm text-[#0a142f] dark:text-white uppercase mb-2 tracking-wide"><?php echo htmlspecialchars($course['title']); ?></h4>
+                                        <p class="text-xs text-gray-500 dark:text-gray-400 mb-3">Duration: <?php echo htmlspecialchars($course['duration']); ?></p>
+                                    </div>
+                                    <div>
+                                        <p class="text-2xl font-bold text-[#0a142f] dark:text-white mb-4"><?php echo htmlspecialchars($course['price']); ?></p>
+                                        <a href="/enroll.html" class="block w-full bg-primary text-white py-3 rounded-md text-xs font-bold uppercase tracking-widest hover:bg-primary/90 transition-colors shadow-sm">ENROLL NOW</a>
+                                    </div>
                                 </div>
                             </div>
                             <?php endforeach; ?>
