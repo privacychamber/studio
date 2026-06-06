@@ -147,6 +147,31 @@ include __DIR__ . '/includes/header.php';
             </div>
         </section>
 
+        <!-- Reels Section -->
+        <section class="py-16 bg-[#fffdfc] dark:bg-card border-t border-gray-100 dark:border-border">
+            <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-2xl font-headline font-bold text-[#0a142f] dark:text-white mb-2 tracking-wide uppercase">TRENDING <span class="text-primary">REELS</span></h2>
+                <p class="text-gray-600 dark:text-gray-300 text-[13px] mb-12">Watch our latest work and transformations</p>
+                
+                <?php if(!empty($data['reels'])): ?>
+                <div class="flex overflow-x-auto gap-6 pb-8 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] justify-start md:justify-center px-4">
+                    <?php foreach($data['reels'] as $reel): ?>
+                    <div class="shrink-0 w-[260px] snap-center bg-white dark:bg-background rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.08)] overflow-hidden border border-gray-100 dark:border-border flex flex-col">
+                        <div class="relative aspect-[9/16] bg-black w-full">
+                            <video src="<?php echo htmlspecialchars($reel['videoUrl']); ?>" class="absolute inset-0 w-full h-full object-cover" controls preload="metadata"></video>
+                        </div>
+                        <div class="p-4 text-center bg-white dark:bg-background">
+                            <h4 class="font-bold text-[13px] text-[#0a142f] dark:text-white tracking-wide"><?php echo htmlspecialchars($reel['title']); ?></h4>
+                        </div>
+                    </div>
+                    <?php endforeach; ?>
+                </div>
+                <?php else: ?>
+                <p class="text-gray-500 dark:text-gray-400 italic">More amazing reels coming soon!</p>
+                <?php endif; ?>
+            </div>
+        </section>
+
         <!-- Premium Services -->
         <section class="py-16 bg-white dark:bg-background border-t border-gray-100 dark:border-border">
             <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
