@@ -8,19 +8,20 @@
 
 require_once __DIR__ . '/api/config.php';
 
-session_start();
+// Define a secure auth token
+define('AUTH_TOKEN', md5(ADMIN_PASSWORD . 'glam_secret_salt_2024'));
 
 // --- Login / Logout ---
 if (isset($_POST['logout'])) {
-    session_destroy();
-    header('Location: ./');
+    setcookie('glam_admin_auth', '', time() - 3600, '/');
+    header('Location: admin.php');
     exit;
 }
 
 if (isset($_POST['password'])) {
     if ($_POST['password'] === ADMIN_PASSWORD) {
-        $_SESSION['admin_logged_in'] = true;
-        header('Location: ./');
+        setcookie('glam_admin_auth', AUTH_TOKEN, time() + (86400 * 30), '/'); // 30 days
+        header('Location: admin.php');
         exit;
     } else {
         $login_error = 'Incorrect password. Please try again.';
@@ -28,7 +29,7 @@ if (isset($_POST['password'])) {
 }
 
 // Redirect to login if not authenticated
-$logged_in = isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true;
+$logged_in = isset($_COOKIE['glam_admin_auth']) && $_COOKIE['glam_admin_auth'] === AUTH_TOKEN;
 ?>
 <!DOCTYPE html>
 <html lang="en">
