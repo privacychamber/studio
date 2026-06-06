@@ -23,6 +23,44 @@ $data = [
         ['id' => '1', 'title' => 'Glam Transformation', 'videoUrl' => 'https://www.w3schools.com/html/mov_bbb.mp4'],
         ['id' => '2', 'title' => 'Bridal Makeup', 'videoUrl' => 'https://www.w3schools.com/html/mov_bbb.mp4'],
         ['id' => '3', 'title' => 'Nail Art Tutorial', 'videoUrl' => 'https://www.w3schools.com/html/mov_bbb.mp4'],
+    ],
+    'hero' => [
+        'tagline' => 'Enhance. Elevate. Empower.',
+        'headlinePart1' => 'FLAWLESS',
+        'headlineHighlight' => 'BEAUTY',
+        'headlinePart2' => 'STARTS HERE',
+        'subtext' => 'Permanent Makeup | Hair Treatments | Lash & Brow | Skin | Certified Courses',
+        'mainImage' => '/public/images/IMG_0568.JPG.jpeg',
+    ],
+    'academyInfo' => [
+        'subtitle' => 'START YOUR CAREER IN',
+        'title' => 'BEAUTY INDUSTRY',
+        'features' => [
+            'Certified Professional Courses',
+            'Hands-on Practical Training',
+            'Learn from Industry Experts',
+            'Lifetime Support & Guidance',
+            'Placement Assistance'
+        ],
+        'images' => [
+            '/studio/images/IMG_1413.JPG.jpeg',
+            '/studio/images/IMG_0722.JPG.jpeg',
+            '/studio/images/IMG_1413.JPG.jpeg'
+        ]
+    ],
+    'whyChooseUs' => [
+        ['title' => 'EXPERT PROFESSIONALS', 'desc' => 'Experienced & certified beauty experts'],
+        ['title' => 'PREMIUM PRODUCTS', 'desc' => 'We use high-quality, skin-friendly products'],
+        ['title' => 'HYGIENE & SAFETY', 'desc' => '100% hygienic tools & sanitized environment'],
+        ['title' => 'CUSTOMER SATISFACTION', 'desc' => 'Your satisfaction is our top priority']
+    ],
+    'instagramImages' => [
+        '/public/images/IMG_0568.JPG.jpeg',
+        '/public/images/IMG_3592.PNG',
+        '/public/images/IMG_0810.JPG.jpeg',
+        '/public/images/IMG_1413.JPG.jpeg',
+        '/public/images/IMG_3595.PNG',
+        '/public/images/IMG_0524.JPG.jpeg'
     ]
 ];
 
@@ -30,8 +68,8 @@ if (file_exists($db_path)) {
     $json = file_get_contents($db_path);
     if ($json !== false) {
         $parsed = json_decode($json, true);
-        if ($parsed) {
-            $data = $parsed;
+        if ($parsed && is_array($parsed)) {
+            $data = array_replace_recursive($data, $parsed);
         }
     }
 }

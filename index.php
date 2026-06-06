@@ -96,24 +96,24 @@ include __DIR__ . '/includes/header.php';
                             <div class="bg-[#fff9fa] dark:bg-card rounded-xl p-2.5 shadow-lg w-[140px] border border-pink-100 dark:border-border bg-white dark:bg-card">
                                 <p class="text-[10px] font-bold text-center uppercase tracking-widest text-[#0a142f] dark:text-white mb-2">BROWS</p>
                                 <div class="grid grid-rows-2 gap-1 h-[80px]">
-                                    <img src="/public/images/IMG_3592.PNG" class="w-full h-full object-cover rounded" alt="Before"/>
-                                    <img src="/public/images/IMG_3593.PNG" class="w-full h-full object-cover rounded" alt="After"/>
+                                    <img src="/public/images/brows_before.png" class="w-full h-full object-cover rounded" alt="Before"/>
+                                    <img src="/public/images/brows_after.png" class="w-full h-full object-cover rounded" alt="After"/>
                                 </div>
                             </div>
                             <!-- Hair -->
                             <div class="bg-[#fff9fa] dark:bg-card rounded-xl p-2.5 shadow-lg w-[140px] border border-pink-100 dark:border-border -translate-x-6 bg-white dark:bg-background">
                                 <p class="text-[10px] font-bold text-center uppercase tracking-widest text-[#0a142f] dark:text-white mb-2">HAIR</p>
-                                <div class="grid grid-cols-2 gap-1 h-[60px]">
-                                    <img src="/public/images/IMG_0810.JPG.jpeg" class="w-full h-full object-cover rounded" alt="Before"/>
-                                    <img src="/public/images/IMG_0524.JPG.jpeg" class="w-full h-full object-cover rounded" alt="After"/>
+                                <div class="grid grid-cols-2 gap-1 h-[40px]">
+                                    <img src="/public/images/hair_before.png" class="w-full h-full object-cover rounded" alt="Before"/>
+                                    <img src="/public/images/hair_after.png" class="w-full h-full object-cover rounded" alt="After"/>
                                 </div>
                             </div>
                             <!-- Lips -->
                             <div class="bg-[#fff9fa] dark:bg-card rounded-xl p-2.5 shadow-lg w-[140px] border border-pink-100 dark:border-border bg-white dark:bg-card">
                                 <p class="text-[10px] font-bold text-center uppercase tracking-widest text-[#0a142f] dark:text-white mb-2">LIPS</p>
                                 <div class="grid grid-rows-2 gap-1 h-[80px]">
-                                    <img src="/public/images/IMG_3594.PNG" class="w-full h-full object-cover rounded" alt="Before"/>
-                                    <img src="/public/images/IMG_3595.PNG" class="w-full h-full object-cover rounded" alt="After"/>
+                                    <img src="/public/images/lips_before.png" class="w-full h-full object-cover rounded" alt="Before"/>
+                                    <img src="/public/images/lips_after.png" class="w-full h-full object-cover rounded" alt="After"/>
                                 </div>
                             </div>
                         </div>
