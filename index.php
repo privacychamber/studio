@@ -128,28 +128,67 @@ include __DIR__ . '/includes/header.php';
         </section>
 
         <!-- Transformations Section -->
-        <section class="py-16 bg-white dark:bg-background border-t border-gray-100 dark:border-border">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <section class="py-16 bg-white dark:bg-background border-t border-gray-100 dark:border-border overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
                 <h2 class="text-2xl font-headline font-bold text-[#0a142f] dark:text-white mb-10 tracking-wide">REAL. RESULTS. REAL. <span class="text-primary">TRANSFORMATIONS.</span></h2>
                 
-                <div class="relative px-12">
+                <div class="relative px-12 max-w-4xl mx-auto">
                     <!-- Carousel container -->
-                    <div class="flex items-center gap-4 overflow-hidden justify-center flex-wrap">
-      <?php if(!empty($data['transformations'])): ?>
-          <?php foreach($data['transformations'] as $transform): ?>
-          <img src="<?php echo htmlspecialchars($transform['afterImage']); ?>" class="w-[180px] h-[180px] object-cover rounded-lg shadow-sm" alt="<?php echo htmlspecialchars($transform['category']); ?>"/>
-          <?php endforeach; ?>
-      <?php endif; ?>
-  </div>
-  <!-- Carousel Arrows -->
-                    <button class="absolute left-4 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center shadow-md">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                    <div class="overflow-hidden relative">
+                        <div id="transform-slider" class="flex transition-transform duration-500 ease-in-out" style="transform: translateX(0%);">
+                            <?php if(!empty($data['transformations'])): ?>
+                                <?php foreach($data['transformations'] as $transform): ?>
+                                <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 flex-shrink-0 px-2">
+                                    <img src="<?php echo htmlspecialchars($transform['afterImage']); ?>" class="w-full h-[200px] object-cover rounded-lg shadow-sm" alt="<?php echo htmlspecialchars($transform['category']); ?>"/>
+                                </div>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                    <!-- Carousel Arrows -->
+                    <button id="t-prev" class="absolute left-0 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center shadow-md hover:bg-primary/90 transition-colors z-10">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
                     </button>
-                    <button class="absolute right-4 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center shadow-md">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                    <button id="t-next" class="absolute right-0 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center shadow-md hover:bg-primary/90 transition-colors z-10">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
                     </button>
                 </div>
             </div>
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                    const tSlider = document.getElementById('transform-slider');
+                    const tPrev = document.getElementById('t-prev');
+                    const tNext = document.getElementById('t-next');
+                    if(tSlider && tSlider.children.length > 0) {
+                        const total = tSlider.children.length;
+                        let tIndex = 0;
+                        
+                        function getTVisible() {
+                            if (window.innerWidth >= 1024) return 4;
+                            if (window.innerWidth >= 768) return 3;
+                            if (window.innerWidth >= 640) return 2;
+                            return 1;
+                        }
+
+                        function updateTSlider() {
+                            const visible = getTVisible();
+                            if(tIndex > total - visible) tIndex = total - visible;
+                            if(tIndex < 0) tIndex = 0;
+                            const pct = 100 / visible;
+                            tSlider.style.transform = `translateX(-${tIndex * pct}%)`;
+                        }
+
+                        tNext.addEventListener('click', () => {
+                            const visible = getTVisible();
+                            if (tIndex < total - visible) { tIndex++; updateTSlider(); }
+                        });
+                        tPrev.addEventListener('click', () => {
+                            if (tIndex > 0) { tIndex--; updateTSlider(); }
+                        });
+                        window.addEventListener('resize', updateTSlider);
+                    }
+                });
+            </script>
         </section>
 
         <!-- Reels Section -->
@@ -187,7 +226,7 @@ include __DIR__ . '/includes/header.php';
                     <span class="block w-8 h-px bg-primary/30 ml-2"></span>
                 </div>
                 
-                <div class="relative max-w-sm mx-auto mb-12 overflow-hidden rounded-xl shadow-lg pb-8">
+                <div class="relative w-full mx-auto mb-12 overflow-hidden px-2">
                     <div id="services-slider" class="flex transition-transform duration-500 ease-in-out">
                     <?php 
                     $icons = [
@@ -198,21 +237,23 @@ include __DIR__ . '/includes/header.php';
                     ];
                     foreach($data['services'] as $index => $service): 
                     ?>
-                    <div class="w-full flex-shrink-0 bg-white dark:bg-background border border-gray-100 dark:border-border flex flex-col text-left">
-                        <div class="relative h-56 w-full">
-                            <img src="<?php echo htmlspecialchars($service['imageUrl']); ?>" alt="<?php echo htmlspecialchars($service['title']); ?>" class="w-full h-full object-cover"/>
-                            <!-- Circular Icon overlapping -->
-                            <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-white dark:bg-background flex items-center justify-center text-primary shadow-md border-2 border-white">
-                                <?php echo $icons[$index % 4]; ?>
+                    <div class="w-full sm:w-1/2 lg:w-1/3 xl:w-1/4 flex-shrink-0 px-3 pb-8">
+                        <div class="bg-white dark:bg-background rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.08)] border border-gray-100 dark:border-border flex flex-col text-left h-full overflow-hidden">
+                            <div class="relative h-48 w-full shrink-0">
+                                <img src="<?php echo htmlspecialchars($service['imageUrl']); ?>" alt="<?php echo htmlspecialchars($service['title']); ?>" class="w-full h-full object-cover"/>
+                                <!-- Circular Icon overlapping -->
+                                <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-white dark:bg-background flex items-center justify-center text-primary shadow-md border-2 border-white">
+                                    <?php echo $icons[$index % 4]; ?>
+                                </div>
                             </div>
-                        </div>
-                        <div class="pt-10 pb-6 px-6 flex-grow flex flex-col text-center">
-                            <h4 class="text-[16px] font-bold text-primary uppercase tracking-wide mb-3"><?php echo htmlspecialchars($service['title']); ?></h4>
-                            <p class="text-[14px] text-gray-600 dark:text-gray-300 mb-6 leading-relaxed flex-grow"><?php echo htmlspecialchars($service['desc']); ?></p>
-                            <a href="/services.html" class="text-primary text-sm font-bold uppercase tracking-wider flex items-center justify-center gap-1 hover:text-primary/80 transition-colors">
-                                KNOW MORE 
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                            </a>
+                            <div class="pt-10 pb-6 px-6 flex-grow flex flex-col text-center">
+                                <h4 class="text-[15px] font-bold text-primary uppercase tracking-wide mb-3"><?php echo htmlspecialchars($service['title']); ?></h4>
+                                <p class="text-[13px] text-gray-600 dark:text-gray-300 mb-6 leading-relaxed flex-grow"><?php echo htmlspecialchars($service['desc']); ?></p>
+                                <a href="/services.html" class="text-primary text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1 hover:text-primary/80 transition-colors">
+                                    KNOW MORE 
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                                </a>
+                            </div>
                         </div>
                     </div>
                     <?php endforeach; ?>
@@ -222,14 +263,41 @@ include __DIR__ . '/includes/header.php';
                 <script>
                 document.addEventListener('DOMContentLoaded', () => {
                     const slider = document.getElementById('services-slider');
-                    const slides = slider.children.length;
-                    let currentIndex = 0;
+                    if(slider && slider.children.length > 0) {
+                        const totalSlides = slider.children.length;
+                        let currentIndex = 0;
 
-                    if(slides > 1) {
-                        setInterval(() => {
-                            currentIndex = (currentIndex + 1) % slides;
-                            slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-                        }, 3000);
+                        function getVisibleItems() {
+                            if (window.innerWidth >= 1280) return 4;
+                            if (window.innerWidth >= 1024) return 3;
+                            if (window.innerWidth >= 640) return 2;
+                            return 1;
+                        }
+
+                        function updateSlider() {
+                            const visible = getVisibleItems();
+                            if (currentIndex > totalSlides - visible) {
+                                currentIndex = 0;
+                            }
+                            const slidePercentage = 100 / visible;
+                            slider.style.transform = `translateX(-${currentIndex * slidePercentage}%)`;
+                        }
+
+                        if(totalSlides > 1) {
+                            setInterval(() => {
+                                const visible = getVisibleItems();
+                                if (currentIndex >= totalSlides - visible) {
+                                    currentIndex = 0;
+                                } else {
+                                    currentIndex++;
+                                }
+                                updateSlider();
+                            }, 3000);
+                            
+                            window.addEventListener('resize', () => {
+                                updateSlider();
+                            });
+                        }
                     }
                 });
                 </script>
