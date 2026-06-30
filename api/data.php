@@ -88,7 +88,8 @@ $default_data = [
         '/public/images/IMG_1413.JPG.jpeg',
         '/public/images/IMG_3595.PNG',
         '/public/images/IMG_0524.JPG.jpeg'
-    ]
+    ],
+    'leads' => []
 ];
 
 // Initialize DB if it doesn't exist
